@@ -1,0 +1,17 @@
+
+a{
+    font-size: 20px; 
+    color: white; 
+    vertical-align: middle;  
+}
+
+#dashboard{
+    height: 30px;
+    width: 1000px;
+    background-color: blueviolet;
+    border-radius: 10px;
+    padding: 15px;
+    margin : 15px;
+    /* vertical-align: middle;  */
+}
+

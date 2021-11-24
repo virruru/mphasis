@@ -1,0 +1,9 @@
+<br><br><br><br><br><br>
+<input type="text" placeholder="Customer Id" [(ngModel)]="cid">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button (click) = "search()" >Search</button><br><br>
+<div id="searchcontent">
+Customer Name :  {{(customer | async)?.cus_name}}  <br/>
+Phone :  {{(customer | async)?.cus_phn_no}}  <br/>
+UserName :  {{(customer | async)?.cus_username}}  <br/>
+Email :  {{(customer | async)?.cus_email}}  <br/>
+</div>

@@ -1,0 +1,133 @@
+1) Display List of tables available in Oracle 
+
+   select * from tab;
+
+2) Display information about Emp table
+
+    DESC Emp;
+
+3) Display information about Dept table 
+
+    Desc Dept;
+
+4)  Display all records from Emp table
+
+    select * from Emp;
+
+5) Display all records from Dept Table 
+
+     select * from Dept;
+
+Project operator, used to project specific columns 
+
+6) Display Empno, Ename, job, sal from Emp table 
+
+     select Empno, Ename, Job, Sal from Emp;
+
+7) Display Empno, Ename, DeptNo, Hiredate from Emp table
+
+      select Empno, Ename, Deptno, Hiredate from Emp;
+
+Where clause : Used to filter the database records. 
+
+   --> Display all records whose sal >= 2000; 
+
+   select * from Emp where sal >= 2000;
+
+   --> Display all records from Emp whose Ename is SCOTT
+
+   select * from Emp where ename='SCOTT';
+
+   --> Display all records from Emp whose Job is 'CLERK'
+
+   select * from Emp where job='CLERK';
+
+   --> Display all records from Emp whose comm is null 
+
+    select * from Emp where comm is NULL;
+
+Between...AND : Display values from start to end range works only with numbers and date types
+
+   --> Display all records whose sal between 2000 and 5000
+
+
+    select * from Emp where sal between 2000 and 5000;
+
+    select * from Emp where sal NOT between 2000 and 5000;
+
+IN Clause : Used to check w.r.t Multiple attribute fields 
+
+   --> Display info. whose ENAME is SCOTT, FORD , JONES 
+
+  select * from Emp where Ename in('SCOTT','FORD','JONES');
+
+  select * from Emp where Ename NOT in('SCOTT','FORD','JONES');
+
+--> Display info. whose JOB in MANGER or ANALYST
+
+select * from Emp where JOB IN('MANAGER','ANALYST');
+
+LIKE Operator : Used to display information w.r.t. Wildcards. 
+
+% is wild card we have
+
+--> Display all records whose name starts with S
+
+select * from Emp where Ename like 'S%';
+
+--> Display all records whose name ends with S
+
+select * from Emp where ename like '%S';
+
+DISTINCT : Used to eliminate duplicates at the time of display 
+
+select job from Emp;
+
+--> Display Empno, Ename, Job from Emp 
+
+select Empno, Ename, Job from emp;
+
+Order By : Used to display data w.r.t. Specific field(s) in ascending or descending order. 
+
+select empno, ename, job, sal,hiredate from emp order by ename;
+
+
+select empno, ename, job, sal,hiredate from emp order by ename desc;
+
+select empno, ename, job, sal,hiredate from emp order by JOB,ENAME;
+
+CASE : 
+
+select empno, ename,job,sal from Emp;
+
+If JOB IS PRESIDENT then Manager  is 'Varun Naik'
+if job is CLERK then manager is 'Sowmya'
+if Job is ANALYST then manager is 'Aseem'
+if job is MANAGER then 'Geetha'
+if job is SALESMAN then manager is 'Sivani'
+
+select empno,ename,job,sal,
+case job
+   WHEN 'PRESIDENT' then 'Varun Naik'
+   WHEN 'CLERK' then 'Sowmya'
+   WHEN 'ANALYST' then 'Aseem'
+   WHEN 'SALESMAN' THEN 'Sivani'
+   WHEN 'MANAGER' THEN 'Geetha'
+   ELSE 'Invalid'
+end Manager
+from Emp;
+
+display Empno,ename,job,sal, comm
+
+select empno,ename,job,sal,comm from emp;
+
+
+Need to print TakeHome as if comm is null then sal only, if comm is not null sal+comm
+
+select empno,ename,job,sal,comm,
+case
+   when comm is null then sal
+   else sal+comm 
+end TakeHome
+from Emp;
+

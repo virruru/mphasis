@@ -1,0 +1,162 @@
+create table Accounts
+(
+AccountNo number primary key,
+   FirstName varchar2(30),
+   LastName varchar2(30),
+   City varchar2(30),
+   State varchar2(30),
+   Amount Number(9,2),
+   CheqFacil varchar2(10),
+   AccountType varchar2(20),
+   Status varchar2(10) default 'active',
+   DateOfOpen Date Default sysdate
+);
+commit;
+___________________________________________________________
+create table tran
+(
+ accountNo number references Accounts(AccountNo),
+  TranAmount number(9,2),
+  TranType varchar2(3),
+  TranDate date default sysdate
+);
+commit;
+_____________________________________________
+create or replace procedure prcAccountCreate
+ (
+ fname Accounts.FirstName%type,
+ lname Accounts.LastName%type,
+ cit Accounts.City%type,
+ st Accounts.State%type,
+ amt Accounts.Amount%type,
+ chq Accounts.CheqFacil%type,
+ actype Accounts.AccountType%type
+ )
+ AS
+ BEGIN
+ declare
+ accno number;
+ begin
+ select case when max(accountNo) is NULL THEN 1 else
+ max(accountNo)+1 END into accno from Accounts;
+ Insert into Accounts(AccountNo,FirstName,LastName,City,State,Amount,CheqFacil,AccountType) values(accno,fname,lname,cit,st,amt,chq,actype);
+ dbms_output.put_line('creation of account is successfully completed');
+ end;
+ END;
+ __________________________________________________________________________________________
+exec prcAccountcreate('narendra','kumar','kadapa','Ap',20000,'avilable','savings');
+exec prcAccountcreate('swomya','thodeti','Nellore','Ap',25000,'avilable','savings');
+commit;
+______________________________________________________________________________________________
+create or replace procedure AccountUpdate
+(
+Accno Accounts.AccountNo%type,
+Fname Accounts.FirstName%type,
+Lname Accounts.LastName%type,
+Cit Accounts.City%type,
+Stat Accounts.State%type,
+Amt Accounts.Amount%type,
+Cf Accounts.CheqFacil%type,
+Actype Accounts.AccountType%type
+)
+AS
+BEGIN
+  Update Accounts set FirstName=NVL2(Fname,Fname,FirstName),
+                      LastName=NVL2(Lname,Lname,LastName),
+                      City=NVL2(Cit,Cit,City),
+                      State=NVL2(Stat,Stat,State),
+                      Amount=NVL2(Amt,Amt,Amount),
+                      CheqFacil=NVL2(cf,cf,CheqFacil),
+                      AccountType=NVL2(Actype,Actype,AccountType)
+       WHERE AccountNo=Accno;
+                     
+END;
+______________________________________________________________________
+exec AccountUpdate(1,'','','','','','avilable','salary');
+________________________________________________________________________
+create or replace procedure prcAccountSearch(Accno Accounts.AccountNo%type)
+AS
+BEGIN
+    declare 
+        fname Accounts.FirstName%type;
+        lname Accounts.LastName%type;
+        cit Accounts.City%type;
+        stat Accounts.State%type;commit
+        Amt Accounts.Amount%type;
+        cf Accounts.CheqFacil%type;
+    begin
+       select FirstName,LastName,City,State,Amount,CheqFacil
+       into fname,lname,cit,stat,amt,cf from Accounts where AccountNo=accno;
+       dbms_output.put_line('First Name ' || fname);
+       dbms_output.put_line('Last Name ' || lname);
+       dbms_output.put_line('City ' || cit);
+       dbms_output.put_line('State ' || stat);
+       dbms_output.put_line('Amount ' || amt);
+       dbms_output.put_line('Cheq Facil ' || cf);
+    Exception
+	WHEN NO_DATA_FOUND THEN
+            dbms_output.put_line('No Record Found...');
+    end;
+END;
+______________________________________________________________________
+exec prcAccountSearch(2);
+_______________________________________________________________________
+create or replace procedure prcAmountDeposit(AccNo Accounts.AccountNo%type,
+				DepAmt Accounts.Amount%type) 
+AS
+BEGIN 
+	Update Accounts set Amount=Amount+DepAmt WHERE AccountNo=Accno;
+	Insert into Trans(AccountNo,TranAmount,TranType)
+			values(AccNo,DepAmt,'C');
+END;				
+_________________________________________________________________________
+exec prcAmountDeposit(2,10000);
+exec prcAmountDeposit(2,20000);
+________________________________________________________________________
+Create Or replace procedure PrcAmountWithdraw(AccNo Accounts.AccountNo%type,
+				WithAmt Accounts.Amount%type)
+AS
+BEGIN 
+    declare 
+      Amt Accounts.Amount%type;
+	begin 
+		select Amount into Amt from Accounts where AccountNo=accno;
+		if(amt-withAmt >= 1000) then
+			Update Accounts set Amount=Amount-WithAmt WHERE AccountNo=accno;
+	Insert into Trans(AccountNo,TranAmount,TranType)
+			values(AccNo,WithAmt,'D');
+		dbms_output.put_line('Amount Debited Successfully...');
+		else 
+			dbms_output.put_line('Insufficient Balance');
+		end if;
+	end;
+END;
+______________________________________________________________________________
+exec prcAccountWithdraw(2,100);
+exec prc AccountWithdraw(2,1000);
+______________________________________________________________________________
+create or replace procedure prcAccountClose(Accno Accounts.AccountNo%type)
+AS
+BEGIN 
+    Update Accounts set Status='InActive' where AccountNo=Accno;
+	dbms_output.put_line('Account Closed Successfully');
+END;
+______________________________________________________________________
+exec prcAccountClose(4);
+_______________________________________________________________________
+select * from tran where AccountNo=2 order by trandate desc;
+
+ ACCOUNTNO TRANAMOUNT TRA TRANDATE
+---------- ---------- --- ---------
+         2         19 C   14-OCT-21
+         2        100 D   14-OCT-21
+         2         10 D   14-OCT-21
+         2          1 C   14-OCT-21
+         2       1000 D   14-OCT-21
+         2      15000 C   14-OCT-21
+         2       1000 C   14-OCT-21
+         2      10000 C   14-OCT-21
+         2       2000 D   14-OCT-21
+         2       2000 C   14-OCT-21
+         2       2000 C   14-OCT-21
+_________________________________________________________________________

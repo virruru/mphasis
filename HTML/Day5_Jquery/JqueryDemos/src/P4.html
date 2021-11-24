@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#b1").click(function() {
+			var sname = $("#sname").val();
+			alert("Student Name is " +sname);
+		});
+	});
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="frmData">
+		<center>
+			Enter Your Name :
+			<input type="text" name="sname" id="sname" /> 
+			<br/><br/> 
+			<input type="button" value="Show" id="b1" />
+		</center>
+	</form>
+</body>
+</html>

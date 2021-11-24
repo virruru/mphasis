@@ -1,0 +1,18 @@
+create table Wallet
+(
+cus_id number references customer(cus_id),
+wal_id number  not null primary key,
+wal_amount number(9,2) not null,
+wal_source VARCHAR2(50) default 'DEBIT_CARD',
+constraint chk_wall_wal_source check(wal_source in('PAYTM','CREDIT_CARD','DEBIT_CARD')),
+constraint pk_Wallet unique(cus_id,wal_source)
+);
+INSERT INTO Wallet VALUES (1,1,4215,'DEBIT_CARD');
+INSERT INTO Wallet VALUES (2,2,3000,'PAYTM');
+INSERT INTO Wallet VALUES (3,3,485.23,'CREDIT_CARD');
+INSERT INTO Wallet VALUES (4,4,5000,'DEBIT_CARD');
+INSERT INTO Wallet VALUES (5,5,4500.36,'CREDIT_CARD');
+INSERT INTO Wallet VALUES (6,6,4560,'PAYTM');
+INSERT INTO Wallet VALUES (7,7,4000,'DEBIT_CARD');
+INSERT INTO Wallet VALUES (8,8,55.55,'CREDIT_CARD');
+INSERT INTO Wallet VALUES (9,9,4566,'PAYTM');

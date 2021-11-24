@@ -1,0 +1,18 @@
+<div align="center">
+    <button (click)="home()">HomePage</button>
+<h1>Welcome to Vendor Dashboard</h1>
+<div id="dashboard">
+<a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['Vendor']}}]"> Vendor Details</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['VendorSearch']}}]"> Vendor Search</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['VendorInfo']}}]"> Vendor Info</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['VendorOrders']}}]"> Vendor Orders</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['VendorPendingOrders']}}]"> Vendor Pending Orders</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<router-outlet name="Rllproject"></router-outlet>
+</div>
+</div>

@@ -1,0 +1,23 @@
+create or replace function searchAccount(accno accounts.accountNo%type) return number
+ as
+ cnt number;
+  begin
+     select count(*) into cnt from Accounts where accountno=accno;
+     return cnt;
+  end;
+ /
+create or replace procedure prcAccountClose(Accno Accounts.AccountNo%type)
+AS
+BEGIN 
+    declare
+        cnt number;
+    begin
+        select searchAccount(accno) into cnt from dual;
+        if cnt = 1 then
+            Update Accounts set Status='InActive' where AccountNo=Accno;
+        dbms_output.put_line('Account Closed Successfully');
+        else
+          dbms_output.put_line('AccountNo Not Found...');
+        end if;
+    end;
+END;

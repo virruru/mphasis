@@ -1,0 +1,127 @@
+Normalization is the scientific method of breaking down the complex table structures into simple table
+structures by using certain rules.
+
+Using this method, you can reduce the redundancy in a table and eliminate the problems of inconsistency and disk space usage.  
+
+Project(EmpCode,EmpName,City,DeptCode,DeptHead,ProjCode,Hours)
+
+Project(E001,'Bharath','Pune','D001','SaiRam',{P001,P002,P003},{45,66,72})
+
+First Normal Form : 
+
+A table said to be in first normal form(1NF), when each cell contains precisely one value. 
+
+By applying first normal form. 
+
+E001,'Bharath','PUNE','D001','Sairam',P001,45
+E001,'Bharath','PUNE','D001','Sairam',P002,66
+E001,'Bharath','PUNE','D001','Sairam',P003,72 
+
+*** KeyThing : First Normal Form always checks for Atomic Values *** 
+
+*** means each cell contains precisely one value, no comma separted values etc ***
+
+Is it completely normalized or need to break into more tables like 
+
+Parent and Child tables, then we need to check the following anomolies. 
+
+Project(EmpCode,EmpName,City,DeptCode,DeptHead,ProjCode,Hours)
+
+--> Insert : The department of the particular employee cannot be recorded until the employee is assigned a project. 
+
+--> Update : The Employee Code, Department Name, and department head are repeated several times, if an employee is transferred to another dept. this change will have to be recorded in every row of the EMPLOYEE table pertaining to that employee. 
+
+--> Delete : When an employee completes work on the project, the employee's record to be deleted. The info. regarding the department to which the emplyee belongs will also to be lost. 
+
+w.r.t. Above 1st normal form inadequate to handle this situation, we need to move to 
+
+2nd normal form 
+
+Second Normal Form (2NF) : A table said to be in 2nd normal form, at first it must be in 1NF, and every attribute must be functionally dependent on whole key but not part of the key. 
+
+2nd normal form key factory "functional dependecy"
+
+Guidelines : Compare the fields with each other and then 
+
+	-> Find and remove attributes, that are not functionally depending on whole key
+
+	-> Group the remaining attributes. 
+
+Let me compare as 
+
+
+Project(EmpCode,EmpName,City,DeptCode,DeptHead,ProjCode,Hours)
+
+
+Employ(EmpCode+,EmpName,City,DeptCode,DeptHead)
+Project(EmpCode-,Projcode,hours)
+
+EmpCode -> EmpName,	
+EmpCode -> City 
+EmpCode -> DeptCode
+EmpCode -> DeptHead
+EmpCode -> ProjCode (X)
+Empcode -> hours (x)
+
+
+Employ(EmpCode+,EmpName,City,DeptCode,DeptHead)
+Project(EmpCode-,Projcode,hours)
+
+
+Insert : The DEPTHEAD of a new dept that does not have any employees at the present cannot be entered in the DEPTHEAD column. 
+
+Update : the DEPTHEAD is repeated several times, hence if a dept head moves to another dept, the change will have to be made consistently across the table. 
+
+Delete : If the record of the employee is deleted, then the information regarding the head of the dept will also to be deleted. Hence there will be a loss of information. 
+
+
+w.r.t. Above scenarious, 2NF inadequate to handle. 
+
+Third Normal Form : 
+____________________
+
+A table said to be in 3Nf, at first it must be in 2NF and every attribute needs to dependent on 
+whole key but not trasitively. 
+
+If any transitive dependency comes, then you please remove that. 
+
+Guidelines : 
+_____________
+
+   -> Find and remove attributes that are transitively dependent on whole key
+   -> Group the remaining attributes. 
+
+Employ(EmpCode+,EmpName,City,DeptCode,DeptHead)
+Project(EmpCode-,Projcode,hours)
+
+
+
+Empcode -> Empname (Y)
+Empcode -> EmpName (y)  -- No transitive dependency 
+Empcode -> City (y) -- 
+
+Empcode -> DeptCode(N) -- Transitive Dependency exists (remove to another table)
+Empcode - DeptHead(N) -- Transitive Depenendency exists (remove to another table) 
+
+
+By Applying 3rd normal form 
+______________________________
+
+
+Department(DeptCode+,DeptHead)
+Employ(EmpCode+,DeptCode-,City)
+Project(EmpCode-,Projcode+,Hours)
+      
+
+keypoints to remember : 
+____________________________
+
+
+
+First Normal Form --> Atomic values (Each cell needs to contains precisely one value)
+
+Second Normal Form --> Functional Dependency 
+
+Third Normal Form --> Transitive Dependency 
+
+____________________________________________________

@@ -1,0 +1,30 @@
+package com.java.leave;
+
+import java.util.Date;
+
+public class LeaveDetails {
+
+	private int leaveId;
+	private Date leaveStartDate;
+	private Date leaveEndDate;
+	private int empId;
+	private int noOfDays;
+	private Date leaveAppliedOn;
+	private String leaveReason;
+}
+
+
+For the above LeaveDetails please perform CRUD operations. as (ShowAllLeaves, SearchLeave, AddLeave, UpdateLeave, DeleteLeave)
+
+DAO File : 
+___________
+
+noOfDays to be calculated as (leaveEndDate-leaveStartDate)
+leaveAppliedOn will be today's date
+
+Validations
+___________
+
+leaveStartDate cannot be yesterdays date
+leaveEndDate cannot be yesterdays date
+leaveStartDate must be less than or equals to leaveEndDate

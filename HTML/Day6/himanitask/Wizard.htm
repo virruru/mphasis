@@ -1,0 +1,247 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Examination</title>
+    <!--<link type="text/css" rel="stylesheet" href="css/AnswerSheet.css" />-->
+    <link type="text/css" rel="stylesheet" href="css/exam.css" />
+    <script src="js/Exam1.js"></script>
+</head>
+<body onload="load()">
+    <div class="body">
+        <div class="wrap">
+            <div class="centrecolumn">
+
+                <div class="content">
+                    <form class="center" id="InterviewWizard" action="" method="post">
+                        <table class="center" border="1" cellpadding="5" cellspacing="0" id="HeaderTable">
+                            <tr>
+                                <td id="HeaderTableStep2" style="background-color:Silver">
+                                    <b> Step 1: </b> &nbsp;Personal Details
+                                </td>
+                                <td id="HeaderTableStep3" style="background-color:Silver">
+                                    <b> Step 2:</b>&nbsp; Academic Qualification
+                                </td>
+                                <td id="HeaderTableStep4" style="background-color:Silver">
+                                    <b>Step 3: </b> &nbsp;Select Skills
+                                </td>
+                                <td id="HeaderTableStep5" style="background-color:Silver">
+                                    <b> Step:4  </b> &nbsp; Review and Submit your File
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <span id="Step1" style="display:inline">
+
+                            <table class="center" border="0" cellpadding="5" cellspacing="0">
+                            
+
+                                <tr>
+                                    <td align="right">
+                                        First name:
+                                    </td>
+                                    <td>
+                                        <input id="FirstName" name="FirstName" type="text" />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span id="errFirstName"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Middle name:
+                                    </td>
+                                    <td>
+                                        <input id="MiddleName" name="MiddleName" type="text" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Last name:
+                                    </td>
+                                    <td>
+                                        <input id="LastName" name="LastName" type="text" />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span id="errLastName"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </span>
+                        <span id="Step2" style="display:none">
+                            <table class="center" border="0" cellpadding="5" cellspacing="0">
+                                <tr>
+                                    <td align="right">
+                                        Please enter your qualifications Briefly:
+                                    </td>
+                                    <td>
+                                        <input id="Qualification" name="Qualification" type="text" />
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </span>
+                        <span id="Step3" style="display:none">
+                            <table class="Center" border="0" cellpadding="5" cellspacing="0">
+                                <tr>
+                                    <td align="left" colspan="2">
+                                        <strong>
+                                            Select your skills that are applicable:
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Project Management
+                                    </td>
+                                    <td>
+                                        <input id="CheckboxPM" name="CheckboxPM" type="checkbox" value="Yes" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Technical Documentation
+                                    </td>
+                                    <td>
+                                        <input id="CheckboxTD" name="CheckboxTD" type="checkbox" value="Yes" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">
+                                        Scrum
+                                    </td>
+                                    <td>
+                                        <input id="CheckboxScrum" name="CheckboxScrum" type="checkbox" value="Yes" />
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">
+                                        HTML
+                                    </td>
+                                    <td>
+                                        <input id="Checkboxht" name="Checkboxht" type="checkbox" value="Yes" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        CSS
+                                    </td>
+                                    <td>
+                                        <input id="CheckboxCSS" name="CheckboxCSS" type="checkbox" value="Yes" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        JavaScript
+                                    </td>
+                                    <td>
+                                        <input id="CheckboxJavaScript" name="CheckboxJavaScript" type="checkbox" value="Yes" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </span>
+                        <span id="Step4" style="display:none">
+                            <table class="center" border="0" cellpadding="5" cellspacing="0">
+                                <tr>
+                                    <td colspan="2">
+                                        <strong>Final Review:</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        First name:
+                                    </td>
+                                    <td id="ReviewFirstName"></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Middle name:
+                                    </td>
+                                    <td id="ReviewMiddleName"></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Last name:
+                                    </td>
+                                    <td id="ReviewLastName"></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Your Qualification:
+                                    </td>
+                                    <td id="ReviewQualification"></td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td align="left">
+                                        <strong>
+                                            Your chosen Skill Set:
+                                        </strong>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td align="right">
+                                        HTML:
+                                    </td>
+                                    <td id="Reviewht"></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        JavaScript:
+                                    </td>
+                                    <td id="ReviewJavaScript"></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Project Management:
+                                    </td>
+                                    <td id="ReviewPM"></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Scrum:
+                                    </td>
+                                    <td id="ReviewScrum"></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        Technical Documentation:
+                                    </td>
+                                    <td id="ReviewTD"></td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        CSS:
+                                    </td>
+                                    <td id="ReviewCSS"></td>
+                                </tr>
+
+                            <tr>
+                                 <th>
+                                     <button type="button" onclick="window.open('Congrats.html')">
+                                         Submit Final
+                                     </button>
+                                 </th>
+                            </tr>
+                            </table>
+                        </span>
+
+                        </table>
+
+                    </form>
+
+                </div>
+            </div>
+
+
+
+            <button id="previous" onclick="PreviousQuestion()">Previous Question</button>
+            <button id="next" name="Step2" onclick="NextQuestion()">Next Question</button>
+            <button id="submit" onclick="ShowSummary()">Submit Quiz</button>
+            <div id="results"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {
+        $("#dialog").hide();
+        $("#b1").click(function () {
+           // alert("Hello");
+            $("#dialog").dialog();
+        })
+	
+	});
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <div id="dialog" title="Basic Dialog">
+        <p>
+            Welcome to New Dialog Box <br />
+            Students are Manasa, Priya,Akhila and Spandana
+        </p>
+    </div>
+    <input type="button" value="Show" id="b1" />
+
+</body>
+</html>

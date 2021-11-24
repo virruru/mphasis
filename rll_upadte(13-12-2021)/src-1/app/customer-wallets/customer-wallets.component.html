@@ -1,0 +1,20 @@
+<div class="info">
+<p>Your Wallets </p>
+<table border="2" align="center">
+    <tr>
+        
+        <th>Customer Id</th>
+        <th>Wallet ID</th>
+        <th>Wallet Amount </th>
+        <th>Wallet Source</th>
+        
+    </tr>
+    <tr *ngFor="let u of walletarr | async">       
+        <td>{{u.cus_id}} </td>
+        <td>{{u.wal_id}} </td>
+        <td>{{u.wal_amount}}</td>
+        <td>{{u.wal_source}} </td>
+            
+    </tr>
+</table>
+</div>

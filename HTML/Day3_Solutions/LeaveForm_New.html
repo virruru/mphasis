@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function show() {
+		//alert(new Date().toISOString());
+		var today = new Date().toISOString().slice(0,10);
+        frmLeaveForm.appliedOn.value = today;
+	}
+    function tat() {
+        var stdate = frmLeaveForm.leaveStartDate.value;
+        var enddate = frmLeaveForm.leaveEndDate.value;
+        var diffInMs = Date.parse(enddate) - Date.parse(stdate);
+        var days = diffInMs / 1000 / 60 / 60 / 24;
+        days++;
+        //alert(days);
+        frmLeaveForm.noOfDays.value = days;
+    }
+
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onload="show()">
+   <form name="frmLeaveForm">
+        <table border="3" align="center">
+            <tr>
+                <th>Leave Id</th>
+                <td>
+                    <select name="leaveId">
+                        <option value="Divyanshu">Divyanshu</option>
+                        <option value="Sowmya">Sowmya</option>
+                        <option value="Pragathi">Pragathi</option>
+                        <option value="Geetha">Geetha</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Manager Name</th>
+                <td>
+                    <select id="manegername" name="manegerName">
+                        <option value="Pavan">Pavan</option>
+                        <option value="Srini">Srini</option>
+                        <option value="Shabbir">Shabbir</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <th>Leave Start Date</th>
+                <td>
+                    <input type="date" name="leaveStartDate" />
+                    <span id="errStartDate" style="color:red"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Leave End Date</th>
+                <td>
+                    <input type="date" name="leaveEndDate" onblur="tat()"  />
+                </td>
+            </tr>
+            <tr>
+                <th>No.of Days</th>
+                <td>
+                    <input type="number" name="noOfDays" readonly />
+                </td>
+            </tr>
+            <tr>
+                <th>Leave Type</th>
+                <td>
+                    <select name="leaveType">
+                        <option value="EL">EL</option>
+                        <option value="PL">PL</option>
+                        <option value="ML">ML</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Leave Status</th>
+                <td>
+                    <select name="leaveStatus">
+                        <option value="PENDING">PENDING</option>
+                        <option value="APPROVED">APPROVE</option>
+                        <option value="REJECTED">REJECTED</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Leave Applied On</th>
+                <td>
+                    <input type="text" readonly name="appliedOn" id="dat" />
+
+                </td>
+            </tr>
+            <tr>
+                <th>Manager Comments</th>
+                <td>
+                    <input type="text" name="managerComments" />
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="button" value="Submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="Reset" />
+                </th>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>

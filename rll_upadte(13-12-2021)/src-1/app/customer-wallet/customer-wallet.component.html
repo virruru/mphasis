@@ -1,0 +1,17 @@
+<div class="info">
+<p>Your Wallets</p>
+<!-- <input type="text" placeholder="Wallet Source" [(ngModel)]="waltype">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<select [(ngModel)]="waltype">
+    <option value="">Select Your Wallet Source</option>
+    <option value="PAYTM">PAYTM</option>
+    <option value="DEBIT_CARD">Debit Card</option>
+    <option value="CREDIT_CARD">Credit Card</option>
+</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button (click) = "search()" >Search</button><br><br>
+<table align="center">
+    <tr><th>Customer Id :  </th><td>{{(wallet | async)?.cus_id}} </td></tr>
+    <tr><th>Wallet Id : </th><td>{{(wallet | async)?.wal_id}}  </td></tr>
+    <tr><th>Wallet Amount : </th><td>{{(wallet | async)?.wal_amount}} </td></tr>
+    <tr><th>Wallet Source : </th><td>{{(wallet | async)?.wal_source}} </td></tr>
+</table>
+</div>

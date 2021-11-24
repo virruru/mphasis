@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	var questions = new Array("1. C Language Implemented By",
+		"2. COBOL stands For",
+		"3. HTML is Scripting Language yes/No",
+		"4. Javascript will do validations Yes/No",
+		"5. Jquery is LightWeight"
+		);
+	var questionNo=0;
+	var totalQuestions = questions.length;
+	
+	function show() {
+		document.getElementById("question").innerHTML=questions[questionNo];
+		}
+	function next() {
+		questionNo++;
+		if (questionNo == totalQuestions) {
+			questionNo=totalQuestions-1;
+			alert("No More Questions after this...");
+		}
+		show(); 
+		}
+	function previous() {
+		questionNo--;
+		if (questionNo < 0) {
+			alert("No More Questions Before this...");
+			questionNo=0;
+		}
+		show();
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onload="show()">
+	<p id="question"></p> <br/><br/>
+	<input type="button" value="Next" onclick="next()" />
+	&nbsp;&nbsp;&nbsp;
+	<input type="button" value="Previous" onclick="previous()" />
+	 &nbsp;&nbsp;&nbsp;
+</body>
+</html>

@@ -1,0 +1,36 @@
+<p>place-order works!</p>
+<form id="placeOrder" >
+    <p>Order Id  :</p>
+    <input type="text" [(ngModel)]="orderdetails.ord_id" name="ord_id" /> <br/><br/> 
+    <p>Customer Id :</p> 
+    <input type="number" name="orderdetails.cus_id" [(ngModel)]="orderdetails.cus_id" />  <br/> <br/> <br/>  
+    Select Menu Item 
+    <select [(ngModel)]="orderdetails.men_id" name="men_id" (change)="showAmount()">
+        <option *ngFor="let e of menu | async" value={{e.men_id}}>
+            {{e.men_item}}
+        </option>
+    </select> <br/><br/> 
+    <p>Price :</p> 
+    <input type="number" name="price" [(ngModel)]="price" readonly /> <br/><br/>
+    <select [(ngModel)]="orderdetails.ven_id" name="ven_id">
+        <option *ngFor="let f of vendor | async" value={{f.ven_id}}>
+            {{f.ven_name}}
+        </option>
+
+    </select> <br/><br/>
+    <p>Order Date :</p> 
+    <input type="date" name="orderdetails.ord_date" [(ngModel)]="orderdetails.ord_date" />  <br/> <br/> <br/> 
+    <p>Select Quantity :</p>   
+    <input type="number" [(ngModel)]="orderdetails.ord_quantity" name="ord_quantity" /> <br/><br/> 
+    Select Wallet Type :   
+    <select [(ngModel)]="orderdetails.wal_source" name="wal_source">
+        <option *ngFor="let f of wallet | async" value={{f.wal_source}}>
+            {{f.wal_source}}
+        </option>
+    </select> <br/><br/>
+    <p>Order Comments  :</p>
+    <input type="text" [(ngModel)]="orderdetails.ord_comments" name="ord_comments" /> <br/><br/> 
+
+<input type="button" value="PlaceOrder" (click)="placeOrder()"/>
+</form>
+{{msg}}

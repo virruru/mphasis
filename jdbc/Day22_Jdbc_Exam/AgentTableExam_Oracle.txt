@@ -1,0 +1,22 @@
+
+Create Table AgentExam
+(
+  AgentID number primary key,
+  Name varchar2(30),
+  City varchar2(30),
+  GENDER varchar2(15) check(gender in('MALE','FEMALE')),
+  MaritalStatus number check(maritalstatus in (0,1)),
+  Premium number(9,2)
+);
+
+Insert into AgentExam(AgentId,Name,City,Gender,
+MaritalStatus,Premium) values(1,'Aman','Delhi','MALE',0,56654.44);
+
+Insert into AgentExam(AgentId,Name,City,Gender,
+MaritalStatus,Premium) values(2,'Sougata','Kolkata','MALE',1,56643.33);
+
+Insert into AgentExam(AgentId,Name,City,Gender,
+MaritalStatus,Premium) values(3,'Sarbani','Kolkata','FEMALE',0,66433.55);
+
+Insert into AgentExam(AgentId,Name,City,Gender,
+MaritalStatus,Premium) values(4,'Chandana','Hyderabad','FEMALE',0,66334.44);

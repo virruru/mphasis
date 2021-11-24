@@ -1,0 +1,11 @@
+create table UserDetails
+(
+  userName varchar2(30) primary key,
+  PassWord varchar2(30) NOT NULL
+);
+
+Insert into UserDetails values('Anshual','Jain');
+Insert into UserDetails Values('Uday','Prakash');
+insert into userDetails values('Bhanu','Praveen');
+
+commit;

@@ -1,0 +1,11 @@
+<div class="info">
+<p>Add your Menu here..</p>
+<form id="addMenu" >
+<input type="text" placeholder="Menu Item" name="menudetails.men_item" [(ngModel)]="menudetails.men_item" /><br><br>
+<input type="number" placeholder="Menu Price" name="menudetails.men_price" [(ngModel)]="menudetails.men_price" /><br><br>
+<input type="number" placeholder="Menu Calories" name="menudetails.men_calories" [(ngModel)]="menudetails.men_calories"/><br><br>
+<input type="text" placeholder="Menu Speciality" name="menudetails.men_speciality" [(ngModel)]="menudetails.men_speciality" /><br><br>
+<button (click)="addMenu()" style="margin-left: 42%;"> Add Menu </button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<button type="reset">Reset</button>
+</form>
+</div>

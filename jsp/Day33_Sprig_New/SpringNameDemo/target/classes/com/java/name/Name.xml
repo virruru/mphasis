@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+"-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="beanAshwin" class="com.java.name.NameImpl">
+		<property name="firstName" value="Ashwin"/>
+		<property name="lastName" value="Kumar"/>
+	</bean>
+	
+	<bean id="beanRiya" class="com.java.name.NameImpl">
+		<property name="firstName" value="Riya"/>
+		<property name="lastName" value="Ankita"/>
+	</bean>
+	
+	<bean id="beanSangram" class="com.java.name.NameImpl">
+		<property name="firstName" value="Sangram"/>
+		<property name="lastName" value="Kumbhar"/>
+	</bean>
+</beans>

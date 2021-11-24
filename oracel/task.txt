@@ -1,0 +1,90 @@
+ create table d_master
+  2  (
+  3  doctor_id varchar(15) constraint doctor_master_pk primary key,
+  4  doctor_name varchar2(15) NOT NULL,
+  5  dept varchar2(15) NOT NULL
+  6  );
+
+Table created.
+
+SQL> insert into d_master values('D0001','Ram','ENT');
+
+1 row created.
+
+SQL> insert into d_master values('D0002','Rajan','ENT');
+
+1 row created.
+
+SQL> insert into d_master values('D0003','Smita','Eye');
+
+1 row created.
+
+SQL> insert into d_master values('D0004','Bhavan','surgery');
+
+1 row created.
+
+SQL> insert into d_master values('D0005','Sheela','surgery');
+
+1 row created.
+
+SQL> insert into d_master values('D0006','Nethra','surgery');
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+
+
+
+create table r_master
+  2  (
+  3  room_no varchar(15) constraint r_master_pk primary key,
+  4  room_type varchar2(15) NOT NULL,
+  5  satues varchar2(15) NOT NULL
+  6  );
+
+Table created.
+
+SQL> insert into r_master values('R0001','AC','occupied');
+
+1 row created.
+
+SQL> insert into r_master values('R0002','suit','vacent');
+
+1 row created.
+
+SQL> insert into r_master values('R0003','Non-Ac','vacent');
+
+1 row created.
+
+SQL> insert into r_master values('R0004','Non-Ac','occupied');
+
+1 row created.
+
+SQL> insert into r_master values('R0005','Ac','vacent');
+
+1 row created.
+
+SQL> insert into r_master values('R0006','Ac','occupied');
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+
+create table p_master
+  2  (
+  3  pid varchar(15) constraint pk_p_master_pid primary key NOT NULL,
+  4  name varchar2(15) NOT NULL,
+  5  age number(15) NOT NULL,
+  6  weight number(15) NOT NULL,
+  7  gender varchar2(10) constraint chk_p_master_name check(gender in ('Male','Female')),
+  8  address varchar2(50) NOT NULL,
+  9  phoneno varchar2(15) NOT NULL,
+ 10  disease varchar2(50) NOT NULL,
+ 11  doctor_id varchar(15) NOT NULL
+ 12  );

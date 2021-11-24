@@ -1,0 +1,26 @@
+<p>
+  user works!
+</p>
+
+<table border="3">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>User Name</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let user of users | async">
+    <th>
+      {{user.id}}
+    </th>
+    <th>
+      {{user.name}}
+    </th>
+    <th>
+      {{user.username}}
+    </th>
+    <th>
+      {{user.email}}
+    </th>
+  </tr>
+</table>

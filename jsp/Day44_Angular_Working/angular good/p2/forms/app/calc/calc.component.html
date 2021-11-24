@@ -1,0 +1,19 @@
+<p>
+  calc works!
+</p>
+
+<form #calcForm="ngForm" (ngSubmit)="calc(calcForm)">
+  First No : 
+  <input type="number" name="firstNo" [(ngModel)]="firstNo" required> <br/><br/>
+
+   Second No : 
+  <input type="number" required name="secondNo" [(ngModel)]="secondNo" /> <br/> <br/>
+  Result : 
+  <input type="number" readonly name="result" [(ngModel)]="result"  /> <br/> <br/>
+  <input type="submit" value="Calc" /> 
+  <div *ngIf="calcForm.submitted && !isValidFormSubmitted">
+    <p style="color:red">
+      Please Enter Values...
+    </p>
+  </div>
+</form>

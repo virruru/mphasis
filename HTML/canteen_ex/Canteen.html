@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" src="js/canteen.js">
+           </script>
+	<link type="text/css" rel="stylesheet" href="css/canteen.css" />
+    <meta charset="utf-8" />
+    <title>diff_restaurant</title>
+</head>
+<body onload="load()">
+<center>
+   <form name="frmRestaurant" id="frmRestaurant"> 
+	<h1 id="restaurant" class="myhotelClass"></h1>
+    <table border="3" id="mytable" align="center">
+        <tr>
+            <th>Menu List</th>
+			<th>Price</th>
+			<th>Select</th>
+        </tr>
+        <tr>
+            <th><p id="item1"></p> </th>
+            <td><p id="item1price"></p> </td>
+			<td>
+                <input type="checkbox" name="chkItem1" id="chkItem1" onchange="getPrice1()" />
+            </td>
+        </tr>
+        <tr>
+            <th><p id="item2"></p> </th>
+            <td><p id="item2price"></p> </td>
+			<td>
+                <input type="checkbox" name="chkItem2" id="chkItem2" onchange="getPrice2()" />
+            </td>
+        </tr>
+        <tr>
+            <th><p id="item3"></p> </th>
+            <td><p id="item3price"></p> </td>
+            <td>
+                <input type="checkbox" name="chkItem3" id="chkItem3" onchange="getPrice3()" />
+            </td>
+        </tr>
+        <tr>
+            <th><p id="item4"></p> </th>
+            <td><p id="item4price"></p> </td>
+            <td>
+                <input type="checkbox" name="chkItem4" id="chkItem4" onchange="getPrice4()" />
+            </td>
+        </tr>
+        <tr>
+            <th><p id="item5"></p> </th>
+            <td><p id="item5price"></p> </td>
+            <td>
+                <input type="checkbox" name="chkItem5" id="chkItem5" onchange="getPrice5()" />
+            </td>
+        </tr>
+        <tr>
+            <th><p id="item6"></p> </th>
+            <td><p id="item6price"></p> </td>
+            <td>
+                <input type="checkbox" name="chkItem6" id="chkItem6" onchange="getPrice6()" />
+            </td>
+        </tr>
+        <tr>
+            <th><p id="item7"></p> </th>
+            <td><p id="item7price"></p> </td>
+            <td>
+                <input type="checkbox" name="chkItem7" id="chkItem7" onchange="getPrice7()" />
+            </td>
+        </tr>
+        <tr>
+            <th><p id="item8"></p> </th>
+            <td><p id="item8price"></p> </td>
+            <td>
+                <input type="checkbox" name="chkItem8" id="chkItem8" onchange="getPrice8()" />
+            </td>
+        </tr>
+
+    </table>
+	</br>
+    <input type="button" value="Next" onclick="next()" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="Previous" onclick="previous()" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<h1 class="textClass">Total Bill to be Paid :</h1>
+	<h1 class="textClass"  id="billAmount"</h1>
+    </form>
+</center>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<%@page import="java.util.List"%>
+<%@page import="com.cts.helper.FlightDetailsHelper"%>
+<%@page import="com.cts.dao.FlightDetailsDao"%>
+<%@page import="com.cts.beans.Flights"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.Date"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="Home.jsp">
+		<table width="100%">
+			<tr height="40px" id="img1">
+				<th><center>
+						<img src="images/logo_new.PNG" height="122" width="642">
+					</center></th>
+			</tr>
+			<tr id="img2">
+				<th><div class="topnav">
+
+						<a class="active" href="W1.html">Home</a> <a
+							href="SignUp (1).html">Register</a> <a href="LoginNew.html">Login</a>
+						<a href="AboutUs.html">About Us</a>
+
+
+					</div> <br> <span id="firstName"></span> <marquee>
+						<font color="white" style="font-face: 'italic';"><h1>Welcome
+								to Horizon Airways...</h1></font>
+
+					</marquee>
+
+					<div class="container">
+						<div class="center_div">
+
+
+							<br> From: &nbsp;&nbsp;&nbsp;<input type="text" list="names"
+								style="height: 20px;" name="source" placeholder="Where from?" />
+							<datalist id="names">
+							<option label="Kolkata" value="Kolkata" />
+							<option label="Delhi" value="Delhi" />
+							<option label="Mumbai" value="Mumbai, Maharastra" />
+							<option label="Panaji" value="Panaji, Goa" />
+							<option label="Panaji" value="Panaji, Goa" />
+							<option label="Chennai" value="Chennai, Tamil Nadu" />
+							<option label="Hyderabad" value="Hyderabad" />
+							<option label="Bangalore" value="Bangalore" />
+							<option label="Bhubaneswar" value="Bhubaneswar" />
+							</datalist>
+
+							
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To:&nbsp;&nbsp;
+							 <input	type="text" list="names" style="height: 20px;"
+								name="destination" placeholder="Where to?" />
+							<datalist id="names">
+							<option label="Kolkata" value="Kolkata, West Bengal" />
+							<option label="Delhi" value="Delhi" />
+							<option label="Mumbai" value="Mumbai, Maharastra" />
+							<option label="Panaji" value="Panaji, Goa" />
+							<option label="Panaji" value="Panaji, Goa" />
+							<option label="Chennai" value="Chennai, Tamil Nadu" />
+							<option label="Hyderabad" value="Hyderabad, Andhra Pradesh" />
+							<option label="Bangalore" value="Bangalore, Karnataka" />
+							<option label="Bhubaneswar" value="Bhubaneswar, Odisha" />
+							</datalist>
+						
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Departure:&nbsp;&nbsp;&nbsp;
+							<input type="date" name="dateofJourney">
+							&nbsp;&nbsp;&nbsp;Passengers:
+							 <input	type="number" min="1" max="4" style="height: 20px;"
+								name="passengers" placeholder="" />
+								
+							
+							
+
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+							<button id="button" type="submit"
+								style="background-color: #8d94e9; width: 100px; height: 30px">
+								<b>Search </b>
+							</button>
+
+							<br>
+						</div>
+					</div>
+					<div id="dummy">More data comes soon</div> <br> <br> <br>
+					<br> <br> <br> <br> <br> <br> <br>
+					<br> <br> <br> <br> <br> <br> <br>
+					<br> <br> <br> <br> <br> <br> <br>
+					<br> <br> <br> <br></th>
+			</tr>
+
+		</table>
+	</form>
+	<%
+		String source ="";
+		String dest="";
+		String doj="";
+	/* 	String passengers=""; */
+		int nop=0;
+		if(request.getParameter("source")!=null && request.getParameter("destination") != null && request.getParameter("dateofJourney") !=null)
+		{
+			source=request.getParameter("source");
+		    dest=request.getParameter("destination");
+		    doj=request.getParameter("dateofJourney");
+		    nop=Integer.parseInt(request.getParameter("passengers"));
+	%>
+	<div id="main">
+		<table border="3">
+
+			<tr>
+				<th>Flight ID</th>
+				<th>Company Name</th>
+				<th>Source</th>
+				<th>Destination</th>
+				<th>DepartureDate</th>
+				<th>Departure Time</th>
+				<th>Arrival Time</th>
+				<th>Price</th>
+				<th>Book</th>
+			</tr>
+
+			<%
+				out.println(doj);
+			
+			session.setAttribute("nop",nop);
+				    
+				    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+				    java.util.Date date = sdf.parse(doj);
+				    out.println(date);
+				    java.sql.Date sqlStartDate = new java.sql.Date(date.getTime());  
+					out.println(source);
+					out.println(dest);
+					out.println(sqlStartDate);
+					
+				//	FlightDetailsDao dao=new FlightDetailsDao();
+					List<Flights> arrFlights=FlightDetailsHelper.searchFlights(sqlStartDate, source, dest); 
+					//out.println(arrFlights.);
+					for(Flights f : arrFlights){
+			%>
+			<tr>
+				<td><%=f.getFlightId()%></td>
+				<td><%=f.getCompanyName()%></td>
+				<td><%=f.getSource()%></td>
+				<td><%=f.getDestination()%></td>
+				<td><%=f.getDepartureDate()%></td>
+				<td><%=f.getDepartureTime()%></td>
+				<td><%=f.getArrivalTime()%></td>
+				<td><%=f.getPrice()%></td>
+				<td><a href="BookFlight.jsp?flightid=<%=f.getFlightId() %>">BookFlight</a> </td>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+		<script>
+			document.getElementById("dummy").innerHTML = document
+					.getElementById("main").innerHTML;
+			document.getElementById("main").style.display = "none";
+		</script>
+		<%
+			}
+		%>
+	</div>
+
+</body>
+</html>

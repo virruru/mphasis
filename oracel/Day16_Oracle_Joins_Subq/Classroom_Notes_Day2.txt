@@ -1,0 +1,351 @@
+Aggregate Functions :
+
+sum() : calculates sum on the numeric field specified 
+
+select sum(sal) from emp;
+
+avg() : calculates avg on the numeric field specified 
+
+select avg(sal) from Emp;
+
+max() : generates the max. value 
+
+select max(sal) from Emp;
+
+min() : generates min. value 
+
+select min(sal) from Emp;
+
+count(*) : Generates total no.of records 
+
+select count(*) from Emp;
+
+if we give 
+
+select count(comm) from Emp;
+
+Displays count of not null records of comm field specified. 
+
+group by : Used to generate the summarized reports. 
+
+
+Assume, i want to find out how much salary we are paying to each and every dept.
+
+select job,sum(sal) from Emp
+group by job;
+
+select job,count(*) from Emp
+group by job;
+
+select job,max(sal) from Emp
+group by job;
+
+select job,avg(sal) from Emp
+group by job;
+
+select job,min(sal) from Emp
+group by job;
+
+having clasuse : Used to check condition on aggregate fields. 
+
+--> Display job,sum(sal) from Emp where sum(sal) > 5000
+
+select job,sum(sal) from Emp
+group by job 
+having sum(sal) > 5000;
+
+--> Display job, total employee of emp table, whose dept contains more than 2 employees
+
+select job,count(*) from Emp
+group by job
+having count(*) > 2;
+
+
+What is the difference between where and having clause ???
+
+Where clause used to check condition on table fields (you cannot use aggregate functions on where clause, 
+as having clause used to check conditions on aggregate fields) 
+
+if you want to check condition on aggregates, then having is the best. 
+
+nvl() : used to assign default values if null valus exists. 
+
+select empno,ename,job,sal,nvl(comm,0) from Emp;
+
+
+nvl2() : Assigns else value also 
+
+syntax
+
+nvl2(fieldname,not_nullvalue,null_value)
+
+nvl2(mgr,mgr,0)
+
+if mgr is not null print mgr, if mgr is null print 0
+
+select empno,ename,job,sal,mgr,nvl2(mgr,mgr,0) from emp;
+
+select empno,ename,job,sal,comm from Emp;
+
+
+select empno,ename,job,sal,comm,nvl2(comm,sal+comm,sal) TakeHome from Emp;
+
+nvl2(mgr,notnullvalue,nullvalue)
+
+if mgr is not null then notnullvalue specified will be printed
+if mgr is null then nullvalue specified will be printed.
+
+
+
+Display headname as if job is 'CLERK' then display 'Uday'
+                    if job is 'MANAGER' then display 'Adarsh'
+	            if job is 'ANALYST' then display 'Ruchita'
+	            if job is 'SALESMAN' then display 'Prakash'
+                     else display 'No Manager'
+
+
+select empno,ename,job,sal,
+case job
+   WHEN 'CLERK' THEN 'UDAY'
+   WHEN 'MANAGER' THEN 'ADARSH'
+   WHEN 'ANALYST' THEN 'RUCHITA'
+   WHEN 'SALESMAN' THEN 'PRAKASH'
+   ELSE 'NO MANAGER'
+end ManagerName
+FROM EMP;
+
+SELECT EMPNO,ENAME,JOB,SAL,
+DECODE(JOB,'CLERK','UDAY',
+           'MANAGER','ADARSH',
+           'ANALYST','RUCHITA',
+           'SALESMAN','PRAKASH',
+           'NO MANAGER') ManagerName
+from Emp;
+
+select job,sum(sal) from emp
+where job in('MANAGER','ANALYST','SALESMAN')
+group by job
+having sum(sal) >= 5000
+ORDER BY JOB DESC;
+
+Joins : Used to extract only records from more than one table. 
+
+There are various types of joins as 
+
+(i) Inner Join : Acts as an INTERSECT operator, used to extract only the common records from the given tables.
+
+In Dept and Emp tables we have common column as 
+
+DeptNo where 
+
+DeptNo is primary key in Dept table
+and Foreign key in Emp Table. 
+
+select Dept.Deptno,Dname,Empno,Ename,job,sal
+from Dept INNER JOIN EMP ON 
+Dept.Deptno=Emp.Deptno;
+	
+You can give alias to be table Name, if you give alias instead of table_name always we can use alias name.
+
+select D.Deptno,Dname,Empno,Ename,job,sal
+    from Dept D INNER JOIN EMP E ON
+    D.Deptno=E.Deptno;
+
+
+select C.CCODE,F.FCODE,C.Name,F.Name
+from Courses C INNER JOIN Course_Faculty CF
+ON C.CCODE=CF.CCODE
+INNER JOIN FACULTY F ON
+F.FCODE=CF.FCODE;
+
+
+SQL> select constraint_name,constraint_type,table_name from
+  2  user_constraints where table_NAME='COURSES';
+
+
+
+
+(ii) Outer Join : Inner join only displays only common records, 
+but sometimes i need to see all common and uncommon records, then we need the help of outer joins. 
+
+There are 3 types of OUTER JOINS as 
+
+	(i) LEFT OUTER JOIN : All records from the left-side table, and matching records from the righ-side table. If any child table values are not available, then it would be repalced with NULL keyword.
+
+	select D.Deptno,Dname,Empno,Ename,job,sal
+	from Dept D LEFT JOIN EMP E ON
+	D.Deptno=E.Deptno;
+
+	select C.CCODE,F.FCODE,C.Name,F.Name
+	from Courses C LEFT JOIN Course_Faculty CF
+	ON C.CCODE=CF.CCODE
+	LEFT JOIN FACULTY F ON
+	F.FCODE=CF.FCODE;
+	
+
+       (ii) RIGHT OUTER JOIN
+
+	   Displays all records from right-side table and matching records from the left-side table. 
+
+	select C.CCODE,F.FCODE,C.Name,F.Name
+	from Courses C RIGHT JOIN Course_Faculty CF
+	ON C.CCODE=CF.CCODE
+	RIGHT JOIN FACULTY F ON
+	F.FCODE=CF.FCODE;
+
+      (iii) FULL OUTER JOIN  : Displays all matching and unmatching records from all tables. 
+
+	select C.CCODE,F.FCODE,C.Name,F.Name
+	from Courses C FULL JOIN Course_Faculty CF
+	ON C.CCODE=CF.CCODE
+	FULL JOIN FACULTY F ON
+	F.FCODE=CF.FCODE;
+	
+
+(iii) Cross Join : Generates cartician product of two tables. Example Table A contains n records and Table B contains m records, then it generates (n*m) records. 
+
+select * from Dept cross join Emp;
+
+select * from courses cross join course_faculty;
+
+select * from Faculty cross join course_faculty;
+
+
+(iv) Self Join : If a table joins with itself known as self join. 
+
+select E1.Empno "Manager Code",
+E1.Ename "Manager Name",
+E2.Empno "Employee Code",
+E2.Ename "Employee Name"
+from Emp E1 INNER JOIN EMP E2 
+ON E1.Empno=E2.Mgr;
+
+
+Subquery : Sometimes its not possible to extract data by using single SQL statements, to overcome this
+we need the help of subqueries. 
+
+A subquery is a query, that which is having another query inside, the query which is inside known as 
+INNER Query, the query which is outside known as outer query. 
+
+everytime, the result of the Inner Query will send as input to the outer query. 
+
+Display max.sal from emp table
+
+select max(sal) from Emp;
+
+--> Display name of person who is getting max. salary 
+
+select ename from emp where sal=max(sal);
+
+the above query will throw error, because we cannot check aggregate conditions in where clause. 
+
+For this we need the help of Subquery. 
+
+select ename from Emp where sal=(select max(sal) from Emp);
+
+Display name of person who is getting min. salary 
+
+select ename from emp where sal=(select min(sal) from Emp);
+
+--> Display 2nd max. salary 
+
+select max(sal) from Emp where sal < (select max(sal) from Emp);
+
+--> Display name of person who is getting 2nd max. salary 
+
+select ename from Emp where sal=(select max(sal) from Emp where sal < (select max(sal) from Emp));
+
+There are 2 types of subqueries as 
+
+1) Single Row
+
+	It is a subquery, that which returns single row to the outer query known as single row subquery.
+
+2) Multiple Row 
+
+	It is a subquery, that which returns more than one row to the main query, known as multi row subquery. 
+
+It can be handled by using ALL or ANY operators. 
+
+--> Display All departments who are having employees 
+
+select * from Dept where deptno=(select distinct deptno from Emp);
+
+It will throw error, as inner query returns more than one value. 
+
+--> Display all course details which are handled by faculty. 
+
+means ccode exists in both Course and Course_Faculty table. 
+
+select * from Courses where ccode=(select distinct ccode from Course_Faculty);
+
+
+The above cases we need to use ALL/ANY operators.
+
+ALL -> Acts as AND Operator
+
+ANY -> Acts as OR Operator
+
+empno<> ALL(10,20,30) means 
+
+Empno<>10 AND Empno <> 20 AND Empno <> 30 
+
+Empno<>ANY(10,20,30) means 
+
+Empno<> 10 OR Empno<>20 OR Empno<>30 
+
+
+select * from Courses where ccode=ANY(select distinct ccode from Course_Faculty);
+
+
+select * from Courses where ccode=ANY(select distinct ccode from Course_Faculty);
+
+select * from dept where deptno=ANY(select distinct deptno from Emp);
+
+
+--> Display all dept details who are having employees 
+
+means i want to display records for which dept employess are existsing 
+
+means deptno exists in Dept table and Emp table. 
+
+select * from Dept where deptno=(select distinct deptno from Emp);
+
+select * from Dept where deptno=(10,20,30) 
+
+select * from Dept where deptno=ANY(10,20,30)
+
+
+select * from Dept where deptno=ANY(select distinct deptno from Emp)
+
+select * from Courses where ccode=ANY(select distinct ccode from Course_Faculty);
+
+
+--> Display all facutly names who are table coures 
+
+select * from Faculty where FCODE=ANY(select distinct Fcode from Course_faculty);
+
+--> Example for ALL Operator 
+
+-> Display Idle Departments from Dept table. 
+
+Which is in Dept table, but not in Emp table
+
+select * from Dept where deptno <> (10,20,30)
+
+
+
+select * from Dept where deptno <> ALL(select deptno from Emp);
+
+
+--> Display Idle Courses 
+
+Which is in Course Table, but not in Coures_faculty table 
+
+select * from Courses where CCODE <> ALL(select CCODE from Course_Faculty);
+
+--> Display Idle Faculties 
+
+Which is in Faculty table, but not in Coures_Faculty table.
+
+select * from Faculty where FCODE <> ALL(select FCODE from Course_Faculty);

@@ -1,0 +1,11 @@
+.info table{
+    border: 2px solid;
+ }
+ .info th,td{
+    border-color: white;
+    background-color: black;
+    color: white;
+    border : 2px solid;
+    border-collapse: separate;
+ }
+ 

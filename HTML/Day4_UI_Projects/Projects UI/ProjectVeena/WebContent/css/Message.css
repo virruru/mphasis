@@ -1,0 +1,48 @@
+#img1 {
+	background-color: white;
+	
+}
+#img2 {
+	background-image: url(../images/b.jpg); 
+	background-size: cover;
+}
+#id1{
+	color: black ;
+}
+.container:ACTIVE {
+	background-color:white;
+ text-align: center;
+}
+.center_div{
+	border: 1pz solid gray;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	background-color:white;
+	text-align: left;
+	padding: 8px;
+}
+
+.topnav {
+  overflow: hidden;
+ 
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4AABF2;
+  color: white;
+}

@@ -1,0 +1,648 @@
+Object Oriented Programming : 
+_______________________________
+
+It is an approach that provides a way of modularizing programming, that 
+which can be used to create small partition memory area for both data
+and objects, which are to be used as templates for creating copies
+of such modules on demand.
+
+Object : 
+
+	An object is a real world entity, that which possess 
+3 characterstics known as
+
+	(i) State
+
+	(ii) Behaviour
+
+	(iii) Identity 
+
+
+OOPS features : 
+_______________
+
+
+	(i) Encapsulation
+
+		Wrapping up of data and functions into a single
+	unit known as Encapsulation. 
+
+		We have to bind data to the existing context. 
+
+	(ii) Abstraction
+
+		Hiding the internal details of an object, that do not contribute
+			to its essential context. 
+
+	*** Encapsulation focuses on showing the relevant details, where abstraction focuses on hiding
+		the irrelevant details ***
+
+	(iii) Inheritance : Deriving a new entity from already existing entity. Through inheritance, we 
+		can reduce the size of the program. 
+
+	(iv) Polymorphism : The ability to take more than one form known as polymorphism. 
+		
+class : A class is a template or blueprint, that which contains combination of data members and member functions. Members of the class can be accessable by using instance of the class. 
+
+class class_name
+{
+     data members;
+     member functions;
+}
+
+Why Java : 
+___________
+
+	1) Platform Independence : Write Once and Run Anywhere 
+
+	2) Console
+
+	   Windows
+
+	   Web
+		
+	   Mobile App
+
+         3) Packages : Package contains group of related classes and interfaces that which belongs to
+		one common group. If you want to overcome the naming conflicts between classes, then we 
+		need the help of packages. 
+
+
+Java Features : 
+_________________
+
+
+	(i) Simple
+
+		Java uses simple C/C++ syntaxes, as a programmer no needs to take care of internal details 
+	like memory management etc... as how much memory allocated to run the program, the same amount of 
+	memory will be reallocated automatically. 
+
+	(ii) Object Oriented
+
+		Java supports all object oriented programming features. 
+
+	(iii) Compiled and Interpreted
+
+		Java programs are compiled first, during compilation java code will be converted into bytecode,
+	then .class file will be created. In interpretation, it reads the bytecode line by line and executes. 
+
+	(iv) Portable 
+
+		Ability to run the program without changing the source code, java programs are programs that 
+	can run on any environment without changing the source code. 
+
+	(v) Securable
+
+		Java implements different levels of security, as 
+
+		    (a) Compiler Level
+
+		    (b) Bytecode Level
+
+		    (c) Class Loader Level
+
+	(vi) Distributed 
+
+		By using java, we can implement all distributed and robust applications. 
+
+
+Java Architecture : 
+___________________
+
+	(i) Java Program
+
+		Java code, that which stored with extension .java
+
+	(ii) Java Class
+
+		Java code after compilation its converted into bytecode, then .class file will be created. 
+
+	(iii) JVM (Java Virtual Machine)
+
+		(a) Class Loader
+
+			Used to load all classes that which are required to run the program. There are 2 types
+		 of class loaders known as 
+
+			(i) Primordial Class Loader
+
+				Used to load all system classes that which are required to run the program. 
+
+			(ii) Class Loader Objects 
+
+				Used to load all user defined classes which are required to run the program. 
+
+		(b) JIT Compiler (Just-In Time) 
+
+			Used to convert Bytecode into CPU specific format. 
+
+		(c) Execution Manager 
+
+			Contains QUEUE of programs which are ready to run, where we can execute the program.
+
+	*** Before execution, it needs to undergone the security authentication ***
+
+	(iv) Java API 
+
+		It provides runtime env, that which allows you to run the java program. 
+
+		We have JDK and JRE 
+
+Data Types : 
+_______________
+
+There are 2 types of data types as 
+
+	(i) Value Types
+
+		int, float, double, char, boolean 
+
+	(ii) Reference Types 
+
+		String, Object and Custom Classes 
+
+
+What is the default package in java 
+
+java.lang
+
+What is the top level class in java
+
+Object is the top level class in java. 
+
+
+System.out.println() : Used to display any value or message. 
+
+System -> class
+
+out -> Console 
+
+println() -> method 
+
+
+System.out.println("Welcome to Java Programming...");
+
+
+You can define method main() as 
+
+public static void main(String[] args) {
+...
+...
+...
+}
+
+Access Modifiers : 
+___________________
+
+private : Allows you to access members within the current class. 
+
+public  : Allows you to access members in entire application. 
+
+protected : Allows you to access members within current/derived classes. 
+
+friendly : By default java possess friendly access modifier, allows you to access members within all classes
+		of current package. 
+
+
+You can create an object to the class as 
+
+class_name obj = new class_name();
+
+
+Control Structures : 
+_____________________
+
+	(i) used to define the flow of the programs. 
+
+
+There are 2 types of control structures 
+
+   (i) Branching 
+
+	if...else : Executes the statements based on the condition. 
+
+		if (condition) {
+		   statement(s);
+		} else {
+		   statement(s);
+		}
+
+	switch...case : Used to define the menu driven programs. 
+
+	switch(expr) {
+		case expr1 :
+		    statement(s);
+		    break;
+		case expr2 : 
+		    statement(s);
+		    break;
+		case expr3 : 
+		    statement(s);
+		    break;
+		default :
+		    statement(s);
+		    break;
+	}
+
+
+	Looping Control Structures :
+	___________________________
+
+		while loop : 
+
+			This loop executes all the statement(s) repeatedly until the condition remains true,
+	if the condition remains false, then it comes out of the loop. For every loop, basically there are 
+	3 phases as 
+
+			(i) Initialization
+
+			(ii) Condition
+
+			(iii) Increment/Decrement 
+
+	Initialization performed at the beginning of the loop.
+
+	Condition performed at the conditional part of the loop.
+
+	Increment/Decrement performed before closing the loop. 
+
+	while(condition) {
+	statement(s);
+	incr/decr;
+	}
+
+
+
+	
+
+
+   (ii) Looping 
+
+
+Object Oriented Programming : 
+
+It is an approach that provides a way of modularizing programming, that which can be used to create
+small partitoin memory area for both data and objects, which are to be used as 
+templates for creating copies of such modules on demand. 
+
+Object : An object a real world entity, that which possess 3 characterstics known as 
+
+	(i) State 
+
+	(ii) Behaviour
+
+	(iii) Identity 
+
+
+OOPS features : 
+________________
+
+
+(i) Encapsulation : Wrapping up of data and functions into a single unit known as encapsulation.
+
+(ii) Abstraction : Hiding the irrelevant details of an object, that do not contribute to its essential
+		characterstics known as Abstraction.
+
+	*** Encapsulation focuses on showing the relevant details, where abstraction focuses on hiding 
+		the irrelevant details ***
+
+(iii) Inheritance : Deriving a new entity from already existing entity known as inheritance, through 			inheritance we can reduce the size of the program.
+
+(iv) Polymorphsim : The ability to take more than one form known as polymorphism. 
+
+
+class : A class is a template or blueprint, that which contains the combination of data members and
+		member functions. Members of the class can be accessable by using the instance of 
+		the class. 
+
+class class_name 
+{
+   data members;
+   member functions;
+}
+
+Why Java : 
+___________
+
+    (i) Platform Independence : Write Once and run anywhere. 
+
+    (ii) Cnosole Applications
+
+    (iii) Windows Applications
+
+    (iv) Web Applications
+
+    (v) Mobile Apps
+
+    (vi) Packages : Contains group of related classes, that which belongs to one common group,
+		if you want to overcome the naming conflicts between classes, then we need the help of 
+		packages. 
+
+
+Java Features : 
+________________
+
+
+	(i) Simple : Java uses simple C/C++ syntaxes, as a programming no need to take care of internal 
+		details like memory management etc... As how much memory allocated to run the program,
+		the same amount of memory will be reallocated automatically. 
+
+	(ii) Object Oriented : Java supports all object oriented programming features. 
+
+	(iii) Compiled and Interpreted : Java programs are compiled first, during compilation java code
+		will be converted into bytecode, then .class file will be created. In interpretation
+		it reads the bytecode line by line and executes. 
+
+	(iv) Portable : Ability to run the program without changing the source code. Java programs are 
+		programs that can run on any environment without changing the source code. 
+
+	(v) Securable : Java implements different levels of security as 
+
+		(i) Compiler Level 
+
+		(ii) Bytecode Level
+
+		(iii) Class Loader Level
+
+
+Java Architecture : 
+__________________
+
+
+	(i) Java Program : Java code that which stores with extension .java
+
+	(ii) Java Class : Java program after compilation its converted into bytecode, then 
+		.class file will be created. 
+
+	(iii) JVM (Java Virtual Machine) 
+
+		It contains various components as 
+			
+		(i) Class Loader : Used to load all classes which are required to run the program. 
+	
+			There are 2 types of class loaders known as
+
+			(a) Primordial Class Loader : Used to load all system classes which are required to
+					run the program.
+
+			(b) Class Loader Objects : Used to load all custom classes which are required to
+					run the program. 
+
+		(ii) JIT Compiler (Just-In Time) : Used to convert bytecode into CPU understandable format.
+		
+		(iii) Execution Manager : Contains queue of programs which are ready to run, where we can 
+			execute the program.
+
+		*** Before execution, it needs to undergone the security authentication ***
+
+	(iv) Java API : It contains runtime env, that which allows you to compile and execute your code. 
+
+		JDK
+
+		JRE 
+
+
+	Access Modifiers : 
+	___________________
+
+
+		(i) private : Allows you to access members within the current class. 
+
+		(ii) public : Allows you to access members in entire application. 
+
+		(iii) protected : Allows you to access members within current/derived classes. 
+
+		(iv) friendly : By default, java possess friendly access modifier, allows you to access 
+			members within all classes of current package. 
+
+Data Types : 
+____________
+
+    There are 2 types of data types as 
+
+		(i) Value Types : int, float, double, char, boolean 
+
+		(ii) reference types : String, Object and Custom Classes. 
+
+
+System.out.println() : Used to display any value or message.
+
+	System  -> class 
+
+	out -> Console
+
+	println() -> Method. 
+
+	System.out.println("Welcome to Java Programming...");
+
+You can define the method main() as 
+
+public static void main(String[] args) {
+...
+...
+...
+}
+
+
+You can write a user_defined method as 
+
+accessModifier return_type method_Name(parameters) {
+....
+....
+....
+}
+
+if any method returns nothing, please put as void. 
+
+
+public void show() {
+....
+....
+....
+}
+
+You can create an object to the class, as 
+
+class_name obj = new class_name();
+
+Control Structures : 
+_____________________
+
+Used to define the flow of the program. 
+
+There are 2 types of control structures known as 
+
+	(i) Branching 
+
+		if...else : Executes the statements based on the condition. 
+
+		   if (condition) {
+			statement(s);
+		   } else {
+			statement(s);
+		   }
+
+		switch...case : Used to define the menu-driven programs. 
+	
+		switch(expr) {
+		
+		   case expr1 :
+			statement(s);
+			break;
+		   case expr2 : 
+			statement(s);
+			break;
+		  ....
+		  ....
+		  ....
+		  ....
+		  default : 
+			statement(s);
+			break;
+		}
+
+	(ii) Looping : 
+
+		while loop : This loop executes all the statements repeatdly until the condition remains true,
+	if the condition remains false, then it comes out of the loop. For every loop basically there are 3 phases known as 
+
+		(i) Initialization  : Performed at the beginning of the loop.
+
+		(ii) Condition  : Performed at the conditional part of the loop.
+
+		(iii) Increment/Decrement : Performed before closing the loop. 
+
+	
+	for loop : This loop executes all the statements repeatedly until the condition remains true, if the condition remains false, then it comes out of the loop. 
+
+		for(initialization;condition;increment/decrement) {
+			statement(s);
+		}
+
+
+
+
+
+
+
+	
+
+
+
+a   b  c   m
+
+5   2  8   5
+
+	   5 < 2 
+
+           5
+
+	   5 < 8
+
+	   8
+
+
+do...while : This loop executes all the statements at first atleast once, 
+then it checks for the condition. If the condition remains true, then it repeats
+the statements, else it comes out of the loop. 
+
+do {
+....
+....
+} while(condition);
+
+The min. execution of while loop zero times. 
+
+The min. execution of do...while is one time. 
+
+Array : 
+
+An array is the finite ordered set of homogeneous elements, means all the elements belongs to 
+same data type. 
+
+All the elements of array are stored in successive memory locations. 
+
+int[] a=new int[]{12,5,22,67};
+
+a[0]=12;
+a[1]=5;
+a[2]=22;
+a[3]=67;
+
+int[] a = new int[] {12,66,23,77,56};
+//		for(int i=0;i<a.length;i++) {
+//			System.out.println(a[i]);
+//		}
+		
+		for (int i : a) {
+			System.out.println(i);
+		}
+
+
+How the above foreach loop will execute ???
+
+
+foreach loop will take Enumeration collection. 
+
+In above loop, at first i targets to the first element in Array a,
+
+after processing first element, it checks next element is there or not by using hasMoreElements(),
+if hasMoreElements() returns true, it moves to next element by using nextElement(), it repeats
+as soon as hasMoreElements() returns true. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<form id="addCustomer" >
+    <table align="center">
+    <tr><th>Vendor Name :</th> 
+<td><input type="text" name="vendordetails.ven_name" [(ngModel)]="vendordetails.ven_name" />
+ </td></tr>
+
+    <tr><th>Vendor Phone Number: </th>
+      <td> <input type="text" name="vendordetails.ven_phn_no" [(ngModel)]="vendordetails.ven_phn_no" />
+    </td></tr> 
+
+    <tr><th>Vendor Username:</th> 
+    <td><input type="text" name="vendordetails.ven_username" [(ngModel)]="vendordetails.ven_username"/>
+     </td></tr>
+    <tr><th>Vendor Password::</th> 
+        <td><input type="text" name="vendordetails.ven_password" [(ngModel)]="vendordetails.ven_password" />
+         </td></tr>
+         <tr><th>Vendor Email:</th> 
+            <td><input type="text" name="vendordetails.ven_email" [(ngModel)]="vendordetails.ven_email" />
+             </td></tr>
+<tr><th><input type="button" value="addVendor" (click)="addVendor()"/></th></tr>
+</table>
+</form>

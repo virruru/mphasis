@@ -1,0 +1,84 @@
+drop table course_faculty;
+drop table faculty;
+drop table courses;
+create table  courses
+(
+   ccode  varchar2(5)  constraint courses_pk  primary key,
+   Name	  varchar2(30) constraint courses_name_u unique,
+   Duration 	  number(3)    constraint courses_duration_chk  
+  check( duration >= 1),
+   fee          number(5)   constraint courses_fee_chk 
+  check( fee >= 0 ),
+   Prerequisite varchar2(100)
+);
+
+
+create table  faculty
+(
+   fCODE Varchar2(5) constraint faculty_pk  primary key,
+   Name varchar2(30),
+   qual varchar2(30),
+   exp Varchar2(100) 
+);
+
+
+create table  course_faculty
+(
+   fcode varchar2(5) constraint course_faculty_fcode_fk references faculty(fcode),
+   CCODE varchar2(5) constraint course_faculty_ccode_fk references courses(ccode),
+   grade char(1) constraint course_faculty_grade_chk check ( upper(grade) in ('A','B','C') ),
+   constraint course_faculty_pk  primary key(ccode,fcode)
+);
+
+insert into courses values('ora','Oracle database',25,4500,'Windows');
+
+insert into courses values('vbnet','VB.NET',30,5500,'Windows and 
+programming');
+
+insert into courses values('c','C programming',20,3500,'Computer Awareness');
+
+insert into courses values('asp','ASP.NET',25,5000,'Internet and programming');
+
+insert into courses values('java','Java Language',25,4500,'C language');
+
+insert into courses values('xml','XML Programming', 15, 4000, 'HTML,Scripting, ASP/JSP');
+
+
+
+
+rem --------------------------- FACULTY ----------------------------
+
+
+insert into faculty values('gk','George Koch','MS Computer Science','15 years with databases');
+
+insert into faculty values('da','Dan Appleman','CS and EE graduate', 'Extensively worked with COM');
+
+insert into faculty values('hs','Herbert Schildt','MS Computer Science', 'Author of several books');
+
+insert into faculty values('dh','David Hunter','MS Electronics', 'Extensively worked with Internet Tehnologees');
+
+insert into faculty values('sw','Stephen Walther','Ph.D. in Philosophy', 'Extensively worked with Internet Tehnologees');
+
+insert into faculty values('kl','Kevin Loney', 'MS Eletronics', 'Specialized in Oracle DBA');
+
+insert into faculty values('jj','Jamie Jaworski','Bachlors of Electrical' ,'Developed programs for US defense department');
+
+insert into faculty values('jc','Jason Couchman','OCP DBA','Published articles on Oracle');
+
+
+
+
+rem ------------------------- COURSE_FACULTY ------------------------
+
+
+insert into course_faculty values('jc','ora','A');
+
+insert into course_faculty values('da','vbnet','A');
+
+insert into course_faculty values('dh','xml','A');
+
+insert into course_faculty values('hs','java','B');
+
+commit;
+
+

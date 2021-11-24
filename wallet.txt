@@ -1,0 +1,40 @@
+CREATE TABLE wallet (
+  `CUS_ID` int unsigned DEFAULT NULL,
+  `WAL_ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `WAL_AMOUNT` double unsigned NOT NULL,
+  `WAL_SOURCE` enum('PAYTM','CREDIT_CARD','DEBIT_CARD') DEFAULT 'DEBIT_CARD',
+  PRIMARY KEY (`WAL_ID`),
+  UNIQUE KEY `CUS_ID` (`CUS_ID`,`WAL_SOURCE`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+INSERT INTO `wallet` VALUES (1,1,4215,'PAYTM'),(1,2,3000,'DEBIT_CARD'),(1,3,5602.36,'CREDIT_CARD'),(2,4,4500.36,'DEBIT_CARD'),(3,5,485.23,'CREDIT_CARD'),(2,6,3000,'CREDIT_CARD'),(2,7,4560,'PAYTM'),(3,8,56.36,'PAYTM'),(3,9,4566,'DEBIT_CARD');
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create table Wall (
+cus_id NUMBER,
+wal_id NUMBER NOT NULL,
+wal_amount NUMBER(9,2) NOT NULL,
+wal_source VARCHAR2(50) default 'DEBIT_CARD',
+constraint chk_wall_wal_source check(wal_source in('PAYTM','CREDIT_CARD','DEBIT_CARD')),
+constraint pk_wall primary key (wal_id),
+constraint UC_wall unique key (cus_id),
+unique (wal_source) 
+);
+__________________________________________________________________________________
+
+create table Wallet
+(
+cus_id number references customer(cus_id),
+wal_id number  not null primary key,
+wal_amount number(9,2) not null,
+wal_source VARCHAR2(50) default 'DEBIT_CARD',
+constraint chk_wall_wal_source check(wal_source in('PAYTM','CREDIT_CARD','DEBIT_CARD')),
+unique (cus_id)
+);
+INSERT INTO Wallet VALUES (1,1,4215,'DEBIT_CARD');
+INSERT INTO Wallet VALUES (2,2,3000,'PAYTM');
+INSERT INTO Wallet VALUES (3,3,485.23,'CREDIT_CARD');
+INSERT INTO Wallet VALUES (4,4,5000,'DEBIT_CARD');
+INSERT INTO Wallet VALUES (5,5,4500.36,'CREDIT_CARD');
+INSERT INTO Wallet VALUES (6,6,4560,'PAYTM');
+INSERT INTO Wallet VALUES (7,7,4000,'DEBIT_CARD');
+INSERT INTO Wallet VALUES (8,8,55.55,'CREDIT_CARD');
+INSERT INTO Wallet VALUES (9,9,4566,'PAYTM');

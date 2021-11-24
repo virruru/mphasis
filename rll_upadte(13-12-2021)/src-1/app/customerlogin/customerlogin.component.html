@@ -1,0 +1,20 @@
+<div class="login">
+<h1>Customer Login</h1><br>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+<input type="text" name="username" placeholder="UserName" id="uname" [(ngModel)]="username" required><br><br>
+<input type="password" name="password" placeholder="Password" id="pword" [(ngModel)]="password" required><br><br>
+&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<button>Login</button>&nbsp; &nbsp; &nbsp; 
+<button type="reset">Reset</button>
+<!-- <div *ngIf="loginForm.submitted && isFormSubmitted==false">
+    <p style="color:red">
+        Please Enter UserName and Password...
+    </p> 
+</div> -->
+&nbsp; &nbsp; &nbsp; &nbsp;<br><br>
+<div class="info">
+<p>Not a Customer? 
+<a [routerLink]="['/addCustomer']" style="text-decoration: none;">Sign up</a> here!
+</p></div>
+</form>
+</div>

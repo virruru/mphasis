@@ -1,0 +1,108 @@
+SortedSet : 
+
+	TreeSet is falling under SortedSet used to display values 
+w.r.t. Sorted Order. 
+
+Exception in thread "main" java.lang.ClassCastException: class com.java.day2.Employ cannot be cast to class java.lang.Comparable (com.java.day2.Employ is in unnamed module of loader 'app'; java.lang.Comparable is in module java.base of loader 'bootstrap')
+	at java.base/java.util.TreeMap.compare(TreeMap.java:1563)
+	at java.base/java.util.TreeMap.addEntryToEmptyMap(TreeMap.java:768)
+	at java.base/java.util.TreeMap.put(TreeMap.java:777)
+	at java.base/java.util.TreeMap.put(TreeMap.java:534)
+	at java.base/java.util.TreeSet.add(TreeSet.java:255)
+	at com.java.day2.SortEmploy.main(SortEmploy.java:10)
+
+
+
+The above error comes as Employ class object to be sorted, then we need
+to specify the parameter on which basis we have to sort it out,
+
+then we need the help of Comparator,
+
+comparator is an interface, in this we have compare() 
+
+in that method, we need to write the code on what basis we need to sort out. 
+
+
+Map interface allows you to store data w.r.t. Key/value pairs. 
+
+HashTable and HashMap are falling under this category. 
+
+
+Generics : 
+____________
+
+
+void show(int x) {
+...
+...
+}
+
+show(12);
+
+Generics allows you to pass data types at runtime. 
+
+Generics allows you to write methods as write once and apply for all types (value types/reference types or
+custom types) 
+
+Generics can be defined in <T> 
+
+In place of <T> we can pass any data type. 
+
+Why Generics in Collections : 
+
+The major drawback w.r.t. Collections is, it will not provide security to the data. 
+
+To accomplish we need the help of generics. 
+
+Advantages : 
+______________
+
+	1) Write once and apply for all types
+
+	2) Reduces the size of the program
+
+	3) No Typecasting Required
+
+	4) Provides security to the data. 
+
+
+How generics will work internally ???
+
+
+Whatever methods you wrote for this they generate code in memory, as this is known as code bloat. 
+
+example
+
+public void swap(T a, T b) {
+...
+...
+...
+}
+
+Now, if you call as 
+
+swap(12,5) then, JVM generates code in memory as 
+
+public void swap(int a, int b) {
+...
+...
+...
+}
+
+swap(true,false) then JVM generates code as 
+
+public void swap(boolean a, boolean b) {
+...
+...
+...
+}
+
+this feature known as code-bloat. 
+
+StringBuilder : 
+
+It is mutable, which allows you write and modify the content. 
+
+If you want to append more than one line in a given string object, then we need the help of StringBuilder. 
+
+

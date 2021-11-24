@@ -1,0 +1,24 @@
+<p>condition-ex works!</p>
+
+Status : 
+<input type="checkbox" name="status" [(ngModel)]="status" /> 
+
+<div *ngIf="status==true">
+    <p>
+        Student is Present...
+    </p>
+</div>
+<div *ngIf="status==false">
+    <p>
+        Student is Absent
+    </p>
+</div>
+<!-- {{status}} -->
+
+First CheckBox
+<input type='checkbox' name="ch1" [(ngModel)]="ch1" /> <br/><br/>
+Second CheckBox
+<input type='checkbox' name="ch2" [(ngModel)]="ch2" /> <br/><br/>
+Third CheckBox
+<input type='checkbox' name="ch3" [(ngModel)]="ch3" (click)="clearAll()" /> <br/><br/>
+

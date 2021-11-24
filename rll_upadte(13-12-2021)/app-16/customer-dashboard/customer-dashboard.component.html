@@ -1,0 +1,26 @@
+<div align = "center">
+    <button (click)="home()">HomePage</button>
+<h1>Customer Dashboard</h1>
+<div id = "dashboard">
+
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['Customer']}}]"> Customer Details</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerSearch']}}]"> Customer Search</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerInfo']}}]"> Customer Info</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerOrders']}}]"> Customer Orders</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerPendingOrders']}}]"> Customer Pending Orders</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerWallets']}}]"> Customer Wallets</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerWallet']}}]"> Customer Wallet</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['PlaceOrder']}}]"> Place Order</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<router-outlet name="Rllproject"></router-outlet>
+
+</div>
+</div>

@@ -1,0 +1,66 @@
+Business Logic
+
+Event Based Programming
+
+validations 
+
+
+Html will not perform the following as 
+
+	Writing Business Logic
+
+	Event-based Programming 
+
+	Validations
+To start with javascript, use 
+
+<script>
+</script>
+
+By default, <script> tag identifies as javascript. 
+
+You can write business logic, using functions. 
+
+function function_name() {
+...
+...
+...
+}
+
+alert() : Used to display any value message in dialog box.
+
+events :
+
+onload() : This wil be fired automatically once the document loads. 
+
+for button clicks, we have to use onclick. 
+
+
+To change the backGround color, we need to use 
+
+document.bgColor="red";
+
+You can declare variables in javascript, by using 
+
+var keyword. 
+
+parseInt() : used to convert string to integer.
+
+onblur() : this event acts as lost focus event, will be fired automatically once you leave the cursor. 
+
+onchange() : this event fired once you change the staus of checkbox or dropdown. 
+
+alert() Only displays message and disappear. But i want to display message on document, then use <span> tag. 
+
+<span> Used to define the Inline Text. Any success messages or error messages, then we can use span tag. 
+
+
+
+
+
+
+
+
+
+
+

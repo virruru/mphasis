@@ -1,0 +1,726 @@
+1) Which Operator performs pattern matching
+
+A.
+
+BETWEEN operator
+B.
+
+LIKE operator//
+C.
+
+EXISTS operator
+D.
+
+None of these
+
+2) Which operator tests the absence of data 
+
+A.
+
+EXISTS operator
+B.
+
+NOT operator
+C.
+
+IS NULL operator//
+D.
+
+None of these
+
+3) Which command used to change the table storage characterstics///Alter table command//
+
+A.
+
+EXISTS operator
+B.
+
+NOT operator
+C.
+
+IS NULL operator
+D.
+
+None of these
+
+4) Which command used to SELECT only copy of each set of duplicate rows
+
+A.
+
+SELECT DISTINCT//
+B.
+
+SELECT UNIQUE
+C.
+
+SELECT DIFFERENT
+D.
+
+All of the above
+
+5) Identify the correct command below
+
+A.
+
+SELECT Username AND Password FROM Users
+B.
+
+SELECT Username, Password FROM Users//
+C.
+
+SELECT Username, Password WHERE Username = 'user1'//
+D.
+
+None of these
+
+6) From clause used for 
+
+A.
+
+specify what table we are selecting or deleting data FROM//
+B.
+
+specify range for search condition
+C.
+
+specify search condition
+D.
+
+None of these
+ 
+  
+7) Which clause used to retrieve unique values
+
+A.
+
+DISTINCTIVE
+B.
+
+UNIQUE
+C.
+
+DISTINCT//
+D.
+
+DIFFERENT
+
+8) How to display max value
+
+A.
+
+TOP
+B.
+
+MOST
+C.
+
+UPPER
+D.
+
+MAX//
+
+9) What is View
+
+A.
+
+A view is a special stored procedure executed when certain event occurs.
+B.
+
+A view is a virtual table which results of executing a pre-compiled query. A view is not part of the physical database schema, while the regular tables are.//
+C.
+
+A view is a database diagram.
+D.
+
+None of these
+
+10) Identify aggregate function below
+
+.
+
+LEFT
+B.
+
+AVG//
+C.
+
+JOIN
+D.
+
+LEN
+
+11) Which command used to modify data in table
+
+A.
+
+SAVE
+B.
+
+UPDATE//
+C.
+
+SAVE AS
+D.
+
+MODIFY
+
+12) Which command used to delete data from table(dont retrieve back)
+
+A.
+
+COLLAPSE
+B.
+
+REMOVE
+C.
+
+ALTER
+D.
+
+TRUNCATE//
+
+13) How to sort data in database tables
+
+A.
+
+SORT BY
+B.
+
+ORDER
+C.
+
+ORDER BY//
+D.
+
+SORT
+
+14) select substr('123456789',instr('abcabcabc','b'),4) from dual;
+
+A.
+
+6789
+B.
+
+2345//
+C.
+
+1234
+D.
+
+456789
+
+15) Which group function ignores null values
+
+A.
+
+MAX
+B.
+
+COUNT
+C.
+
+SUM
+D.
+
+All of the above//
+
+16) Table Employ has 10 records, identify the result for below query
+
+select count(*) from Employ where salary > any(select salary from employ)
+
+A.
+
+10
+B.
+
+9
+C.
+
+5
+D.
+
+0//
+
+17) select round(45.926,-1) from dual;//-1 means round off 50
+
+18) Which of following must be enclosed in double quotes
+
+A.
+
+Dates
+B.
+
+Column Alias//
+C.
+
+Strings
+D.
+
+All of the above
+
+19) How to Undo the changes of table dml operations
+
+A.
+
+ROLLBACK//
+B.
+
+COMMIT
+C.
+
+TRUNCATE
+D.
+
+DELETE
+
+20) Find all cities whose humidity is 89
+
+A.
+
+SELECT city WHERE humidity = 89;
+B.
+
+SELECT city FROM weather WHERE humidity = 89;//
+C.
+
+SELECT humidity = 89 FROM weather;
+D.
+
+SELECT city FROM weather;
+
+21) Find temparature in increasing order of all cities
+
+A.
+
+SELECT city FROM weather ORDER BY temperature;
+B.
+
+SELECT city, temperature FROM weather;
+C.
+
+SELECT city, temperature FROM weather ORDER BY temperature;
+D.
+
+SELECT city, temperature FROM weather ORDER BY city;//
+
+22) What is meaning of like '%0%0%'
+
+A.
+
+Feature begins with two 0's
+B.
+
+Feature ends with two 0's
+C.
+
+Feature has more than two 0's
+D.
+
+Feature has two 0's in it, at any position//
+
+23) Display information where condition is sunny or cloudy
+
+SELECT city, temperature, condition FROM weather WHERE condition NOT IN ('sunny', 'cloudy');
+B.
+
+SELECT city, temperature, condition FROM weather WHERE condition NOT BETWEEN ('sunny', 'cloudy');
+C.
+
+SELECT city, temperature, condition FROM weather WHERE condition IN ('sunny', 'cloudy');//
+ 
+  
+
+D.
+
+SELECT city, temperature, condition FROM weather WHERE condition BETWEEN ('sunny', 'cloudy');
+
+24) Find all rows whose temparature is greather than city 'paris' temparature
+
+A.
+
+SELECT * FROM weather WHERE temperature > (SELECT temperature FROM weather WHERE city = 'Paris')
+B.
+
+SELECT * FROM weather WHERE temperature > (SELECT * FROM weather WHERE city = 'Paris')
+C.
+
+SELECT * FROM weather WHERE temperature > (SELECT city FROM weather WHERE city = 'Paris')//
+D.
+
+SELECT * FROM weather WHERE temperature > 'Paris' temperature//
+
+25) Find Rows whose humidity range from 63 to 79
+
+A.
+
+SELECT * FROM weather WHERE humidity IN (63 to 79)
+B.
+
+SELECT * FROM weather WHERE humidity NOT IN (63 AND 79)
+C.
+
+SELECT * FROM weather WHERE humidity BETWEEN 63 AND 79//
+D.
+
+SELECT * FROM weather WHERE humidity NOT BETWEEN 63 AND 79
+
+26) Display information whose condition is 'sunny'
+
+A.
+
+SELECT country FROM location WHERE condition = 'sunny';
+B.
+
+SELECT country FROM location WHERE city IN (SELECT city FROM weather WHERE condition = sunny');
+C.
+
+SELECT country FROM location WHERE city NOT IN (SELECT city FROM weather WHERE condition = 'sunny');
+D.
+
+SELECT country FROM location WHERE city UNION (SELECT city FROM weather WHERE condition = 'sunny');
+
+27) select 'hi' from dual where null=null
+
+A.
+
+Hi
+B.
+
+FLASE
+C.
+
+TRUE
+D.
+
+Nothing//
+
+28) Which command is illegal
+
+A.
+
+SELECT SYSDATE - SYSDATE FROM DUAL;
+B.
+
+SELECT SYSDATE - (SYSDATE - 2) FROM DUAL;
+C.
+
+SELECT SYSDATE - (SYSDATE + 2) FROM DUAL;
+D.
+
+None of these//
+
+29) if query contains NOT, AND, OR with no parenthisis
+
+A.
+
+NOT will be evaluated first; AND will be evaluated second; OR will be evaluated last.//
+B.
+
+NOT will be evaluated first; OR will be evaluated second; AND will be evaluated last.
+C.
+
+AND will be evaluated first; OR will be evaluated second; NOT will be evaluated last.
+D.
+
+The order of occurrence determines the order of evaluation.
+
+30) if 
+
+select ename from emp returns 10 rows then
+
+select all ename from emp returns 
+
+A.
+
+less than 10 rows
+B.
+
+more than 10 rows
+C.
+
+exactly 10 rows//
+D.
+
+None of these
+
+31) inner join also known as 
+
+A.
+
+Non-Equijoin
+B.
+
+Self-Join
+C.
+
+Equijoin//
+D.
+
+None of these
+
+32) Which is not sql constraint
+
+A.
+
+PRIMARY KEY
+B.
+
+ALTERNATE KEY//
+C.
+
+FOREIGN KEY
+D.
+
+UNIQUE
+
+33) A virtual table that constructed from other tables
+
+A.
+
+view//
+B.
+
+A relation
+C.
+
+Just another table
+D.
+
+Query results
+
+34) When you are using INSERT command
+
+A.
+
+rows cannot be copied in mass from one table to another only.
+B.
+
+rows can be modified according to criteria only.
+C.
+
+rows can either be inserted into a table one at a time or in groups.//
+D.
+
+rows can be inserted into a table only one at a time only.
+
+35) Sql Alter command used for 
+
+A.
+
+change the table data.//
+B.
+
+change the table structure.
+C.
+
+delete rows from the table.
+D.
+
+add rows to the table.
+
+36) How to delete column from table
+
+A.
+
+MODIFY TABLE TableName DROP ColumnName
+B.
+
+MODIFY TABLE TableName DROP COLUMN ColumnName
+C.
+
+ALTER TABLE TableName DROP ColumnName
+D.
+
+ALTER TABLE TableName DROP COLUMN ColumnName//
+
+37) How to add columsn to table
+
+A.
+
+ALTER TABLE TableName ADD ColumnName
+B.
+
+ALTER TABLE TableName ADD COLUMN ColumnName//
+C.
+
+MODIFY TABLE TableName ADD ColumnName
+D.
+
+MODIFY TABLE TableName ADD COLUMN ColumnName
+
+38) How to delete rows from customer table
+
+A.
+
+DROP FROM CUSTOMER ...
+B.
+
+UPDATE FROM CUSTOMER ...
+C.
+
+REMOVE FROM CUSTOMER ...
+D.
+
+DELETE FROM CUSTOMER WHERE ...//
+
+39) Where clause used for 
+
+A.
+
+limits the row data are returned.//
+B.
+
+limits the column data that are returned.
+C.
+
+Both A and B are correct.
+D.
+
+Neither A nor B are correct.
+
+40) How to delete table from database
+
+.
+
+DROP TABLE CUSTOMER;//
+B.
+
+DELETE TABLE CUSTOMER;
+C.
+
+REMOVE TABLE CUSTOMER;
+D.
+
+UPDATE TABLE CUSTOMER;
+
+41) Keyword used in wildcards
+
+A.
+
+NOT IN only
+B.
+
+LIKE only//
+C.
+
+IN only
+D.
+
+IN and NOT IN
+
+42) Subquery in SELECT enclosed in
+
+A.
+
+parenthesis -- (...)//.
+B.
+
+brackets -- [...].
+C.
+
+CAPITAL LETTERS.
+D.
+
+braces -- {...}.
+
+43) Having clause used for 
+
+A.
+
+Acts EXACTLY like a WHERE clause.
+B.
+
+Acts like a WHERE clause but is used for columns rather than groups.
+C.
+
+Acts like a WHERE clause but is used for groups rather than rows.
+D.
+
+Acts like a WHERE clause but is used for rows rather than columns.//
+
+44) What is correct command below
+
+A.
+
+SELECT name, course_name FROM student WHERE age>50 and <80;
+B.
+
+SELECT name, course_name FROM student WHERE age>50 and age <80;//
+C.
+
+SELECT name, course_name FROM student WHERE age>50 and WHERE age<80;
+D.
+
+None of these
+
+45) Display all records whose name starts with 'r'
+
+A.
+
+SELECT * FROM student WHERE name LIKE 'r%';//
+B.
+
+SELECT * FROM student WHERE name LIKE '%r%';
+C.
+
+SELECT * FROM student WHERE name LIKE '%r';
+D.
+
+SELECT * FROM student WHERE name LIKE '_r%';
+
+______________________________________________________________________________________________________
+
+1) What is the below command returns
+
+select Empno,Ename from Emp 
+Having Sal > 3000;//error
+
+2) select count(comm) from Emp //4 it counts the comm is not null
+
+3) 
+select empno,ename,sal from emp
+order by ename
+where sal > 2000;//erroe
+
+4) select job, sum(sal), count(*) from Emp 
+where job in('CLERK','MANAGER','PRESIDENT')
+group by job
+having sum(sal) > 2000 
+order by job;
+JOB         SUM(SAL)   COUNT(*)
+--------- ---------- ----------
+CLERK           4150          4
+MANAGER         8275          3
+PRESIDENT       5000          1
+
+5) Which join generates cartician product of table rows //cross join
+
+6) Write a query which displays all records whose name starts with J and 5th char is S
+
+7) Which clause used to eliminate duplicatates at time of display //group by
+
+8) Write a query to retrieve all records whose comm not null//select * from emp where comm is NOT NULL;
+
+9) select * from Emp 
+order by job,ename//job alphabetic order and ename is alphabetic order
+
+returns 
+
+10) What is the output
+
+select job,sum(sal) from Emp
+where job in('PRESIDENT','CLERK','MANAGER')
+group by job 
+order by job;
+CLERK           4150
+MANAGER         8275
+PRESIDENT       5000
+
+11) What the below command returns
+
+select c.ccode,f.FacCode,c.Name, F.Name,Fee ,Qual from Courses c
+INNER join COURSE_FACULTY cf on c.CCODE = cf.CCODE INNER JOIN Faculty f on cf.FACCODE = f.FACCODE ;
+
+
+12) Is any table can be joined with itself ???//yes
+

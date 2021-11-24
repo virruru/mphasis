@@ -1,0 +1,39 @@
+<div class = "info">
+<p>Place Order here...</p>
+<form id="placeOrder" >
+   <div id="define"> Customer Id</div>
+    <input type="number" readonly name="orderdetails.cus_id" [(ngModel)]= "orderdetails.cus_id" /> <br><br>
+    <div id="define"> Menu Item</div>
+    <select [(ngModel)]="orderdetails.men_id" name="men_id" (change)="showAmount()">
+        <option value="">Select Menu Item</option>
+    <option *ngFor="let e of menu | async" value={{e.men_id}}>
+           {{e.men_item}}
+    </option>
+    </select><br><br>
+    <div id="define"> Menu Price</div>
+    <input type="number" name="price" [(ngModel)]="price" readonly /><br><br>
+    <div id="define"> Vendor Name</div>
+    <select [(ngModel)]="orderdetails.ven_id" name="ven_id">
+        <option value="">Select Vendor</option>
+    <option *ngFor="let f of vendor | async" value={{f.ven_id}}>
+            {{f.ven_name}}
+        </option>
+    </select><br><br>
+    <div id="define"> Order Date</div>
+    <input type="date" name="orderdetails.ord_date" [(ngModel)]="orderdetails.ord_date" /> <br><br>
+    <div id="define"> Order Quantity</div>
+    <input type="number"  [(ngModel)]="orderdetails.ord_quantity" name="ord_quantity" /><br><br>
+    <div id="define"> Your Wallet</div>
+    <select [(ngModel)]="orderdetails.wal_source" name="wal_source">
+        <option value="">Choose Wallet</option>
+        <option *ngFor="let f of wallet | async" value={{f.wal_source}}>
+            {{f.wal_source}}
+        </option>
+    </select><br><br>
+    <div id="define"> Add Comments</div>
+<input type="text" [(ngModel)]="orderdetails.ord_comments" name="ord_comments" ><br><br>
+<button style="margin-left: 40%;" (click)="placeOrder()">Place Order</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="reset">Reset</button> 
+</form>
+</div>

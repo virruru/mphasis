@@ -1,0 +1,20 @@
+<form id="addMenu" >
+    <table align="center">
+    <tr><th>Menu Name :</th> 
+<td><input type="text" name="menudetails.men_item" [(ngModel)]="menudetails.men_item" />
+ </td></tr>
+
+    <tr><th>Menu price: </th>
+      <td> <input type="number" name="menudetails.men_price" [(ngModel)]="menudetails.men_price" />
+    </td></tr> 
+
+    <tr><th>Menu calories:</th> 
+    <td><input type="number" name="menudetails.men_calories" [(ngModel)]="menudetails.men_calories"/>
+     </td></tr>
+    <tr><th>Menu Speciality:</th> 
+        <td><input type="text" name="menudetails.men_speciality" [(ngModel)]="menudetails.men_speciality" />
+         </td></tr>
+         
+<tr><th><input type="button" value="addMenu" (click)="addMenu()"/></th></tr>
+</table>
+</form>

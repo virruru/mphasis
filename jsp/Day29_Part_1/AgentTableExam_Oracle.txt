@@ -1,0 +1,24 @@
+Create Table Agent
+(
+  AgentID number primary key,
+  Name varchar2(30),
+  City varchar2(30),
+  GENDER varchar2(10),
+  MaritalStatus number,
+  Premium number(9,2)
+);
+
+Insert into Agent(AgentId,Name,City,Gender,
+MaritalStatus,Premium) values(1,'Aman','Delhi','Male',0,56654.44);
+
+Insert into Agent(AgentId,Name,City,Gender,
+MaritalStatus,Premium) values(2,'Sougata','Kolkata','Male',1,56643.33);
+
+Insert into Agent(AgentId,Name,City,Gender,
+MaritalStatus,Premium) values(3,'Sarbani','Kolkata','Female',0,66433.55);
+
+Insert into Agent(AgentId,Name,City,Gender,
+MaritalStatus,Premium) values(4,'Chandana','Hyderabad','Female',0,66334.44);
+
+commit;
+

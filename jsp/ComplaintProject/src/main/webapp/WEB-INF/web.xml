@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>mphasis.ComplaintProject</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ComplaintShowServlet</display-name>
+    <servlet-name>ComplaintShowServlet</servlet-name>
+    <servlet-class>mphasis.ComplaintProject.ComplaintShowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ComplaintShowServlet</servlet-name>
+    <url-pattern>/ComplaintShowServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ComplaintSearchServlet</display-name>
+    <servlet-name>ComplaintSearchServlet</servlet-name>
+    <servlet-class>mphasis.ComplaintProject.ComplaintSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ComplaintSearchServlet</servlet-name>
+    <url-pattern>/ComplaintSearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddComplaintservlet</display-name>
+    <servlet-name>AddComplaintservlet</servlet-name>
+    <servlet-class>mphasis.ComplaintProject.AddComplaintservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddComplaintservlet</servlet-name>
+    <url-pattern>/AddComplaintservlet</url-pattern>
+  </servlet-mapping>
+</web-app>

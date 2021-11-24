@@ -1,0 +1,20 @@
+Create Table Complaint
+(
+   ComplaintID varchar2(30) primary key,
+   ComplaintType varchar2(30),
+   CDescription varchar2(100),
+   ComplaintDate date,
+   Severity varchar2(20),
+   Status varchar2(30) default 'Pending'
+);
+
+
+
+Create Table Resolve
+(
+   ComplaintID varchar2(30),
+   ComplaintDate date,
+   ResolveDate date,
+   ResolvedBy varchar2(30),
+   Comments varchar2(100)
+);

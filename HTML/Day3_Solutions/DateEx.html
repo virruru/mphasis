@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function show() {
+		var result="";
+		var today = new Date();
+		result+="Today's Date is  " +today+ "<br/>";
+		var month = today.getMonth();
+        month = month + 1;
+        result+="Month is " +month+ "<br/>";
+        result+="Year is " +today.getFullYear() + "<br/>";
+        result+="Hours  " +today.getHours() + "<br/>";
+        result+="Minutes  " +today.getMinutes() + "<br/>";
+        result+="Seconds  " +today.getSeconds() + "<br/>";
+		document.getElementById("result").innerHTML=result;
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onload="show()">
+	<span id="result"></span>
+</body>
+</html>

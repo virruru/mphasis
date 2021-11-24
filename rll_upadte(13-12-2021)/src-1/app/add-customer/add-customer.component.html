@@ -1,0 +1,14 @@
+<div class="login">
+    <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)" id="addCustomer">
+<h1>Customer Registration</h1><br>
+<input type="text" required placeholder="Name" name="customerdetails.cus_name" autofocus [(ngModel)]="customerdetails.cus_name"><br><br>
+<input type="text" required placeholder="Phone" minlength=10 maxlength=10 name="customerdetails.cus_phn_no" [(ngModel)]="customerdetails.cus_phn_no" /><br><br>
+<input type="text" required placeholder="Username" name="customerdetails.cus_username" [(ngModel)]="customerdetails.cus_username"/><br><br>
+<input type="text" required placeholder="Password"name="customerdetails.cus_password" [(ngModel)]="customerdetails.cus_password" /><br><br>
+<input type="email" required placeholder="Email" name="customerdetails.cus_email" [(ngModel)]="customerdetails.cus_email" /><br><br>
+<button> Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="reset">Reset</button>
+<div class="info">
+<p>Already a Customer?  <a [routerLink]="['/CustomerLogin']" style="text-decoration: none;">Login</a> here!</p>
+</div>
+</form>

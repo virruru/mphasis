@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function show() {
+		if (frmData.chkStatus.checked==true) {
+			alert("Active...");
+		} else {
+			alert("Inactive...");
+			}
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="frmData">
+		Select Status : 
+		<input type="checkbox" name="chkStatus" onchange="show()" /> 
+		
+	</form>
+</body>
+</html>

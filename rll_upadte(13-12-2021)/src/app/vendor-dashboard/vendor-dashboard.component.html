@@ -1,0 +1,15 @@
+<div class = "dashboard">
+<h1>Welcome {{ven.ven_name}}</h1>
+<nav>
+  <div id="home"><a [routerLink]="['']">Home</a></div>
+<ul id="menulist">
+  <li><a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['Vendor']}}]">Vendors Details</a> </li>
+  <!-- <li><a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['VendorSearch']}}]"> Vendor Search</a> </li> -->
+  <li><a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['VendorInfo']}}]"> Your Info</a> </li>
+  <li><a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['VendorOrders']}}]"> Your Orders</a> </li>
+  <li><a [routerLink]="['/VendorDashboard',{outlets: {'Rllproject': ['VendorPendingOrders']}}]"> Your Pending Orders</a> </li>
+</ul>
+</nav>
+<router-outlet name="Rllproject"></router-outlet>
+</div>
+

@@ -1,0 +1,145 @@
+Spring
+
+What is Spring Framework 
+
+What is Dependency Injection 
+
+Dependency 
+
+class Family
+{
+    String familyName;
+    int noOfMembers;
+
+    // getters and setters
+
+}
+
+class Job
+{
+    String desig;
+    double ctc;
+    String jobLocation;
+    String company;
+
+    // getters and setters
+}
+
+class Person 
+{
+    int Id;
+    String fname;
+    String lname;
+    String passPortNo;
+    String panNo;
+    String aadharNo;
+    Family family;
+    Job job;
+
+   // getters and setters
+}
+
+
+Person personUday = new Person();
+
+personUday.setId(1);
+personUday.setFirstName("Uday");
+personUday.setLastName("Prakash");
+personUday.setPassportNo("848238488485");
+personUday.setPanNo("adfsjkaskjlfd");
+personUday.setAadharNo(488482384);
+personUday.family.setNoofMembers(4);
+personUday.family.setSirName("Mallikharjun");
+
+
+personUday.job.setDesig("Trainee");
+personUday.job.setCtc(488235);
+personUday.job.setLocation("Bangalore");
+personUday.job.setCompany("Mphasis");
+
+Spring is a framework that which allows you to make any light weight applications,
+If you want to make any application as light-weight and loosely coupled and 
+tightly integrated applications we need to do, then we need the help of Spring framework. 
+
+
+Spring framework can be used in modular fashion, it allows to use in parts and leave the other components which is not required by the application.
+
+
+2. Dependency Injection: 
+
+In this application objects is not responsible for looking up resources they depend on. Instead IoC container configures the object externalizing resource lookup from application code into the container. That is, dependencies are injected into objects. Thus lookups are completely removed from application objects and it can be used outside the container also. 
+
+public class NameBean
+{
+    private String studentName;
+   
+    public String getStudentName() {
+       return  studentName;
+    }
+
+    public void setStudentName(String studentName) {
+         this.studentName=studentName;
+    }
+}
+
+
+NameBean obj = new NameBean();
+obj.setStudentName("Bhanu");
+
+But, please stop the way of writing now on.  
+
+Instead of, as NameBean is having a dependency as name, then we need to inject automatically as 
+
+create an xml file and in that you write the below code. 
+
+name.xml 
+
+
+<bean id="bean1" class="NameBean">
+   <propert name="studentName" value="Bharat" /> 
+</bean>
+
+APPLICATION CONTEXT: 
+While Bean Factory is used for simple applications, the Application Context is spring's more advanced container. Like 'BeanFactory' it can be used to load bean definitions, wire beans together and dispense beans upon request. 
+
+It also provide 
+1) a means for resolving text messages, including support for internationalization. 
+2) a generic way to load file resources. 
+3) events to beans that are registered as listeners. 
+
+
+ApplicationContext ctx = new ClassPathXmlApplicationContext("name.xml");
+NameBean bean = (NameBean)ctx.getBean("bean1");
+
+
+Object will be created and all the setters are injected automatically. 
+
+*** this is known as Dependency Injection ***
+
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-beans</artifactId>
+    <version>4.3.3.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>4.3.3.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>4.3.3.RELEASE</version>
+</dependency>
+
+
+
+
+
+
+
+
+
+
+
+

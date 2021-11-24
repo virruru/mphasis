@@ -1,0 +1,17 @@
+<div class = "login">
+<h1>Vendor Login </h1><br>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <input type="text" name="username" placeholder="UserName" id="uname" [(ngModel)]="username" required><br><br>
+    <input type="password" name="password" placeholder="Password" id="pword" [(ngModel)]="password" required><br><br>
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+    <button>Login</button>&nbsp; &nbsp; &nbsp; &nbsp;
+    <button type="reset">Reset</button>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <!-- <a [routerLink]="['/addVendor']">Sign up</a> -->
+    <div class="info">
+        <p>Not a Vendor here? 
+        <a [routerLink]="['/addVendor']" style="text-decoration: none;">Sign up</a> here!
+        </p></div>
+
+</form>
+</div>

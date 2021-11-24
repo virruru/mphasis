@@ -1,0 +1,72 @@
+enumeration means :
+
+collections of constant values. 
+
+SimpleDateFormat used to convert Date to string and String to date. 
+
+SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+sdf.format() : used to convert date to string. 
+
+sdf.parse() : used to convert String to date. 
+
+throw keyword : 
+
+	if you want to throw the Exceptions based on the condition, then we need the help of throw keyword. 
+
+means, write a program as accept a number, if number < 0 then throw ArithmeticException, if number = 0 then throw NumberFormatExcption, else print the number, 
+
+Difference between throws and throw keyword 
+___________________________________________
+
+throws will be at class level
+
+throw will be at code level
+
+throws keyword allows you to throw Exception class. 
+
+throw keyword will throw an exception object. 
+
+System exceptions are inadequate in all the situations, then we need the help of
+custom excepitons. Any class, that which derived from Exception can be treated as
+custom exception. 
+
+
+Write a program as accept age, if age < 18 then throw Exception as VotingException. 
+else print the age. 
+
+Write a program sum of 2 numbers, if any number < 0 then throw NegativeException, if any number = 0 then
+throw NumberZeroException else print the sum. 
+
+Collections :
+
+1) Scanner :
+
+	Used to accept data from keyboard or file etc...
+
+	Scaner sc = new Scanner(System.in);
+
+	next() -> used to read a word
+
+	nextLine() -> Used to read a sentence
+
+	nextInt()
+
+	nextDouble()
+
+	nextBoolean()
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

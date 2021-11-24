@@ -1,0 +1,2 @@
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"empno":"121","name":"Rahul","dept":"Oracle","gender":"MALE","desig":"Programmer","basic":"88766"}' "http://localhost:8080/result/webapi/employ/addemploy"
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"agentid":"12","name":"Srinivas","city":"Vishakapatnam","gender":"MALE","maritalstatus":"0","premium":"34567.90"}' "http://localhost:8080/agentResult/webapi/agent/addagent"

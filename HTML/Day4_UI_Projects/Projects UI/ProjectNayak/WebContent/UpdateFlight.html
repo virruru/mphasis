@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<link type="text/css" rel="stylesheet" href="css/Admin.css" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {
+		var today = new Date();
+		$('.datepicker').datepicker({
+			format : 'mm-dd-yyyy',
+			autoclose : true,
+			startDate : "today",
+			minDate : today
+		}).on('changeDate', function(ev) {
+			$(this).datepicker('hide');
+		});
+
+		$('.datepicker').keyup(function() {
+			if (this.value.match(/[^0-9]/g)) {
+				this.value = this.value.replace(/[^0-9^-]/g, '');
+			}
+		});
+	});
+</script>
+<meta charset="ISO-8859-1">
+<title>Horizon Airways</title>
+</head>
+<body>
+	<form>
+		<script>
+			function goBack() {
+				window.history.back()
+			}
+		</script>
+	</form>
+	<table width="100%">
+		<i class="fa fa-chevron-circle-left" type="button" value="Go back!"
+			style="font-size: 26px" onclick="history.back()"></i>
+		<tr height="40px" id="img1">
+			<th><center>
+					<img src="images/logo_new.PNG" height="122" width="642">
+
+				</center></th>
+		</tr>
+		<tr id="img2">
+			<th><div class="topnav">
+
+					<a href="Search.jsp">Customer Home Page</a>
+
+
+				</div> <br> <br>
+				<form method="post" action="UpdateFlightServlet">
+					<div class="abc">
+						<div>
+							<table border='0' width='480px' cellpadding='0' cellspacing='0'
+								align='center'>
+								<center>
+									<tr>
+										<td align='center' colspan="2"><h1>Update a Flight</h1></td>
+									</tr>
+								</center>
+
+
+								<tr>
+									<td align='center'>Flight Id:<font style="color: red;">*</font></td>
+									<td><input type='text' name='id' required="required"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td align='center'>Company Name:<font style="color: red;">*</font></td>
+									<td><input type='text' name='name' required="required"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td align='center'>From:<font style="color: red;">*</font></td>
+									<td><input type='text' name='from' required="required"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td align='center'>To:<font style="color: red;">*</font></td>
+									<td><input type='text' name='to' required="required"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td align='center'>Departure Date :<font
+										style="color: red;">*</font></td>
+									<td><input type="text" class="datepicker" name="date"
+										required="required"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+
+								<tr>
+									<td align='center'>Departure Time:<font
+										style="color: red;">*</font></td>
+									<td><input type="time" name="depart_time"
+										required="required"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td align='center'>Arrival Time:<font style="color: red;">*</font></td>
+									<td><input type="time" name="arrival_time"
+										required="required"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td align='center'>Price<font style="color: red;">*</font></td>
+									<td><input type="number" name="price" required="required"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td align='center'>Number of seats</td>
+									<td><input type="number" name="seats"></td>
+								</tr>
+
+
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<table border='0' cellpadding='0' cellspacing='0' width='480px'
+									align='center'>
+									<tr>
+										<td align='center'><button id="button" type="submit"
+												style="background-color: #8d94e9; width: 200px; height: 30px">
+												<b>Update</b>
+											</button></td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+								</table>
+							</table>
+						</div>
+					</div>
+					<br> <br> <br> <br>
+				</form></th>
+		</tr>
+	</table>
+
+
+</body>
+</html>

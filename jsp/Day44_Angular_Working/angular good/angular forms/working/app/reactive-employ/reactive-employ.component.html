@@ -1,0 +1,66 @@
+<p>reactive-employ works!</p>
+<form [formGroup]="employForm" 
+   (ngSubmit)="onFormSubmit()">
+   <table>
+    <tr> 
+      <td>Employ No:</td>
+      <td> 
+          <input formControlName="empno">
+            <div *ngIf="employForm.get('empno').invalid &&
+               isValidFormSubmitted != null && 
+               !isValidFormSubmitted" [ngClass] = "'error'"> 
+             Employ No required. 
+          </div>
+      </td>
+    </tr> 
+    <tr> 
+        <td>Employ Name:</td>
+        <td> 
+            <input formControlName="name">
+              <div *ngIf="employForm.get('name').invalid &&
+                 isValidFormSubmitted != null && 
+                 !isValidFormSubmitted" [ngClass] = "'error'"> 
+               Name required. 
+            </div>
+        </td>
+      </tr> 
+      <tr> 
+        <td>Employ Department:</td>
+        <td> 
+            <input formControlName="dept">
+              <div *ngIf="employForm.get('dept').invalid &&
+                 isValidFormSubmitted != null && 
+                 !isValidFormSubmitted" [ngClass] = "'error'"> 
+               Department required. 
+            </div>
+        </td>
+      </tr> 
+      <tr> 
+        <td>Employ Designation:</td>
+        <td> 
+            <input formControlName="desig">
+              <div *ngIf="employForm.get('desig').invalid &&
+                 isValidFormSubmitted != null && 
+                 !isValidFormSubmitted" [ngClass] = "'error'"> 
+               Designation required. 
+            </div>
+        </td>
+      </tr> 
+      <tr> 
+        <td>Employ Basic:</td>
+        <td> 
+            <input formControlName="basic">
+              <div *ngIf="employForm.get('basic').invalid &&
+                 isValidFormSubmitted != null && 
+                 !isValidFormSubmitted" [ngClass] = "'error'"> 
+               Basic required. 
+            </div>
+        </td>
+      </tr> 
+    <tr> 	  
+        <td colspan="2">
+           <button>Submit</button>
+      </tr>	   
+    </table>
+
+</form>

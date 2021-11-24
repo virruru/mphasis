@@ -1,0 +1,119 @@
+for loop : this loop executes all the statements repeatedly until the condition remains true, if the condition remains false, then it comes out of the loop. 
+
+for(initialization;condition;increment/decrement) {
+...
+...
+...
+}
+
+_______________________________________________________________________________
+
+Array : 
+
+An array is the finite ordered set of homogeneous elements, means all the elements
+belongs to same data type. 
+
+All the elements of array are stored in successive memory locations. 
+
+int[] a=new int[]{12,5,66,23,773,235};
+
+How the foreach loop will be executed internally
+
+	int[] a = new int[] {12,66,33,88,62};
+		for (int i : a) {
+			System.out.println(i);
+		}
+
+In the above foreach loop, variable i first points to the first element in array A, after processing first element, it checks next element is there or not by using hasMoreElements(), if hasMoreElements() returns true, it moves to the next element by using nextElement(), it repeats as soon as hasMoreElements() returns true. 
+
+There are 2 types of memories as 
+
+	(i) STACK
+
+	(ii) HEAP 
+
+*** Value types will be stored in STACK memory, and reference types will be stored in HEAP memory ***
+
+Strings are immutable, means once they are assigned we cannot change the value by using any string methods. 
+
+Boxing and Unboxing : 
+______________________
+
+The concept of converting value types to reference type known as boxing, and 
+reference types to value types known as unboxing. 
+
+Object is type that which can be used for boxing and unboxing. 
+
+
+int a;
+
+a="Hello";
+a=12;
+a=12.5;
+
+
+Object a;
+
+a="Hello";
+a=12;
+a=12.5;
+
+Object is common container of data, but we can store value, cannot perform any operations on that. 
+
+For this we need to unbox the data. 
+
+Object a="Hello";
+
+String s1=(String)a;
+
+Object a=12;
+int s2=(Integer)a;
+
+Object a=12.5;
+double b1=(Double)a;
+
+
+java.lang.Object is the toplevel class, it has various methods as
+
+   hashCode() : Displays the memory location address. 
+
+   getClass() : Displays the data type in the object. 
+
+   toString() : This method will be called automatically once you print the object. 
+
+
+Method Overloading : 
+_____________________
+
+The concept of using the same method name w.r.t. Different data types or parameters known as method overloading. 
+
+Here, the method name must be same, but no.of parameters or type of parameters we are using are different. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

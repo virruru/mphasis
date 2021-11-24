@@ -1,0 +1,14 @@
+<div align="center">
+<h1>vendorlogin </h1>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <input type="text" name="username" placeholder="UserName" id="uname" [(ngModel)]="username" required><br><br>
+    <input type="password" name="password" placeholder="Password" id="pword" [(ngModel)]="password" required><br><br>
+    <input type="submit" value="login"/> &nbsp; &nbsp; &nbsp; &nbsp;
+    <input type="reset" value="reset"/>
+     <div *ngIf="loginForm.submitted && isFormSubmitted==false"> 
+        <p style="color:red">
+            Please Enter UserName and Password...
+           </p>
+         </div>
+    </form>
+    </div>

@@ -1,0 +1,135 @@
+package com.java.agent;
+
+public class AgentExam {
+	private int AgentID;
+	private String Name;
+	private String City;
+	private String GENDER;
+	private int MaritalStatus;
+	private double Premium;
+	public int getAgentID() {
+		return AgentID;
+	}
+	public void setAgentID(int agentID) {
+		AgentID = agentID;
+	}
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public String getCity() {
+		return City;
+	}
+	public void setCity(String city) {
+		City = city;
+	}
+	public String getGENDER() {
+		return GENDER;
+	}
+	public void setGENDER(String gENDER) {
+		GENDER = gENDER;
+	}
+	public int getMaritalStatus() {
+		return MaritalStatus;
+	}
+	public void setMaritalStatus(int maritalStatus) {
+		MaritalStatus = maritalStatus;
+	}
+	public double getPremium() {
+		return Premium;
+	}
+	public void setPremium(double premium) {
+		Premium = premium;
+	}
+	@Override
+	public String toString() {
+		return "AgentExam [AgentID=" + AgentID + ", Name=" + Name + ", City=" + City + ", GENDER=" + GENDER
+				+ ", MaritalStatus=" + MaritalStatus + ", Premium=" + Premium + "]";
+	}
+	
+
+}
+______________________________________________________________________________________________
+package com.java.agent;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class AgentDAO {
+	Connection connection;
+	PreparedStatement pst;
+	public String AddAgentExam(AgentExam agent) throws ClassNotFoundException, SQLException
+	{
+		connection = ConnectionHelper.getConnection();
+		int agentid = generateAgentId();
+		agent.setAgentID(agentid);
+		String cmd = "Insert into AgentExam(AgentId,Name,City,Gender,MaritalStatus,Premium)" + "values(?,?,?,?,?,?)";
+		pst = connection.prepareStatement(cmd);
+		pst.setInt(1, agentid);
+		pst.setString(2,agent.getName());
+		pst.setString(3,agent.getCity());
+		pst.setString(4, agent.getGENDER());
+		pst.setInt(5,agent.getMaritalStatus());
+		pst.setDouble(6,agent.getPremium());
+		pst.executeUpdate();
+		return "Add agent successfullycompleted...";
+		
+	}
+	public int generateAgentId() throws SQLException, ClassNotFoundException {
+		connection = ConnectionHelper.getConnection();
+		String cmd = " select case when max(AgentId) is NULL"
+				+ " then 1 else max(AgentId)+1 end agentid from AgentExam ";
+		pst = connection.prepareStatement(cmd);
+		ResultSet rs = pst.executeQuery();
+		rs.next();
+		int AgentId= rs.getInt("agentid");
+		return AgentId;
+	}
+
+}
+________________________________________________________________
+package com.java.agent;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class AddAgentMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		AgentExam agent = new AgentExam();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enetr agent id");
+		agent.setAgentID(sc.nextInt());
+		System.out.println("Enter Name");
+		agent.setName(sc.next());
+		System.out.println("enetr city");
+		agent.setCity(sc.next());
+		System.out.println("Enetr gender");
+		agent.setGENDER(sc.next());
+		System.out.println("enetr martialstatues");
+		agent.setMaritalStatus(sc.nextInt());
+		System.out.println("enetr primium");
+		agent.setPremium(sc.nextDouble());
+		AgentDAO dao = new AgentDAO();
+		try {
+			System.out.println(dao.AddAgentExam(agent));
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+
+	}
+
+}

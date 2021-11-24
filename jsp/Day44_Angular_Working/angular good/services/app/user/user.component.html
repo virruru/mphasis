@@ -1,0 +1,24 @@
+<p>user works!</p>
+<input
+type="text"
+class="form-control"
+name="searchString"
+placeholder="Type to search..."
+[(ngModel)]="searchString"
+/>
+<table border="3">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>UserName</th>
+        <th>Email</th>
+    </tr>
+    <tr *ngFor="let u of users | async">
+
+    <!-- <tr *ngFor="let u of users | async"> -->
+        <td>{{u.id}} </td>
+        <td>{{u.name}}</td>
+        <td>{{u.username}}</td>
+        <td>{{u.email}}</td>
+    </tr>
+</table>

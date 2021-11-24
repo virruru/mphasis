@@ -1,0 +1,370 @@
+Cursors in database allows you to fetch data row by row. 
+
+example : 
+
+select * from emp in that lot of records will come, these records to fetch
+row by row and display, then we need the help of cursors. 
+
+In stored procedures we did not come across how to print all the table
+records in user-defined format, that thing can be done by using 
+cursors. 
+
+Steps to create a cursor
+
+declare 
+   cursor cursor_name is select command 
+
+You need top open the cursor. 
+
+open cursor_name
+
+We need to load the table values into variables. 
+
+then fetch command will be used
+
+fetch cursor_name into variables. 
+
+rowCount : Used to find out total no.of rows for the particular select command.
+___________________________________________________________________________________________
+
+
+
+Write a cusor to print all records of emp table, as print 
+
+Ename, Sal,Job,Empno into the variables and prin. 
+
+
+declare
+   cursor cursor_emp is
+	select empno,ename,job,sal from emp;
+   eno emp.empno%type;
+   nam emp.ename%type;
+   dsg emp.job%type;
+   bas emp.sal%type;
+   cnt number;
+begin
+    select count(*) into cnt from Emp;
+    open cursor_emp;
+    loop
+       fetch cursor_emp into eno,nam,dsg,bas;
+       dbms_output.put_line('Employ No   ' ||eno);
+       dbms_output.put_line('Employ Name  ' ||nam);
+       dbms_output.put_line('Job ' ||dsg);
+       dbms_output.put_line('Salary ' ||bas);
+       dbms_output.put_line('--------------------------------------');
+       exit when cursor_emp%rowcount=cnt;
+    end loop;
+    close cursor_emp;
+end;
+
+_______________________________________________________________________
+
+Create or replace procedure prcEmpShowAll AS
+begin
+declare
+   cursor cursor_emp is
+	select empno,ename,job,sal from emp;
+   eno emp.empno%type;
+   nam emp.ename%type;
+   dsg emp.job%type;
+   bas emp.sal%type;
+   cnt number;
+begin
+    select count(*) into cnt from Emp;
+    open cursor_emp;
+    loop
+       fetch cursor_emp into eno,nam,dsg,bas;
+       dbms_output.put_line('Employ No   ' ||eno);
+       dbms_output.put_line('Employ Name  ' ||nam);
+       dbms_output.put_line('Job ' ||dsg);
+       dbms_output.put_line('Salary ' ||bas);
+       dbms_output.put_line('--------------------------------------');
+       exit when cursor_emp%rowcount=cnt;
+    end loop;
+    close cursor_emp;
+end;
+end;
+
+_______________________________________________________________________________________
+
+declare
+   cursor cursor_emp is
+	select empno,ename,job,sal from emp;
+   eno emp.empno%type;
+   nam emp.ename%type;
+   dsg emp.job%type;
+   bas emp.sal%type;
+   cnt number;
+begin
+    select count(*) into cnt from Emp;
+    if not cursor_emp%isopen then
+          dbms_output.put_line('Cursor is not open...Please open it...');
+       open cursor_emp;
+    end if;
+    loop
+       fetch cursor_emp into eno,nam,dsg,bas;
+       dbms_output.put_line('Employ No   ' ||eno);
+       dbms_output.put_line('Employ Name  ' ||nam);
+       dbms_output.put_line('Job ' ||dsg);
+       dbms_output.put_line('Salary ' ||bas);
+       dbms_output.put_line('--------------------------------------');
+       exit when cursor_emp%rowcount=cnt;
+    end loop;
+    close cursor_emp;
+end;
+_____________________________________________________________________________________________
+
+declare
+   cursor cursor_emp is
+	select empno,ename,job,sal from emp;
+   eno emp.empno%type;
+   nam emp.ename%type;
+   dsg emp.job%type;
+   bas emp.sal%type;
+   cnt number;
+begin
+    select count(*) into cnt from Emp;
+    if not cursor_emp%isopen then
+          dbms_output.put_line('Cursor is not open...Please open it...');
+       open cursor_emp;
+    end if;
+    open cursor_emp;
+    loop
+       fetch cursor_emp into eno,nam,dsg,bas;
+       dbms_output.put_line('Employ No   ' ||eno);
+       dbms_output.put_line('Employ Name  ' ||nam);
+       dbms_output.put_line('Job ' ||dsg);
+       dbms_output.put_line('Salary ' ||bas);
+       dbms_output.put_line('--------------------------------------');
+       exit when cursor_emp%rowcount=cnt;
+    end loop;
+    close cursor_emp;
+exception 
+    when CURSOR_ALREADY_OPEN then
+      dbms_output.put_line('Error...Cursor Already open...');
+end;
+______________________________________________________________________________________________
+
+
+declare
+   cursor cursor_emp is
+	select empno,ename,job,sal from emp;
+   rec cursor_emp%rowtype;
+   cnt number;
+begin
+    select count(*) into cnt from Emp;
+    if not cursor_emp%isopen then
+          dbms_output.put_line('Cursor is not open...Please open it...');
+       open cursor_emp;
+    end if;
+    loop
+       fetch cursor_emp into rec;
+       dbms_output.put_line('Employ No  ' ||rec.empno);
+       dbms_output.put_line('Employ Name ' ||rec.ename);
+       dbms_output.put_line('Job  ' ||rec.job);
+       dbms_output.put_line('Salary ' ||rec.sal);
+       dbms_output.put_line('-------------------------------');
+       exit when cursor_emp%rowcount=cnt;
+    end loop;   
+end;   
+____________________________________________________________________________________
+
+Packages 
+A package is a collection of related procedures, functions, variables and data types.  A package typically contains two parts – specification and body.
+
+The following is the syntax to create package specification.
+
+CREATE PACKAGE package_name AS
+  
+   /* declare  public objects  of package */
+
+END;
+
+Body
+Body of the package defines all the objects of the package.  It includes public objects that are declared in package specification and objects that are to be used only within the package – private members.
+
+CREATE PACKAGE BODY package_name AS
+     /* define objects of package */
+END;
+
+
+	procedures declared in the package specification
+	functions declared in the package specification
+	definition of cursors declared in the package specification
+	local procedures and functions, not declared in the package specification
+	local variables
+
+Calling a procedure of package
+In order to access a public object of a package use the following syntax:
+
+package_name.object_name
+
+package_name is the name of the package whose object you want to access.
+object_name     is the name of a public object in the package. 
+
+Let us now create a package called COURSE_PKG that contains two subprograms – CHANGEFEE and GETBATCHCOURSE. 
+
+We have to first create package specification and then body a follows:
+
+create or replace function searchAccount(accno accounts.accountNo%type) return number
+ as
+ cnt number;
+  begin
+     select count(*) into cnt from Accounts where accountno=accno;
+     return cnt;
+  end;
+ /
+
+
+create or replace package bankproject 
+as
+   procedure prcAccountCreate(
+	Fname Accounts.FirstName%type,
+	Lname Accounts.LastName%type,
+	Cit Accounts.City%type,
+	Stat Accounts.State%type,
+	Amt Accounts.Amount%type,
+	Cf Accounts.CheqFacil%type,
+	Actype Accounts.AccountType%type);
+  function searchAccount(accno accounts.AccountNo%type) return number;
+procedure AccountUpdate
+(
+Accno Accounts.AccountNo%type,
+Fname Accounts.FirstName%type,
+Lname Accounts.LastName%type,
+Cit Accounts.City%type,
+Stat Accounts.State%type,
+Amt Accounts.Amount%type,
+Cf Accounts.CheqFacil%type,
+Actype Accounts.AccountType%type
+);
+
+procedure prcAccountClose(Accno Accounts.AccountNo%type);
+procedure prcAccountSearch(Accno Accounts.AccountNo%type);
+procedure prcAmountDeposit(AccNo Accounts.AccountNo%type,DepAmt Accounts.Amount%type);
+Procedure PrcAmountWithdraw(AccNo Accounts.AccountNo%type,WithAmt Accounts.Amount%type);
+end;
+
+________________________________________________________________________________
+
+create or replace package body bankproject 
+as
+ 	procedure prcAccountCreate
+	(
+	   Fname Accounts.FirstName%type,
+	   Lname Accounts.LastName%type,
+	   Cit Accounts.City%type,
+	   Stat Accounts.State%type,
+	   Amt Accounts.Amount%type,
+	   Cf Accounts.CheqFacil%type,
+	   Actype Accounts.AccountType%type
+	)
+	AS
+	BEGIN
+    	 declare 
+    	    accno number;
+    	  begin
+       		select case when max(accountNo) IS NULL THEN 1 else
+         	max(accountNo)+1 END into accno from accounts;
+       		Insert into Accounts(AccountNo,FirstName,LastName,City,State,Amount,
+	   	CheqFacil,AccountType) values(accno,Fname,Lname,Cit,Stat,Amt,Cf,Actype);
+       		dbms_output.put_line('Account Created Successfully...');
+    	  end;
+	END;
+	function searchAccount(accno accounts.accountNo%type) return number
+ 	as
+ 	cnt number;
+  	begin
+     	  select count(*) into cnt from Accounts where accountno=accno;
+     	  return cnt;
+  	end;
+
+	 procedure AccountUpdate(
+		Accno Accounts.AccountNo%type,
+		Fname Accounts.FirstName%type,
+		Lname Accounts.LastName%type,
+		Cit Accounts.City%type,
+		Stat Accounts.State%type,
+		Amt Accounts.Amount%type,
+		Cf Accounts.CheqFacil%type,
+		Actype Accounts.AccountType%type
+		)
+	AS
+	BEGIN
+	      Update Accounts set FirstName=NVL2(Fname,Fname,FirstName),
+                      LastName=NVL2(Lname,Lname,LastName),
+                      City=NVL2(Cit,Cit,City),
+                      State=NVL2(Stat,Stat,State),
+                      Amount=NVL2(Amt,Amt,Amount),
+                      CheqFacil=NVL2(cf,cf,CheqFacil),
+                      AccountType=NVL2(Actype,Actype,AccountType)
+	       WHERE AccountNo=Accno;             
+	END;  
+	procedure prcAccountClose(Accno Accounts.AccountNo%type)
+	AS
+	BEGIN 
+	    Update Accounts set Status='InActive' where AccountNo=Accno;
+	dbms_output.put_line('Account Closed Successfully');
+	END;
+
+procedure prcAccountSearch(Accno Accounts.AccountNo%type)
+AS
+BEGIN
+    declare 
+        fname Accounts.FirstName%type;
+        lname Accounts.LastName%type;
+        cit Accounts.City%type;
+        stat Accounts.State%type;
+        Amt Accounts.Amount%type;
+        cf Accounts.CheqFacil%type;
+    begin
+       select FirstName,LastName,City,State,Amount,CheqFacil
+       into fname,lname,cit,stat,amt,cf from Accounts where AccountNo=accno;
+       dbms_output.put_line('First Name ' || fname);
+       dbms_output.put_line('Last Name ' || lname);
+       dbms_output.put_line('City ' || cit);
+       dbms_output.put_line('State ' || stat);
+       dbms_output.put_line('Amount ' || amt);
+       dbms_output.put_line('Cheq Facil ' || cf);
+    Exception
+	WHEN NO_DATA_FOUND THEN
+            dbms_output.put_line('No Record Found...');
+    end;
+END;
+procedure prcAmountDeposit(AccNo Accounts.AccountNo%type,
+				DepAmt Accounts.Amount%type) 
+AS
+BEGIN 
+	Update Accounts set Amount=Amount+DepAmt WHERE AccountNo=Accno;
+	Insert into Trans(AccountNo,TranAmount,TranType)
+			values(AccNo,DepAmt,'C');
+END;				
+Procedure PrcAmountWithdraw(AccNo Accounts.AccountNo%type,
+				WithAmt Accounts.Amount%type)
+AS
+BEGIN 
+    declare 
+      Amt Accounts.Amount%type;
+	begin 
+		select Amount into Amt from Accounts where accountNo=accno;
+		if(amt-withAmt >= 1000) then
+			Update Accounts set Amount=Amount-WithAmt WHERE AccountNo=Accno;
+	Insert into Trans(AccountNo,TranAmount,TranType)
+			values(AccNo,WithAmt,'D');
+		dbms_output.put_line('Amount Debited Successfully...');
+		else 
+			dbms_output.put_line('Insufficient Balance');
+		end if;
+	end;
+END;
+end;
+
+______________________________________________________________________________________
+
+select bankproject.searchAccount(1) from dual;
+exec bankproject.prcAccountCreate('Namrata','Galinde','Pune','MH',84844,'Yes','Savings');
+exec bankproject.AccountUpdate(4,'Mohan','Aditya','Hyderabad','TS',82255,'Yes','Savings');
+exec bankproject.prcAccountClose(4);
+exec bankproject.prcAccountSearch(1);
+exec bankproject.prcAmountDeposit(1,1000);
+exec bankproject.PrcAmountWithdraw(1,1000);

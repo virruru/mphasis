@@ -1,0 +1,244 @@
+Types of Commands in Oracle : 
+
+DDL (Data Definition Language)
+
+	CREATE,
+	ALTER
+	DROP
+	TRUNCATE
+
+DataTypes :
+
+   number, char,varchar2,datetime 
+
+number(9,2) means total 9 digits in this 2 are decimals.
+
+char -> used to store char information
+
+varchar2 -> also used to store char information with no redundancy. 
+
+char(30)
+
+varchar2(30), in varchar2, if we are using only 10 chars remains 20 chars added back to memory, as no 
+redundancy in this. 
+
+in char(30) the unused char still in rows that leads to redunancy. 
+
+You can create a table, by using 
+
+Create table table_name
+(
+   field_name datatype,
+   field_name datatype,
+   field_name datatype  
+  ....
+  ....
+)
+
+Employ(Empno,Name,Gender,Dept,Desig,Basic)
+
+Empno -> Number
+Name,Dept,Gender,Dept,Desig are varchar2(30)
+basic -> number(9,2) 
+
+
+
+
+DML (Data Manipulation Language)
+
+	INSERT : Used to insert records into the table. 
+
+	UPDATE
+
+	DELETE 
+
+
+DQL (Data Query Language)
+
+	SELECT 
+
+
+
+Create Table Employ
+(
+   empno number,
+   name varchar2(30),
+   gender varchar2(10),
+   dept varchar2(25),
+   desig varchar2(25),
+   basic number(9,2)
+);
+
+
+Insert into table_name(field1,field2,field3....) values(value1,value2,value3....)
+
+Insert INto Employ(Empno,Name,gender,dept,desig,basic)
+values(1,'Uday Prakash','Male','Java','Programmer',88245);
+
+You need to create above table w.r.t. Constraints 
+
+-> empno -> primary key
+-> name -> not null
+-> gender -> 'Male' or 'Female'
+-> dept -> 'Java','Oracle','Angular'
+-> desig -> 'SE','SSE','TeamLead'
+-> Basic between 1000 and 80000
+
+
+drop table employ;
+
+create table Employ
+(
+    empno number constraint pk_employ_empno primary key,
+    name varchar2(30) NOT NULL,
+    gender varchar2(10)
+    constraint chk_employ_name check(gender in('Male','Female')),
+    dept varchar2(20)
+    constraint chk_employ_dept check(dept in('Java','Oracle','Angular')),
+    desig varchar2(20)
+    constraint chk_employ_desig check(desig in('SE','SSE','TeamLead')),
+    basic number(9,2)
+    constraint chk_employ_basic check(basic between 1000 and 80000)
+);
+
+Insert into Employ(empno,Name,gender,dept,desig,basic)
+values(1,'Jayasree','Female','Java','SE',34555);
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(2,'Bharat','Male','Oracle','SE',77754);
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(3,'Sakshi','Female','Angular','SSE',79954);
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(4,'Shanmugavel','Male','Java','TeamLead',79999);
+
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(5,'Sangram','Male','Oracle','SSE',78909);
+
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(6,'Bhanu Praveen','Male','Angular','SSE',79954);
+
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(7,'Ruchita','Female','Java','SE',71154);
+
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(9,'Sai Geetha','Female','Java','SSE',78994);
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(10,'abcd','Female','Java','SSE',78994);
+
+insert into employ(empno,name,gender,dept,desig,basic)
+values(11,'abcd','Female','Java','SSE',78994);
+
+
+DROP : Used to drop the database object permanently.
+
+Drop table table_name;
+
+it drops table and data together. 
+
+Truncate : Used to delete all records from table. But, table is present data will be lost. 
+
+trunate table table_name;
+
+Update : used to update the table records. 
+
+change the value of Empno 4 as, Dept is Angular and Basic is 78900
+
+syntax : 
+
+Update Table_name set Field1=value,Field2=value...
+{Where Condition}
+
+Update Employ set Dept='Angular',Basic=78900
+WHERE Empno=4;
+
+Delete : used to delete records from the table. 
+
+Delete from table_name where condition;
+
+Remove the records of empno 10
+
+delete from Employ where empno=10;
+
+
+remove record, whose empno is 11
+
+delete from Employ where empno=11;
+
+Alter command : Used to add/modify/delete fields/constraints
+for the given table. 
+
+for adding the field
+
+alter table table_name add field data_type;
+
+for modifying the field 
+
+alter table table_name modify field new_type;
+
+for removing the field 
+
+alter table table_name drop column column_name;
+
+create table EmployNew
+(
+  Empno number,
+  Name varchar2(10)
+);
+
+
+/* Add Gender field to table EmployNew */ 
+
+alter table EmployNew
+add Gender varchar2(10);
+
+/* Add Dept field to the table Employ */ 
+
+alter table EmployNew
+add Dept varchar2(20);
+
+/* Add Desig field to the table Employ */ 
+
+alter table EmployNew 
+add desig varchar2(20);
+
+/* Add basic field to the table Employ */ 
+
+alter table EmployNew
+add basic number(9,2);
+
+
+/* Add Primary Key constraint on Empno */ 
+
+alter table EmployNew
+add constraint pk_employNew_empno primary key(empno);
+
+/* Change Name field to not null */ 
+
+alter table EmployNew
+Modify name varchar2(20) not null;
+
+/* Add Constraint to Dept Field */ 
+
+alter table EmployNew
+add constraint chk_emp_dept
+check(Dept IN('Dotnet','Java','Oracle'));
+
+/* Add constraint to Desig Field */ 
+
+alter table EmployNew
+add constraint chk_EmployNew_desig
+check(Desig IN('se','ase','manager'));
+
+/* Add constarint to the Basic Field */ 
+
+alter table EmployNew
+add constraint chk_employNew_Basic
+check(basic between 1000 AND 50000);
+

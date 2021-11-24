@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
+   $(document).ready(function () {
+		$("#sname").change(function() {
+			var sname = $("#sname").val();
+			$("p").text("Student Name is  " +sname);
+		});
+   });
+</script>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="frmData">
+		<select name="sname" id="sname">
+			<option value="Avula Jayasree">Jayashree</option>
+			<option value="Divyanshu">Divyanshu</option>
+			<option value="Gauree">Gauree</option>
+			<option value="Namratha">Namratha</option>
+			<option value="Jyothsna">Jyothsna</option>
+		</select>
+	</form>
+	<p>See the Result Here</p>
+</body>
+</html>

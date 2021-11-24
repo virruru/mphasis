@@ -1,0 +1,28 @@
+div.MainForm 
+{
+    background : none repeat scroll 0 0 #3366CC;
+    border : 5px solid gray;
+    color : white;
+    font-family : "DejaVu Sans",Times,Serif;
+    font-weight : bold;
+    margin : 10px auto;
+    padding : 10px;
+   /* text-align : center;*/
+    width : 400px;
+}
+body {
+	/* Full height */
+  height: 90%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+p.title 
+{
+    color: #33CCFF;
+    font-family: "DejaVu Sans";
+    font-size: 60px;
+    font-weight: bold;
+}

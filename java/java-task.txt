@@ -1,0 +1,138 @@
+1) Multiplication 2 number (100 digit * 100 digit ) exact value
+
+2) Display a number in roman format from (1 to 9999)
+
+	1 -I
+	9 - IX
+	
+3) Write a Program sample current bill 
+
+Ex : see 
+
+First 100 units 1.2 paise
+
+100 to 150 units 1.5 
+
+150 to 200 units 2 rs
+
+200 to 250 units 2.5
+
+250+ 3 rs
+500
+100*1.2+50*1.5+200*2+50*2.5
+Means if current bill is 180 units 
+
+(100*1.2) + (50*1.5) + (30*2) 
+
+If it is 210 units
+
+(100*1.2) + (50*1.5) + (50*2) + (10*2.5) 
+
+4) Program to print armstrong numbers of given range 
+
+153 -> 1^3 + 5^3 + 3^3
+
+	153
+
+5) Program to print perfect numbers of given range 
+
+6 -> 1,2,3 
+
+	6
+
+Perfect Number
+
+6) Program to print Twin Prime Numbers of given range
+
+3,5
+
+5,7 
+
+11,13 
+
+17,19 
+
+29,31
+
+
+
+package com.java.leave;
+
+import java.util.Date;
+
+public class LeaveDetails {
+
+	private int leaveId;
+	private Date leaveStartDate;
+	private Date leaveEndDate;
+	private int empId;
+	private int noOfDays;
+	private Date leaveAppliedOn;
+	private String leaveReason;
+}
+
+
+For the above LeaveDetails please perform CRUD operations. as (ShowAllLeaves, SearchLeave, AddLeave, UpdateLeave, DeleteLeave)
+
+DAO File : 
+___________
+
+noOfDays to be calculated as (leaveEndDate-leaveStartDate)
+leaveAppliedOn will be today's date
+
+Validations
+___________
+
+leaveStartDate cannot be yesterdays date
+leaveEndDate cannot be yesterdays date
+leaveStartDate must be less than or equals to leaveEndDate
+
+
+
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        ld.setLeaveAppliedOn(new Date());
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Leave Start Date(yyyy-MM-dd)  ");
+        try {
+            ld.setLeaveStartDate(sdf.parse(sc.next()));
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println("Enter Leave End Date(yyyy-MM-dd)  ");
+        try {
+            ld.setLeaveEndDate(sdf.parse(sc.next()));
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(ld);
+    }
+}
+how to calculate the difference between dates 
+
+System.out.println(ld);
+        
+         long ms = ld.getLeaveEndDate().getTime() -
+                 ld.getLeaveStartDate().getTime();
+            long m = ms / (1000 * 24 * 60 * 60);
+            int days = (int) m;
+            days = days + 1;
+            System.out.println(days);
+
+
+//another method caluclate difference b/w dates
+
+//from Prasanna Trainer to everyone:    1:06 PM
+
+public String addLeave(LeaveDetails leaveDetails) {
+        
+        leaveDetails.setLeaveAppliedOn(new Date());
+         long ms = leaveDetails.getLeaveEndDate().getTime() -
+                 leaveDetails.getLeaveStartDate().getTime();
+            long m = ms / (1000 * 24 * 60 * 60);
+            int days = (int) m;
+            days = days + 1;
+            leaveDetails.setNoOfDays(days);
+            return "Leave Added Successfully...";
+    }

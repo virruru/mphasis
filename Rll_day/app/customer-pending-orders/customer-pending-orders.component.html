@@ -1,0 +1,28 @@
+<h1>Pending Orders</h1>
+<table border="2">
+    <tr>
+        <th>Order Id</th>
+        <th>Customer Id</th>
+        <th>Vendor ID</th>
+        <th>Wallet </th>
+        <th>Menu ID</th>
+        <th>Order date</th>
+        <th>Order quantity</th>
+        <th>Order Bill Amount</th>
+        <th>Order Status</th>
+        <th>Order Comments</th>
+    </tr>
+    <tr *ngFor="let u of orderarr | async">
+        <td>{{u.ord_id}} </td>
+        <td>{{u.cus_id}} </td>
+        <td>{{u.ven_id}} </td>
+        <td>{{u.wal_source}} </td>
+        <td>{{u.men_id}} </td>
+        <td>{{u.ord_date}} </td>
+        <td>{{u.ord_quantity}} </td>
+        <td>{{u.ord_billamount}} </td>
+        <td>{{u.ord_status}} </td>
+        <td>{{u.ord_comments}} </td>
+        
+    </tr>
+</table>

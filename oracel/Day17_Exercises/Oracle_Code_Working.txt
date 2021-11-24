@@ -1,0 +1,343 @@
+to start with plsql
+
+we have output statement 
+
+dbms_output.put_line() : used to display any value or message. 
+
+begin
+      dbms_output.put_line('welcome');
+   end;
+
+By Default the message will not be printed, to make the message to be printed, 
+
+set serveroutput on
+
+declare
+   name varchar2(30):='Jayasree';
+begin
+   dbms_output.put_line('Name is ' || name);
+end;
+
+
+declare
+   name varchar2(30):='&name';
+begin
+   dbms_output.put_line('Name is ' || name);
+end;
+
+declare 
+   a number:=&a;
+   b number:=&b;
+   c number;
+begin
+   c:=a+b;
+   dbms_output.put_line('Sum is  ' ||c);
+end;
+
+
+declare
+   cnt number;
+begin
+   select count(*) into cnt from Employ;
+   dbms_output.put_line('Total No.of Records  ' ||cnt);
+end;
+
+
+declare
+   eno number:=&eno;
+   nam varchar2(30);
+   dpt varchar2(30);
+   gen varchar2(10);
+   dsg varchar2(30);
+   bas number(9,2);
+begin
+   select 
+      Name,Gender,Dept,Desig,Basic into
+	 nam,gen,dpt,dsg,bas
+    from Employ where empno=eno;
+    dbms_output.put_line('Employ Name ' ||nam);
+    dbms_output.put_line('Gender  ' ||gen);
+    dbms_output.put_line('Department ' ||dpt);
+    dbms_output.put_line('Designation ' ||dsg);
+    dbms_output.put_line('Basic  ' ||bas);
+end;
+
+_________________________________________________________________________
+
+declare
+ n number(5):=&n;
+ begin
+   if n mod 2=0 then
+    dbms_output.put_line('Even');
+   else
+    dbms_output.put_line('Odd');
+   end if;
+ end;
+
+
+___________________________________________________________________________
+
+
+declare
+   n number:=&n;
+begin
+   if n >= 0 then
+     dbms_output.put_line('Positive Number...');
+     dbms_output.put_line('Trainer Prasanna...');
+     dbms_output.put_line('Company is Mphasis...');
+   else
+     dbms_output.put_line('Negative Number...');
+     dbms_output.put_line('Trainer Prasanna...');
+     dbms_output.put_line('Company is Mphasis...');
+   end if;
+end;
+
+_______________________________________________________________________________
+
+declare 
+    a number:=&a;
+    b number:=&b;
+    c number:=&c;
+    m number;
+begin
+    m:=a;
+    if m < b then
+      m:=b;
+    end if;
+    if m < c then 
+      m:=c;
+    end if;
+    dbms_output.put_line('Maximum Value ' ||m);
+end;
+
+__________________________________________________________________________________
+
+declare
+ v_grade char(2):='&v_grade';
+ v_appraisal varchar2(20);
+begin
+   v_appraisal:=
+    case v_grade
+       when 'A' then 'Excellent'
+       when 'B' then 'GOOD'
+       when 'C' then 'Satisfactory'
+       else 'No Such Grade '
+   end;
+   dbms_output.put_line('Appraisal is ' ||v_appraisal);
+end;
+
+
+_______________________________________________________________________________________
+
+declare
+   n number:=&n;
+   i number;
+   f number;
+begin
+    i:=1;
+    f:=1;
+    while i<=n 
+    loop
+	f:=f*i;
+        i:=i+1;
+    end loop;
+    dbms_output.put_line('Factorial Value is  ' ||f);
+end;
+
+_________________________________________________________________________________
+
+
+declare
+   eno Employ.empno%type:=&eno;
+   nam Employ.name%type;
+   dpt Employ.dept%type;
+   gen Employ.Gender%type;
+   dsg Employ.Desig%type;
+   bas Employ.Basic%type;
+begin
+   select 
+      Name,Gender,Dept,Desig,Basic into
+	 nam,gen,dpt,dsg,bas
+    from Employ where empno=eno;
+    dbms_output.put_line('Employ Name ' ||nam);
+    dbms_output.put_line('Gender  ' ||gen);
+    dbms_output.put_line('Department ' ||dpt);
+    dbms_output.put_line('Designation ' ||dsg);
+    dbms_output.put_line('Basic  ' ||bas);
+end;
+
+_________________________________________________________________________________________
+
+declare
+n number(5):=&n;
+i number(5);
+f number(5):=1;
+begin
+  for i in 1..n 
+  loop 
+    f:=f*i;
+  end loop;
+  dbms_output.put_line('Factorial is  ' ||f);
+end;
+_________________________________________________________________________________
+
+declare
+    a number:=&a;
+    b number:=&b;
+    c number;
+begin
+    c:=a/b;
+    dbms_output.put_line('Division Value  ' ||c);
+Exception
+   WHEN ZERO_DIVIDE THEN
+     dbms_output.put_line('Division by zero impossible...');
+end;
+
+____________________________________________________________________________________
+
+declare
+   eno Employ.empno%type:=&eno;
+   nam Employ.name%type;
+   dpt Employ.dept%type;
+   gen Employ.Gender%type;
+   dsg Employ.Desig%type;
+   bas Employ.Basic%type;
+begin
+   select 
+      Name,Gender,Dept,Desig,Basic into
+	 nam,gen,dpt,dsg,bas
+    from Employ where empno=eno;
+    dbms_output.put_line('Employ Name ' ||nam);
+    dbms_output.put_line('Gender  ' ||gen);
+    dbms_output.put_line('Department ' ||dpt);
+    dbms_output.put_line('Designation ' ||dsg);
+    dbms_output.put_line('Basic  ' ||bas);
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+      dbms_output.put_line('Employ No Does not Exists... ' ||eno);
+end;
+
+_____________________________________________________________________________________
+
+
+declare
+   eno Employ.empno%type:=&eno;
+   nam Employ.name%type:='&nam';
+   dpt Employ.dept%type:='&dpt';
+   gen Employ.Gender%type:='&gen';
+   dsg Employ.Desig%type:='&dsg';
+   bas Employ.Basic%type:='&bas';
+begin
+   Insert into Employ(empno,name,gender,dept,desig,basic)
+      values(eno,nam,gen,dpt,dsg,bas);
+   dbms_output.put_line('Record Inserted successfully...');   
+EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+      dbms_output.put_line('EmployNo Already Exists...'||eno);
+    WHEN NO_DATA_FOUND THEN
+      dbms_output.put_line('Employ No Does not Exists... ' ||eno);
+end;
+_________________________________________________________________________________
+
+stored procedures.....
+_____________________________________________________________________________________
+create or replace procedure prcSayHello
+AS
+BEGIN
+   dbms_output.put_line('Welcome to PLSQL Programming...');
+END;
+
+To Execute the procedure give as
+
+Exec PrcSayHello;
+
+create or replace procedure prcGreeting(name varchar2)
+AS
+BEGIN
+   dbms_output.put_line('Name is  ' ||name);
+END;
+
+
+exec prcGreeting('Adarsh');
+
+Create or replace procedure prcCalc(a number,b number)
+AS
+BEGIN
+    declare 
+       c number;
+    begin 
+      c:=a+b;
+      dbms_output.put_line('Sum is  ' ||c);
+    end;
+END;
+
+create or replace procedure prcDiv(a number,b number)
+AS
+BEGIN
+    declare 
+      c number;
+    begin
+       c:=a/b;
+       dbms_output.put_line('Division ' ||c);
+    Exception
+       WHEN ZERO_DIVIDE THEN
+         dbms_output.put_line('Division by zero impossible...');
+    end;
+END;
+
+How to see the list of stored procedures avaible in current db. 
+
+select * from user_objects where object_type='PROCEDURE';
+
+Write a procedure to print total no.of records in Employ table 
+
+Create or replace procedure prcEmployCount
+AS
+BEGIN
+    declare 
+      cnt number;
+    begin
+       select count(*) into cnt from Employ;
+       dbms_output.put_line('Total Records of Employ table ' ||cnt);
+    end;
+END;
+
+create or replace procedure prcEmploySearch(eno employ.empno%type)
+AS
+BEGIN
+    declare
+      nam employ.name%type;
+      gen employ.gender%type;
+      dpt employ.dept%type;
+      dsg employ.desig%type;
+      bas employ.basic%type;
+    begin
+        select 
+             name,gender,dept,desig,basic into nam,gen,dpt,dsg,bas
+	  from Employ where empno=eno;
+        dbms_output.put_line('Name  ' ||nam);
+        dbms_output.put_line('Gender ' ||gen);
+        dbms_output.put_line('Department ' ||dpt);
+        dbms_output.put_line('Designation ' ||dsg);
+        dbms_output.put_line('Salary ' ||bas);
+    Exception
+        WHEN NO_DATA_FOUND THEN
+          dbms_output.put_line('Employ Record Not Found...');
+    end;   
+END;
+
+
+Create or replace procedure PrcEmployInsert(nam employ.name%type,
+					    gen employ.gender%type,
+					    dpt employ.dept%type,
+			  	            dsg employ.desig%type,
+      					    bas employ.basic%type)
+AS
+BEGIN
+	declare
+	    empno employ.empno%type;
+        begin
+	   select case when max(empno) is NULL THEN 1 else max(empno)+1 END into empno from Employ;
+	   Insert into Employ(empno,name,gender,dept,desig,basic) values(empno,nam,gen,dpt,dsg,bas);
+        end;
+END;

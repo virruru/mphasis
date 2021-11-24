@@ -1,0 +1,55 @@
+HTML will not perform 
+	
+	-> Actions
+
+	-> Business Logic
+
+	-> Validations
+
+	-> Event-Based Programming 
+
+
+To ensure these things, we need the help of javascript. 
+
+How to start with javascript. 
+
+To start with javascript, we need 
+
+<script>
+</script> 
+
+you can define methods as 
+
+function function_name() {
+...
+...
+...
+}
+
+we have predefined events are there 
+
+onload : This will be loaded once u run the program. 
+
+onclick : Buttons 
+
+onchange : For checkbox, radiobutton and dropdowns,
+
+onblur -> Its just like lost focus, means if you leave the control focus from any textbox, this event will be fired
+
+alert() : Used to display any value or message. 
+
+alert("Welcome to Javascript...");
+
+You can declare variables in javascript, by using 
+
+var keyword. 
+
+<span> </span> Used to write inline statements. 
+
+<span id="result"></span>
+
+
+
+
+
+

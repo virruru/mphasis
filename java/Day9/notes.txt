@@ -1,0 +1,108 @@
+Abstract Class : 
+_________________
+
+
+	A class that which can be created, but not implemented and instantiated known 
+as abstract class. Abstract class contains both abstract and non-abstract methods, only abstract methods needs to be overrided by the derived class.
+
+abstract class class_name
+{
+   method1();
+   method2();
+}
+
+You cannot create an object to abstrat class, 
+
+abstract class will have indirect objects. 
+
+
+base obj = new Derived();
+
+interfaces : Java does not support the concept of multiple inheritance, to achieve this 
+we need the help of interfaces. 
+
+An interface contains method declaration, and the implementation can be done in the corresponding class. 
+you can add more than one interface to the particular class. 
+
+Difference between interface and abstract class
+_________________________________________________
+
+	-> Abstract class contains abstract and non-abstract methods, where interface contains only
+		abstract methods. 
+
+	-> interface methods are public and abstract by default.
+
+	-> Multiple Inheritance can be achieved by using interfaces
+
+	-> An interface can be called from anywhere to anywhere. 
+
+You can add an interface by using implements keyword.
+
+When to use interface and when to use abstract class 
+
+Abstract class can be used to represent hierarchical data, as it provides security as once you are falling under one abstract class, another abstract class will not come and disturb you. 
+
+interface can be used for specialization, as it dont have any restrictions, can be called from anywhere to anywhere. 
+
+Exception Handling : 
+____________________
+
+It is a mechanism of handling the runtime errors, during the execution of the program. 
+
+There are 2 types of errors as 
+
+	(i) Compile Time
+
+	(ii) Runtime 
+
+By using Exception handling, we can overcome the runtime errors. 
+
+To handle errors, we have 3 blocks as 
+
+1) try block : This block contains statements in which there is possibility of getting runtime errors, 
+the statements which are placed in this block are treated as heavy weighted statements as JVM allocates
+excess memory to them. 
+
+2) catch block : Once exception raised in try block, then the control will be forwarded to catch block, this block contains the alternate statements for exceptions raised in try block. One try block can contains multiple catch blocks. 
+
+3) finally block : This block contains statements that needs to be executed mandetorily, irrespective of try and catch blocks. This block is not mandetory, but all the statements which are placed in this block are executed as mandetory statements. 
+
+Exception is the top most class, from which all kinds of exceptions are derived. 
+
+syntax :
+
+try {
+...
+...
+...
+} catch (Exception e) {
+....
+....
+....
+} finally {
+...
+...
+...
+}
+
+printStackTrace() : Contains entire information about the error as
+
+   exception class
+   error message
+   line number
+   char pos
+
+There are 2 types of exceptions as
+
+1) Checked Exceptions
+	
+	These are the exceptions that which occurs at compile time, during compilation jvm feels some erroneous code is there and stops the execution at compile time, can be handled at method level by using throws keyword.
+
+2) Unchecked Exceptions 
+
+	These are the exceptions that which occurs at runtime, can be handled by using try...catch blocks. 
+
+
+
+
+

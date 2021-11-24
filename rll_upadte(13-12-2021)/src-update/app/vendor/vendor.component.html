@@ -1,0 +1,19 @@
+<div class = "info">
+<p>Vendor Details</p>
+<table border="2" align="center">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    <tr *ngFor="let u of vendors | async">
+        <td>{{u.ven_id}} </td>
+        <td>{{u.ven_name}} </td>
+        <td>{{u.ven_username}} </td>
+        <td>{{u.ven_email}} </td>
+        <td>{{u.ven_phn_no}} </td>
+    </tr>
+</table>
+</div>

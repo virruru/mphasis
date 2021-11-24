@@ -1,0 +1,24 @@
+create or replace procedure prcAccountCreate
+  2  (
+  3  Fname Accounts.FirstName%type,
+  4  Lname Accounts.LastName%type,
+  5  Cit Accounts.City%type,
+  6  Stat Accounts.State%type,
+  7  Amt Accounts.Amount%type,
+  8  Cf Accounts.CheqFacil%type,
+  9  Actype Accounts.AccountType%type
+ 10  )
+ 11  AS
+ 12  BEGIN
+ 13      declare
+ 14        accno number;
+ 15      begin
+ 16         select case when max(accountNo) IS NULL THEN 1 else
+ 17           max(accountNo)+1 END into accno from accounts;
+ 18         Insert into Accounts(AccountNo,FirstName,LastName,City,State,Amount,
+ 19     CheqFacil,AccountType) values(accno,Fname,Lname,Cit,Stat,Amt,Cf,Actype);
+ 20         dbms_output.put_line('Account Created Successfully...');
+ 21      end;
+ 22  END;
+ 23  /
+exec prcAccountCreate('poojari','bhaskar','Chitoor','AP',70000,'avilable','Savings');

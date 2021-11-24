@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="get" action="CreateAccountServlet">
+	<table border="3" align="center">
+		<tr>
+		   <th>First Name</th>
+		   <td>
+		   	<input type="text" name="firstName" />
+		   </td>
+		</tr>
+		<tr>
+			<th>Last Name</th>
+			<td> 
+				<input type="text" name="lastName" />
+			</td>
+		</tr>
+		<tr>
+		<th>City</th>
+		<td>
+			<select name="city">
+				<option value="Hyderabad">Hyderabad</option>
+				<option value="Chennai">Chennai</option>
+				<option value="Delhi">Delhi</option>
+			</select>
+		</td>
+		</tr>
+		<tr>
+		<th>State</th>
+			<td>
+			<select name="state">
+				<option value="TS">TS</option>
+				<option value="TN">TN</option>
+				<option value="UP">UP</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+		<th>Amount</th>
+			<td>
+			<input type="number" name="amount" /> 
+			</td>
+		</tr>
+		<tr>
+		<th>Cheq Facility</th>
+			<td>
+			<select name="cheqFacil">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+				<th>Account Type</th>
+			<td>
+			<select name="accountType">
+				<option value="Savings">Savings</option>
+				<option value="Current">Current</option>
+			</select>
+			</td>
+		
+		</tr>
+		<tr>
+			<th colspan="2">
+			<input type="submit" value="Create Account" />
+			</th>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

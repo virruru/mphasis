@@ -1,0 +1,97 @@
+Webservices : 
+______________
+
+Webservices contains webmethods, that can  be called across various programming languges, 
+
+If you want to make any method as write once and call from any programming language,
+then we need the help of webservice. 
+
+Java Programming language can initeract with PHP and .NET by using web services. 
+
+Types of webservices : 
+________________________
+
+There are 2 types of webservices known as 
+
+(i) SOAP based (Simple Object Access Protocol) 
+
+	Allows you to transfer data in xml format. 
+
+	It has various stanadards as 
+
+	(a) UDDI (Universal Description, Discovery and Integration) 
+
+		It is a place, where we can register and deploy the webservices. 
+
+	(b) WSDL (Webservice Description Language)
+
+		Generates xml vocoblury for webmethods which are there in service. 
+
+
+*** Now a days no one using SOAP based services, because it transfer data in xml format only, but sometimes we need to transfer data w.r.t. Plain_Text, JSON, XML etc... various formats we need to process, then preferrably we can use Restful webservices ***
+
+(ii) REST based 
+
+Rest is an architectural style, stands for Representational State Transfer 
+
+Rest Permits different data format such as Plain Text, HTML, XML, JSON etc...
+
+
+Rest purely works with annotation basis, as here for class and method we need to specify @Path name, 
+with that path name, we can access the resource. 
+
+Restfull Services have 4 HTTP verbs known as 
+
+@GET : this annotation is a request method designator and corresponds to the 
+	similar to HTTP get method, When you want to Retrieve any records from 
+	database, then we need the help of @GET method annotation. 
+
+@POST : this annotation used to accept input, and post the data to database, like for Insert opeation 
+	preferrably we can use @POST annotation.
+
+@PUT : this annotation used as a requrest method which allows you to update/insert data to database. 
+
+@DELETE : Used to perform delete resource operation. 
+
+
+@Path : This annotation value is relataive to uri path indicating the alias name for class or method. 
+
+@Produces : Used to specify the MIME type (Multipurpose Internet Mail extension), which represents the type of data we are returning from the service method. 
+
+	Probably we can return PLAIN_TEXT, HTML_TEXT or APPLICATION_JSON these MIME types we can use. 
+
+for Restful services, here we are using jersey framework version 2.25.1 we are using. 
+
+@PathParam : This annotation allows you to pass parameters with the url address. 
+
+
+
+
+
+
+
+
+
+http://localhost:8181/RestfullDemoProg/webapi/myresource
+
+http://localhost:8181/RestFulServiceRepeat/webapi/myresource
+
+http://localhost:8181/RestFulServiceRepeat/webapi/hello/first
+
+
+http://localhost:8181/RestFulServiceRepeat/webapi/hello/company
+
+http://localhost:8181/RestFulServiceRepeat/webapi/demo/greeting/Anushual
+
+http://localhost:8181/RestFulServiceRepeat/webapi/demo/topic/Prasanna
+
+http://localhost:8181/RestFulServiceRepeat/webapi/calc/sum/12/5
+
+http://localhost:8181/RestFulServiceRepeat/webapi/calc/sub/12/5
+
+http://localhost:8181/RestFulServiceRepeat/webapi/calc/mult/12/5
+
+http://localhost:8181/RestFulServiceRepeat/webapi/employ/showemploy
+
+
+http://localhost:8181/RestFulServiceRepeat/webapi/employ/searchemploy/1

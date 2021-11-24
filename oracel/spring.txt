@@ -1,0 +1,16 @@
+@RestController
+from Prasanna Trainer to everyone:    4:53 PM
+@RequestMapping(value="/")
+public String sayHello() {
+return "Welcome to Spring boot...";
+}
+
+from Prasanna Trainer to everyone:    4:55 PM
+@RequestMapping(value="company")
+public String sayHello() {
+return "From Mphasis company...";
+}
+@RequestMapping(value="trainer")
+public String sayHello() {
+return "Prasanna is the trainer...";
+}

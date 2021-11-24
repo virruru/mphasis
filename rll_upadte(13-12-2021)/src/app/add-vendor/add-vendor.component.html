@@ -1,0 +1,15 @@
+<div class="login">
+  <form #signupForm="ngForm" (ngSubmit)="signup(signupForm)" id="addCustomer">
+  <h1>Vendor Registration</h1>
+<input type="text" required placeholder="Name" name="vendordetails.ven_name" [(ngModel)]="vendordetails.ven_name" autofocus/><br><br>
+<input type="text" required placeholder="Phone" name="vendordetails.ven_phn_no" [(ngModel)]="vendordetails.ven_phn_no" /><br><br>
+<input type="text" required placeholder="Username" name="vendordetails.ven_username" [(ngModel)]="vendordetails.ven_username"/><br><br>
+<input type="text" required placeholder="Password" name="vendordetails.ven_password" [(ngModel)]="vendordetails.ven_password" /><br><br>
+<input type="email" required placeholder="Email" name="vendordetails.ven_email" [(ngModel)]="vendordetails.ven_email" /><br><br>
+<button>Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="reset">Reset</button>
+<div class="info">
+<p>Already a Vendor? <a [routerLink]="['/VendorLogin']" style="text-decoration: none;">Login</a> here!</p>
+</div>
+</form>
+</div>

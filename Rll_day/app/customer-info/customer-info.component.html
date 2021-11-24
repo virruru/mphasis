@@ -1,0 +1,8 @@
+<h1>Customer Info</h1>
+
+<table>
+    <tr><th>Name: </th>    <td>{{(customer | async)?.cus_name}}  </td></tr>
+    <tr><th>UserName: </th><td>{{(customer | async)?.cus_username}}  </td></tr>
+    <tr><th>Email: </th>   <td>{{(customer | async)?.cus_email}}   </td></tr>
+    <tr><th>Phone: </th>   <td> {{(customer | async)?.cus_phn_no}}  </td></tr>
+</table>

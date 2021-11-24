@@ -1,0 +1,178 @@
+What is Webapplication
+
+These are the applications, that which are to be
+called from various places rather than where they are created.
+
+If you want to make any distributed or robust applications,
+then we need the help of web applications. 
+
+You can create web applications in 2 ways as 
+
+(i) Scripting Languages
+
+(ii) Programming Languages 
+
+Scripting languages are languages, that which are interpreted
+during runtime they takes lot of time to execute. 
+
+Programming languages are langauges that which are compiled first,
+during rntime they takes very less time to execute. 
+
+In Webapplications we can implement 
+
+(i) Client-Side
+
+	Enables you to access the application from the client system
+
+	No Network traffic 
+
+	Execution will be faster. 
+
+(ii) Server-Side 
+
+	Enables you to access the application from the server
+
+	Execution will be a bit slower
+
+	Network traffic is high. 
+
+
+*** Any intranet based application w.r.t. No security, please opt for client-side scripting ***
+
+*** Any intertnet based application w.r.t. Min. Security, please opt for both client-side/server-side 
+		scripting ***
+
+*** Any internet based application w.r.t. High security, please opt for server-side scripting ***
+
+
+Client-Side scripting 
+_______________________
+
+1) HTML
+
+2) Javascript
+
+3) Jquery
+
+4) CSS 
+
+HTML is a text-based markup language, that which allows you to create any sample web pages. 
+
+Here, we can represent data in tags. 
+
+To start with HTML, we need to use 
+
+<html>
+</html>
+
+<head>
+</head> : used to define the global content for the given page. 
+
+<title>
+</title> : Used to display heading on title bar. 
+
+<title>Welcome to Java</title>
+
+<body>
+</body> : Displays the actual content of the given page. 
+
+
+<p>
+</p> : Used to start new paragraph everytime. 
+
+If you want to write definitions and answers, in html, we have tags as
+
+<dl>
+<dt>
+<dd>
+
+<dl> : Starting of definition language. 
+
+<dt> : Definition Term
+
+<dd> : Definition Description 
+
+Anchor Tag : Used to link the given page with other pages. 
+
+<a href="target_page">Display Text</a>
+
+&nbsp; Used to provide spaces. How many spaces you need, that many &nbsp you need to provide 
+
+<ol>
+</ol> : Ordered List. 
+
+Used to display content w.r.t. Ordered List Format. 
+
+How to work with Unordered List. 
+
+<ul> 
+</ul> : Unordered List. 
+
+
+<div>
+</div> : used to divide page into multiple particions. 
+
+You can given images, by using 
+
+<img> tag. 
+
+<img src="imageName" /> 
+
+How to accept the data from the keyboard. 
+___________________________________________
+
+We need the help of forms. 
+
+Allows you to accept data from the keyboard. 
+
+You can start with forms by using 
+
+<form>
+</form> 
+
+<input /> Used to read data from the keyboard. 
+
+<input type="text" /> Used for textbox.
+
+<input type="password" /> Used for password
+
+<input type="radio" /> Radio button
+
+<input type="checkbox" /> Checkbox
+
+<input type="number" /> Numbers
+
+<input type="date" /> 
+
+<input type="month" /> 
+
+<input type="email" />
+
+<input type="url" /> 
+
+<input type="button" value="Show" /> 
+
+<input type="submit" value="Show" /> 
+
+<input type="reset" value="Reset" /> 
+
+
+Tables : 
+
+Allows you to display data w.r.t. Rows and Columns. 
+
+You can start with tables, by using 
+
+<table>
+</table> 
+
+we have properites as border 
+
+<tr> : Used to add new row to the given table. 
+
+<th> : used to add cell heading to the given table. 
+
+<td> : used to add cell data to the given table. 
+
+colspan : Used to merge multiple columns into a single column. 
+puiangtraining@gmail.com

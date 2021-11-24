@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script>
+	$(document).ready(function () {
+    	$("#mult").click(function () {
+        	var firstNo = $("#firstNo").val();
+        	var secondNo = $("#secondNo").val();
+        	var result = firstNo * secondNo;
+        	// frmCalc.result.value=result;
+        	$("#result").val(result);
+    	});
+});
+
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <form id="frmCalc">
+        <center>
+            First Number : 
+            <input type="text" name="firstNo" id="firstNo" /> <br/><br/>
+            Second Number : 
+            <input type="text" name="secondNo" id="secondNo" /> <br/><br/> 
+            Result : 
+            <input type="text" name="result" id="result" /> <br/><br/> 
+            <input type="button" id="mult" value="Mult" />
+        </center>
+    </form>
+
+</body>
+</html>

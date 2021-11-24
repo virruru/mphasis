@@ -1,0 +1,83 @@
+MultiThreading : 
+
+Thread 
+
+  A thread is the sequential execution of path of program.
+
+In multi-threading, more than one task can be performed in a single 
+program simultaneously.  
+
+If you want to make best utilization of CPU resources then we need the help of
+multi-threading. 
+
+In thread we have various methods as 
+
+1) run()
+
+	This method contains actual code to be written in threads. 
+
+2) start()
+
+	Once you invoke the start(), the code which in run() will be executed. 
+
+3) sleep() 
+
+	Makes a thread to wait for specific milliseconds time. 
+
+
+
+How to create a thread, 
+
+a thread will be created in 2 ways 
+
+(i) extends Thread
+
+(ii) implements Runnable 
+
+implements Runnable because we cannot do multiple inheritance, so for dervied class we need to implement multi-threading, then we need Runnable interface. 
+
+class class_name extends Thread {
+...
+...
+}
+
+class class_name implements Runnable {
+....
+....
+....
+}
+
+
+join() : used to group one or two threads as a group. 
+
+Synchronization : 
+
+If two or more threads accessing the same resource at same time, then it leads to strange results. 
+
+this problem known as synchronization. To overcome this, unless one thread leaves the particular location, another thread will not be entered. 
+
+What is diff. between HashMap and HashTable 
+
+HashTable is having ThreadSafe methods, as HashMap we cannot handle synchronization. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

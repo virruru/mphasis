@@ -1,0 +1,95 @@
+1) Display the last occurrence of given char in a string 
+
+ex : 'sravani' find out the last occurrence of 'a' 
+
+2) Take full name and split into firstname and lastname 
+
+Ex : 'harsha reddy' display as 'harsha' 'reddy'
+
+'bharath chopade'
+bharath 
+chapde
+
+3) In word 'misissipi' count no.of i's 
+
+4) count no.of words in the given name 'harsha vardhan reddy' 
+
+5) Add 3 years 5 months and 10 days to the today's date 
+
+6) Display the first day of the current month 
+
+7) Display all fridays of current month.
+
+1) Display the last occurrence of given char in a string 
+
+
+select reverse('sravani') from dual;
+
+select instr(reverse('sravani'),'a') from dual;
+
+select length('sravani')-instr(reverse('sravani'),'a')+1 from dual;
+
+select case 
+when instr('sravani','a') = 0 then 0
+else
+length('sravani')-instr(reverse('sravani'),'a')+1 
+end LastOcc
+from dual;
+
+ex : 'sravani' find out the last occurrence of 'a' 
+
+2) Take full name and split into firstname and lastname 
+
+Ex : 'harsha reddy' display as 'harsha' 'reddy'
+
+select substr('harsha reddy',1,instr('harsha reddy',' ')) FirstName,
+substr('harsha reddy',instr('harsha reddy',' ')+1,length('harsha reddy'))
+lastName
+from dual;
+
+'bharath chopade'
+bharath 
+chapde
+
+3) In word 'misissipi' count no.of i's 
+
+select length('misissipi')- length(replace('misissipi','i','')) from dual;
+
+4) count no.of words in the given name 'harsha vardhan reddy' 
+
+5) Add 3 years 5 months and 10 days to the today's date 
+
+6) Display the first day of the current month 
+
+select last_day(sysdate);
+
+select to_char(add_months(last_day(sysdate),-1)+1,'DAY') from dual;
+
+7) Display all fridays of current month.
+
+select next_day(add_months(last_day(sysdate),-1)+1,'FRIDAY')
+"First Friday",
+   next_day(next_day(add_months(last_day(sysdate),-1)+1,'FRIDAY'),'FRIDAY')
+"Second Friday",
+next_day( next_day(next_day(add_months(last_day(sysdate),-1)+1,'FRIDAY'),'FRIDAY'),'FRIDAY')
+"Third Friday",
+next_Day(next_day(next_day(next_day(add_months(last_day(sysdate),-1)+1,'FRIDAY'),'FRIDAY'),'FRIDAY'),'FRIDAY')
+"Fourth Friday",
+CASE
+WHEN TO_CHAR(
+next_day(next_Day(next_day(next_day(next_day(add_months(last_day(sysdate),-1)+1,'FRIDAY'),'FRIDAY'),'FRIDAY'),'FRIDAY'),'FRIDAY'),'MM')
+=to_char(sysdate,'MM')
+THEN 
+next_day(next_Day(next_day(next_day(next_day(add_months(last_day(sysdate),-1)+1,'FRIDAY'),'FRIDAY'),'FRIDAY'),'FRIDAY'),'FRIDAY')
+END
+"FIfth Friday"
+from DUAL;
+
+
+
+
+select sum(sal) from emp;
+select avg(sal) from Emp;
+select max(sal) from emp;
+select min(sal) from Emp;
+count(*) : used to display total no.of records of table. 

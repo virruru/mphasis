@@ -1,0 +1,718 @@
+Spring Web applications w.r.t. MVC design pattern. 
+
+
+MVC
+
+M -> Model
+
+	-> Business Logic. 
+
+V -> View  -> UI pages.
+
+C -> Controller 
+
+Controller is the heart for MVC design pattern as 
+
+This controller redirects to the target page based on the result. 
+
+Controllers acts as a glue or interface between Model and view.
+
+Based on action name, it would be redirected to corresponding target page. 
+
+The return type for method is ModelAndView.
+
+co.ntier
+
+Advantages :
+
+-> Light-weight 
+
+-> Each layer loosely coupled with each other, now changes in one layer will have no or less impact on another layer.
+
+-> It is best solution for test driven development. (TDD) 
+
+TDD means, if you want to test any given individual unit as Model you need to test or UI u need to test, you can do, as its have no dependency or binding with any other layer directly. 
+
+
+
+Introduction
+Spring provides a way to automatically detect the relationships between various beans. This can be done by declaring all the bean dependencies in Spring configuration file. So, Spring is able to utilize the BeanFactory to know the dependencies across all the used beans.
+
+The XML-configuration-based autowiring functionality has five modes – no, byName, byType, constructor, and autodetect. The default mode is no.
+
+Autowiring Modes
+Spring supports the following autowiring modes:
+
+no: It’s the default autowiring mode. It means no autowiring.
+byName: The byName mode injects the object dependency according to name of the bean. In such a case, the property and bean name should be the same. It internally calls the setter method.
+byType: The byType mode injects the object dependency according to type. So it can have a different property and bean name. It internally calls the setter method.
+constructor: The constructor mode injects the dependency by calling the constructor of the class. It calls the constructor having a large number of parameters.
+autodetect: In this mode, Spring first tries to autowire by the constructor. If this fails, it tries to autowire by using byType.
+1. Autowiring ‘no’:
+This is a default autowiring mode. It means no autowiring.
+
+1
+<bean id="department" class="guru.springframework.autowiringdemo.Department">
+2
+  <property name="deptName" value="Information Technology" />
+3
+</bean>
+4
+<bean id="employee" class="guru.springframework.autowiringdemo.Employee"></bean>
+
+
+2. Autowiring ‘byName’:
+This option enables autowire based on bean names. Spring looks up the configuration file for a matching bean name. If found, this bean is injected in the property. However, if no such bean is found, an error is raised.
+
+In this case, the name of the department bean is the same as the employee bean’s property (Department), so Spring will be autowired to it via the setter method –  setDepartment(Department department).
+
+1
+<bean id="department" class="guru.springframework.autowiringdemo.Department">
+2
+<property name="deptName" value="Information Technology" />
+3
+</bean>
+4
+<bean id="employee" class="guru.springframework.autowiringdemo.Employee" autowire="byName"></bean>
+
+
+3. Autowiring ‘byType’:
+This option enables the autowire based on bean type. It searches the property’s class type in the configuration file. It injects the property if such bean is found; otherwise, an error is raised.
+
+In this case, the data type of the department bean is same as the data type of the employee bean’s property (Department object); therefore, Spring will autowire it via the setter method –  setDepartment(Department department).
+
+1
+<bean id="department" class="guru.springframework.autowiringdemo.Department">
+2
+<property name="deptName" value="Information Technology" />
+3
+</bean>
+4
+<bean id="employee" class="guru.springframework.autowiringdemo.Employee" autowire="byType"></bean>
+
+
+4. Autowiring ‘constructor’
+Autowiring by constructor is similar to byType but it applies to constructor arguments. It will look for the class type of constructor arguments, and then do an autowire byType on all constructor arguments. If exactly one bean of the constructor argument type is not present in the container, a fatal error will be raised.
+
+The data type of department bean is the same as the constructor argument data type in the employee bean’s property (Department object). Therefore, Spring autowires it using the constructor method –  public Employee(Department department).
+
+1
+<bean id="department" class="guru.springframework.autowiringdemo.Department">
+2
+<property name="deptName" value="Information Technology" />
+3
+</bean>
+4
+<bean id="employee" class="guru.springframework.autowiringdemo.Employee" autowire="constructor"></bean>
+
+
+5. Autowiring ‘autodetect’
+Autowiring by autodetect uses two modes, i.e.constructor or byType modes. First, it will look for valid constructor with arguments. If it is found, then the constructor mode is chosen. If there is no constructor defined in a bean, the autowire byType mode is chosen.
+
+In the following case, since there is a Department object in the Employee class, Spring autowires it using byType via the setter method – setDepartment(Department department).
+
+1
+<bean id="department" class="guru.springframework.autowiringdemo.Department">
+2
+<property name="deptName" value="Information Technology" />
+3
+</bean>
+4
+<bean id="employee" class="guru.springframework.autowiringdemo.Employee" autowire="autodetect"></bean>
+
+
+Note: Autodetect functionality will work with the 2.5 and 2.0 schemas. It will not work from 3.0+.
+
+Example of Autowiring
+We’ll create a simple Java Bean, named Department. Department will have department name property with getter and setter methods. After that, we will initialize this property value in the Spring bean configuration file.
+
+1
+public class Department {
+2
+    private String deptName;
+3
+    public String getDeptName() {
+4
+        return deptName;
+5
+    }
+6
+    public void setDeptName(String deptName) {
+7
+        this.deptName = deptName;
+8
+    }
+9
+}
+Now, let’s create our Employee class, in which we will inject Department bean through Spring autowiring.
+
+1
+public class Employee {
+2
+    private int eid;
+3
+    private String ename;
+4
+    private Department department;
+5
+    public int getEid() {
+6
+        return eid;
+7
+    }
+8
+    public void setEid(int eid) {
+9
+        this.eid = eid;
+10
+    }
+11
+    public String getEname() {
+12
+        return ename;
+13
+    }
+14
+    public void setEname(String ename) {
+15
+        this.ename = ename;
+16
+    }
+17
+    public Department getDepartment() {
+18
+        return department;
+19
+    }
+20
+    public void setDepartment(Department department) {
+21
+        this.department = department;
+22
+    }
+23
+    public void showEployeeDetails(){
+24
+        System.out.println("Employee Id : " + eid);
+25
+        System.out.println("Employee Name : " + ename);
+26
+        System.out.println("Department : " + department.getDeptName());
+27
+    }
+28
+}
+
+
+Now, looking at the Spring bean configuration file, it is the main part of any Spring application. So, let’s see how our Spring bean configuration file looks.
+
+1
+<?xml version="1.0" encoding="UTF-8"?>
+2
+<beans xmlns="http://www.springframework.org/schema/beans"
+3
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+4
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+5
+http://www.springframework.org/schema/beans/spring-beans.xsd
+6
+http://www.springframework.org/schema/context
+7
+http://www.springframework.org/schema/context/spring-context.xsd">
+8
+<bean id="department" class="guru.springframework.autowiringdemo.Department">
+9
+<property name="deptName" value="Information Technology" />
+10
+</bean>
+11
+<bean id="emp" class="guru.springframework.autowiringdemo.Employee" autowire="byName"></bean>
+12
+</beans>
+Now, our Spring application is ready with all types of Spring autowiring. So, let’s write a simple test program to see if it works as expected.
+
+1
+@SpringBootApplication
+2
+public class AutowiringdemoApplication {
+3
+public static void main(String[] args) {
+4
+​
+5
+SpringApplication.run(AutowiringdemoApplication.class, args);
+6
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+7
+Employee emp = context.getBean("employee", Employee.class);
+8
+emp.setEid(101);
+9
+emp.setEname("Spring Framework Guru");
+10
+emp.showEployeeDetails();
+11
+}
+12
+​
+13
+}
+In the above program, we are just creating the Spring application context and using it to get different beans and printing the employee details.
+
+After we run the above program, we get the following output:
+
+1
+Employee Id: 101
+2
+Employee Name: Spring Framework Guru
+3
+Department: Information Technology
+4
+Process finished with exit code 0
+
+
+@Autowired Annotation
+In Spring, you can use @Autowired annotation to auto-wire bean on the setter method, constructor, or a field. Moreover, it can autowire the property in a particular bean. We must first enable the annotation using below configuration in the configuration file.
+
+If you are using Java-based configuration, you can enable annotation-driven injection by using below spring configuration:
+
+1
+@Configuration
+2
+@ComponentScan("guru.springframework.autowiringdemo")
+3
+public class AppConfig {}
+4
+​
+As an alternative, we can use below XML-based configuration in Spring:
+
+1
+<context:annotation-config />
+We have enabled annotation injection. After that, it can be used on modes like properties, setters, and constructors. Let’s discuss them one by one.
+
+@Autowired on Properties
+In the below example, when the annotation is directly used on properties, Spring looks for and injects Department when Employee is created. This is how it eliminates the need for getters and setters.
+
+1
+import org.springframework.stereotype.Component;
+2
+@Component
+3
+public class Department {
+4
+private String deptName;
+5
+public String getDeptName() {
+6
+return deptName;
+7
+}
+8
+public void setDeptName(String deptName) {
+9
+this.deptName = deptName;
+10
+}
+11
+}
+
+
+1
+import org.springframework.beans.factory.annotation.Autowired;
+2
+public class Employee {
+3
+    private int eid;
+4
+    private String ename;
+5
+    @Autowired
+6
+    private Department department;
+7
+    public int getEid() {
+8
+        return eid;
+9
+    }
+10
+    public void setEid(int eid) {
+11
+        this.eid = eid;
+12
+    }
+13
+    public String getEname() {
+14
+        return ename;
+15
+    }
+16
+    public void setEname(String ename) {
+17
+        this.ename = ename;
+18
+    }
+19
+    public void showEployeeDetails(){
+20
+        System.out.println("Employee Id : " + eid);
+21
+        System.out.println("Employee Name : " + ename);
+22
+        department.setDeptName("Information Technology");
+23
+        System.out.println("Department : " + department.getDeptName());
+24
+    }
+25
+}
+
+
+@Autowired on Setters
+In the below example, when the annotation is used on the setter method, the setter method is called with the instance of Department when Employee is created.
+
+1
+import org.springframework.beans.factory.annotation.Autowired;
+2
+import org.springframework.stereotype.Component;
+3
+@Component
+4
+public class Employee {
+5
+    private int eid;
+6
+    private String ename;
+7
+    private Department department;
+8
+    public int getEid() {
+9
+        return eid;
+10
+    }
+11
+    public void setEid(int eid) {
+12
+        this.eid = eid;
+13
+    }
+14
+    public String getEname() {
+15
+        return ename;
+16
+    }
+17
+    public void setEname(String ename) {
+18
+        this.ename = ename;
+19
+    }
+20
+    public Department getDepartment() {
+21
+        return department;
+22
+    }
+23
+    @Autowired
+24
+    public void setDepartment(Department department) {
+25
+        this.department = department;
+26
+    }
+27
+    public void showEployeeDetails(){
+28
+        System.out.println("Employee Id : " + eid);
+29
+        System.out.println("Employee Name : " + ename);
+30
+        department.setDeptName("Information Technology");
+31
+        System.out.println("Department : " + department.getDeptName());
+32
+    }
+33
+}
+
+
+@Autowired on Constructors
+In the below example, the annotation is used on a constructor, an instance of Department is injected as an argument to the constructor when Employee is created.
+
+1
+import org.springframework.beans.factory.annotation.Autowired;
+2
+import org.springframework.stereotype.Component;
+3
+@Component
+4
+public class Employee {
+5
+    private int eid;
+6
+    private String ename;
+7
+    private Department department;
+8
+    @Autowired
+9
+    public EmployeeBean(DepartmentBean deptBean) {
+10
+        System.out.println("*** Autowiring by using @Autowire annotation on constructor ***");
+11
+        this.deptBean = deptBean;
+12
+    }
+13
+    public int getEid() {
+14
+        return eid;
+15
+    }
+16
+    public void setEid(int eid) {
+17
+        this.eid = eid;
+18
+    }
+19
+    public String getEname() {
+20
+        return ename;
+21
+    }
+22
+    public void setEname(String ename) {
+23
+        this.ename = ename;
+24
+    }
+25
+    public Department getDepartment() {
+26
+        return department;
+27
+    }
+28
+    public void setDepartment(Department department) {
+29
+        this.department = department;
+30
+    }
+31
+    public void showEployeeDetails(){
+32
+        System.out.println("Employee Id : " + eid);
+33
+        System.out.println("Employee Name : " + ename);
+34
+        department.setDeptName("Information Technology");
+35
+        System.out.println("Department : " + department.getDeptName());
+36
+    }
+37
+}
+
+
+Writing a Test Program
+So, let’s write a simple test program for @Autowired on the property to see if it works as expected.
+
+1
+@SpringBootApplication
+2
+public class AutowiringdemoApplication {
+3
+  public static void main(String[] args) {
+4
+    ConfigurableApplicationContext context = SpringApplication.run(AutowiringdemoApplication.class, args);
+5
+    Employee emp = context.getBean(Employee.class);
+6
+    emp.setEid(104);
+7
+    emp.setEname("Spring Framework Guru");
+8
+    emp.showEployeeDetails();
+9
+  }
+10
+}
+After we run the above program, we get the following output:
+
+1
+Employee Id : 104 
+2
+Employee Name : Spring Framework Guru 
+3
+Department : Information Technology 
+4
+Process finished with exit code 0
+
+
+___________________________________________________________________________________________________
+
+Example of Autowiring
+We’ll create a simple Java Bean, named Department. Department will have department name property with getter and setter methods. After that, we will initialize this property value in the Spring bean configuration file.
+
+1
+public class Department {
+2
+    private String deptName;
+3
+    public String getDeptName() {
+4
+        return deptName;
+5
+    }
+6
+    public void setDeptName(String deptName) {
+7
+        this.deptName = deptName;
+8
+    }
+9
+}
+Now, let’s create our Employee class, in which we will inject Department bean through Spring autowiring.
+
+1
+public class Employee {
+2
+    private int eid;
+3
+    private String ename;
+4
+    private Department department;
+5
+    public int getEid() {
+6
+        return eid;
+7
+    }
+8
+    public void setEid(int eid) {
+9
+        this.eid = eid;
+10
+    }
+11
+    public String getEname() {
+12
+        return ename;
+13
+    }
+14
+    public void setEname(String ename) {
+15
+        this.ename = ename;
+16
+    }
+17
+    public Department getDepartment() {
+18
+        return department;
+19
+    }
+20
+    public void setDepartment(Department department) {
+21
+        this.department = department;
+22
+    }
+23
+    public void showEployeeDetails(){
+24
+        System.out.println("Employee Id : " + eid);
+25
+        System.out.println("Employee Name : " + ename);
+26
+        System.out.println("Department : " + department.getDeptName());
+27
+    }
+28
+}
+
+
+Now, looking at the Spring bean configuration file, it is the main part of any Spring application. So, let’s see how our Spring bean configuration file looks.
+
+1
+<?xml version="1.0" encoding="UTF-8"?>
+2
+<beans xmlns="http://www.springframework.org/schema/beans"
+3
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+4
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+5
+http://www.springframework.org/schema/beans/spring-beans.xsd
+6
+http://www.springframework.org/schema/context
+7
+http://www.springframework.org/schema/context/spring-context.xsd">
+8
+<bean id="department" class="guru.springframework.autowiringdemo.Department">
+9
+<property name="deptName" value="Information Technology" />
+10
+</bean>
+11
+<bean id="emp" class="guru.springframework.autowiringdemo.Employee" autowire="byName"></bean>
+12
+</beans>
+Now, our Spring application is ready with all types of Spring autowiring. So, let’s write a simple test program to see if it works as expected.
+
+1
+@SpringBootApplication
+2
+public class AutowiringdemoApplication {
+3
+public static void main(String[] args) {
+4
+​
+5
+SpringApplication.run(AutowiringdemoApplication.class, args);
+6
+ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+7
+Employee emp = context.getBean("employee", Employee.class);
+8
+emp.setEid(101);
+9
+emp.setEname("Spring Framework Guru");
+10
+emp.showEployeeDetails();
+11
+}
+12
+​
+13
+}
+
+___________________________________________________________________________________
+
+
+Usually we provide bean configuration details in the spring bean configuration file and we also specify the beans that will be injected in other beans using ref attribute. But Spring framework provides autowiring features too where we don’t need to provide bean injection details explicitly.
+
+There are different ways through which we can autowire a spring bean.
+
+autowire byName – For this type of autowiring, setter method is used for dependency injection. Also the variable name should be same in the class where we will inject the dependency and in the spring bean configuration file.
+
+autowire byType – For this type of autowiring, class type is used. So there should be only one bean configured for this type in the spring bean configuration file.
+autowire by constructor – This is almost similar to autowire byType, the only difference is that constructor is used to inject the dependency.
+
+autowire by autodetect – If you are on Spring 3.0 or older versions, this is one of the autowire options 
+available. This option was used for autowire by constructor or byType, as determined by Spring container. Since we already have so many options, this option is deprecated. I will not cover this option in this tutorial.
+
+@Autowired annotation – We can use Spring @Autowired annotation for spring bean autowiring. @Autowired annotation can be applied on variables and methods for autowiring byType. We can also use @Autowired annotation on constructor for constructor based spring autowiring.
+For @Autowired annotation to work, we also need to enable annotation based configuration in spring bean configuration file. This can be done by context:annotation-config element or by defining a bean of type org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.
+
+@Qualifier annotation – This annotation is used to avoid conflicts in bean mapping and we need to provide the bean name that will be used for autowiring. This way we can avoid issues where multiple beans are defined for same type. This annotation usually works with the @Autowired annotation. For constructors with multiple arguments, we can use this annotation with the argument names in the method.
+By default spring bean autowiring is turned off. Spring bean autowire default value is “default” that means no autowiring is to be performed. autowire value “no” also have the same behavior.
+
+To showcase the use of Spring Bean autowiring, let’s create a simple Spring Maven project. Our final project will look like below image.
+

@@ -1,0 +1,90 @@
+Functions : 
+______________
+
+A function is a subprogram, that which returns a value, based on some 
+calculation. 
+
+syntax : 
+_________
+
+Create Or Replace function function_name(par(s)) return data_type
+as
+variable_declaretaion
+begin
+    statements;
+exception 
+   statements;
+end;
+
+
+These functions can be executed using select stament and dual table. 
+
+create or replace function sayHello return varchar2
+as
+begin
+     return 'Welcome to Oracle PL/SQL Functions Concept...';
+end;
+
+select sayHello() from dual;
+
+create or replace function evenodd(n number) return varchar2
+as
+begin
+      if n mod 2 = 0 then
+         return 'Even Number';
+      else 
+         return 'Odd Number...';
+      end if;
+end;
+
+ create or replace function fact(n number) return number as
+ f number;
+ i number;
+ begin
+     i:=1;
+     f:=1;
+     for i in 1..n
+     loop
+       f:=f*i;
+     end loop;
+     return f;
+ end;
+
+
+create or replace function ncr(n number,r number) return number 
+as
+res1 number;
+res2 number;
+res3 number;
+begin
+    select fact(n) into res1 from dual;
+    select fact(n-r) into res2 from dual;
+    select fact(r) into res3 from dual;
+    return res1/(res2*res3);
+end;
+
+create or replace function commzero(comm number) return number
+as
+begin
+     if comm is null then
+         return 0;
+     else
+        return comm;
+     end if;
+end;
+
+select empno,ename,job,sal, comm,commzero(comm) from Emp;
+
+create or replace function tax(sal number) return number
+as
+begin
+    return sal*0.03;
+end;
+
+select empno,ename,job,sal,tax(sal) from emp;
+
+select empno,name,basic,tax(basic) from employ;
+
+select empno,name,basic,tax(basic),basic-tax(basic) "TakeHome" from employ;
+
+

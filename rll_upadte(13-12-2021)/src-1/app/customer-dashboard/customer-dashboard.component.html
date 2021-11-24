@@ -1,0 +1,18 @@
+<div class="dashboard">
+   <h1>Welcome {{cus.cus_name}}</h1>
+   <nav>
+    <div id="home"><a [routerLink]="['']"><i class="fa fa-home"></i></a></div>
+     <ul id="menulist">
+       <li><a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['Customer']}}]"> Customer Details</a> </li>
+       <!-- <li><a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerSearch']}}]"> Customer Search</a> </li> -->
+       <li><a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerInfo']}}]"> Your Info</a> </li>
+       <li><a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerOrders']}}]"> Your Orders</a> </li>
+       <li><a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerPendingOrders']}}]"> Your Pending Orders</a> </li>
+       <li><a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerWallets']}}]"> Your Wallets</a> </li>
+       <li><a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['CustomerWallet']}}]">Wallet Info</a> </li>
+       <li><a [routerLink]="['/CustomerDashboard',{outlets: {'Rllproject': ['PlaceOrder']}}]">Place Order</a> </li>
+
+      </ul>
+</nav>
+<router-outlet name="Rllproject"></router-outlet>
+</div>

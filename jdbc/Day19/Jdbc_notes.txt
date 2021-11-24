@@ -1,0 +1,105 @@
+What is Maven
+
+
+For general java projects, if any external jars to be added 
+either we need to add to buildpath or add in the lib folder. 
+
+But, its tedious process. To overcome this we need the help of maven. 
+
+Maven is a build tool, that which allows you to overcome the problem of
+adding external jar files to the existing project. 
+
+It has the proper project structure. as it specifies where to write 
+business logic and where to write test cases. 
+
+as it has 2 folders as main and test main part contains actual business logic,
+test part contains all the test cases. 
+
+the heart for maven project is 
+
+pom.xml file : (Project Object Model) 
+
+Contains list of dependencies to be added to the given project. 
+
+
+How to create a maven project
+
+In Eclipse file -> New -> Maven Project 
+
+For console applications, please specify in filer, please specify as
+
+java-quickstart
+
+Maven Project contains 4 portions as 
+
+Group Id -> Its common name w.r.t. context
+Artifact Id -> Always it is the name of the project.
+Version -> Version Number
+Package -> name of the packaage
+
+To deal with JDBC, we need to use
+
+java.sql package. 
+
+Steps are involved in connecting to the database :
+__________________________________________________
+
+
+(i) Load Driver : To load the driver, please use the method as 
+
+Class.forName() 
+
+Before that, please add the below dependency to the project pom.xml file. 
+ <dependency>
+    <groupId>com.oracle.ojdbc</groupId>
+    <artifactId>ojdbc8</artifactId>
+    <version>19.3.0.0</version>
+</dependency>
+
+
+For oracle, 
+
+Class.forName("oracle.jdbc.driver.OracleDriver");
+
+
+Add the above dependecy in pom.xml file in <dependencies> </dependencies> section. 
+
+(ii) Connect to the Database
+
+Connection interface is a pipeline through which we can connect to any backend. 
+
+Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","prasanna","prasanna");
+
+
+(iii) Create and Execute JDBC Statements
+
+PreparedStatement : this interface allows you to perform crud operations. 
+
+PreparedStatement pst = con.preparedStatement("select * from Employ");
+
+
+ResultSet : To store the records that which are retrieved by the PreparedStatement, then  we need 
+ResultSet. 
+
+executeQuery() : this method allows you to fetch records from the database table. 
+
+(iv) Handle Exceptions. 
+
+
+
+
+
+
+
+What is Dependency 
+
+How to Add dependencies 
+
+Insert into Employ values(1,'harsha','Java',
+'Male','SE',58233);
+
+Insert into Employ values(2,'Sowmya','Java',
+'Female','SE',38233);
+
+Insert into Employ values(3,'Narendra','Java',
+'Male','SE',47233);

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function show() {
+		var result="";
+		result+="Absolute Value  " +Math.abs(-12) + "<br/>";
+		result+="Power Value  " +Math.pow(2,3) + "<br/>";
+		result+="Sqrt. Value is  " +Math.sqrt(49) + "<br/>";
+		result+="Ceiling Value  " +Math.ceil(12.00000001) + "<br/>";
+		result+="Floor Value  " +Math.floor(12.999999) + "<br/>";
+		document.getElementById("result").innerHTML=result;
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onload="show()">
+	<form name="frmData">
+		<span id="result"></span>
+	</form>
+</body>
+</html>

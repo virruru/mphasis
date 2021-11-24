@@ -1,0 +1,33 @@
+/* .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+} */
+h1{
+    color: black;
+}
+.grid-welcome{
+    background: rgb(250, 247, 247);  
+    margin-top: 100px;
+    margin-left:600px;
+    height: 400px;
+    width: 400px ;
+    
+}
+
+
+a{
+    font-size: 25px;
+    font-style: italic;
+    color: red;
+    
+}
+
+#customer,#vendor{
+    height: 50px;
+    width: 200px;
+    background-color: black;
+    border-radius: 20px;
+    padding-top: 10px;
+    
+}

@@ -1,0 +1,45 @@
+#login{
+	color:white;
+	font-weight:bold;
+	font-size:20px;
+}
+
+#uname,#pword{
+	border-radius:40px;
+	height:25px;
+	width:200px;
+	background-color:black;
+	border-color:#cc00cc;
+	color:white;
+	text-align: center; 
+}
+
+#uname:hover,#pword:hover{
+	border-color:#00cc66;
+	height:40px;
+	width:300px;
+}
+
+button{
+	font-weight:bold;
+	background-color:#49C6B6;
+	border-color:black;
+	height:40px;
+	width:80px;
+	border-radius:50px;	
+}
+
+button:hover{
+	background-color:#bc1568;
+	width:100px;
+	font-size:20px;
+}
+
+#logimg {
+	width: 120px;
+	height: 120px;
+	overflow: hidden;
+	border: 5px solid black;
+	margin: -60px -70px;
+	border-radius: 100px;
+}

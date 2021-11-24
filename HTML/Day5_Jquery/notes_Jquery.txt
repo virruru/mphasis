@@ -1,0 +1,64 @@
+
+<script>
+    function show() {
+       alert("Welcome");
+    }
+</script>
+
+<input type="button" value="Show" onclick="show()" /> 
+
+In the above code, there is strong binding between html and javascript code. 
+
+this we need to avoid, then jquery is the best solution. 
+
+Jquery allows you to create any size 0 applications.
+
+If you want to make any light-weight applications, and 
+
+   -> First we need to load the documents, and events will be binded at 
+		whenever we want not at the time of loading the document. 
+
+
+Jquery is very small software of 15kb size that plugins to be added to the document. 
+
+“jQuery is a lightweight open source JavaScript library 
+(only 15kb in size) that in a relatively short span of time has become one of the most popular libraries on the web. A big part of the appeal of jQuery is that it allows you to elegantly (and efficiently) find and manipulate HTML elements with minimum lines of code … There is a huge ecosystem and community built up around JQuery. The jQuery library also works well on the same page with ASP.NET AJAX and the ASP.NET AJAX Control Toolkit.”
+
+
+Whatever code you are writing in javascript for 15 to 20 lines, by using jquery, we can write in 4 to 5 lines
+
+It reduces the size of the program. 
+
+
+jQuery is the star among the growing list of JavaScript libraries. A few of its characteristics are light-weight, cross-browser compatibility and simplicity. A common task that sometimes takes 10 lines of code with traditional JavaScript can be accomplished with jQuery in just one line of code. 
+
+
+How to access the elements in jquery, 
+
+We have $ symbol to access the elements of jquery. 
+
+Here, $ we call as magic $. 
+
+Assume we have <p id="p1"> 
+
+You can access as $p("#p1")
+
+we have <p class="p1">
+
+you can access as $p(".p1")
+
+Document.Ready() 
+
+The most commonly used command in jQuery is Document.Ready(). It makes sure code is executed only when a page is fully loaded. We often place code blocks inside this Document.Ready() event. For example:
+
+$(document).ready(function(){ 
+
+});
+
+To work with jquery plugins, we need to add the below scripts to the <head></head>
+
+   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+

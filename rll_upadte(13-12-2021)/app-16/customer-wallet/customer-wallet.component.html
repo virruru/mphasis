@@ -1,0 +1,8 @@
+<h1>Wustomer Wallet</h1>
+<input type="text" placeholder="Wallet Source" [(ngModel)]="waltype">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button (click) = "search()" >Search</button><br><br>
+<div id="searchcontent">
+Customer Id :  {{(wallet | async)?.cus_id}}  <br/>
+Wallet Id  :  {{(wallet | async)?.wal_id}}  <br/>
+Wallet Amount :  {{(wallet | async)?.wal_amount}}  <br/>
+Wallet Source :  {{(wallet | async)?.wal_source}}  <br/>

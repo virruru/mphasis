@@ -1,0 +1,22 @@
+<form id="addCustomer" >
+    <table align="center">
+    <tr><th>Customer Name :</th> 
+<td><input type="text" name="customerdetails.cus_name" [(ngModel)]="customerdetails.cus_name" />
+ </td></tr>
+
+    <tr><th>Customer Phone Number: </th>
+      <td> <input type="text" name="customerdetails.cus_phn_no" [(ngModel)]="customerdetails.cus_phn_no" />
+    </td></tr> 
+
+    <tr><th>Customer Username:</th> 
+    <td><input type="text" name="customerdetails.cus_username" [(ngModel)]="customerdetails.cus_username"/>
+     </td></tr>
+    <tr><th>Customer Password::</th> 
+        <td><input type="text" name="customerdetails.cus_password" [(ngModel)]="customerdetails.cus_password" />
+         </td></tr>
+         <tr><th>Customer Email:</th> 
+            <td><input type="text" name="customerdetails.cus_email" [(ngModel)]="customerdetails.cus_email" />
+             </td></tr>
+<tr><th><input type="button" value="addCustomer" (click)="addCustomer()"/></th></tr>
+</table>
+</form>

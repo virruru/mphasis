@@ -1,0 +1,17 @@
+<h1>Customer Details</h1>
+<table  border="3">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    <tr *ngFor="let u of customers | async">
+        <td>{{u.cus_id}} </td>
+        <td>{{u.cus_name}} </td>
+        <td>{{u.cus_username}} </td>
+        <td>{{u.cus_email}} </td>
+        <td>{{u.cus_phn_no}} </td>
+    </tr>
+</table>

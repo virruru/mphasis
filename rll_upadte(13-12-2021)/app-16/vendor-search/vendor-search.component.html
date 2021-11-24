@@ -1,0 +1,9 @@
+<p>vendor-search works!</p>
+<input type="text" placeholder="Vendor Id" [(ngModel)]="vid">
+<button (click) = "search()" >Search</button>
+
+Vendor Name :  {{(vendor | async)?.ven_name}}  <br/>
+Phone :  {{(vendor | async)?.ven_phn_no}}  <br/>
+UserName :  {{(vendor | async)?.ven_username}}  <br/>
+Email :  {{(vendor | async)?.ven_email}}  <br/>
+

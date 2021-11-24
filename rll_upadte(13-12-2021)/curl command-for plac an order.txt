@@ -1,0 +1,18 @@
+Add customers:
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"cus_id":"10","cus_name":"Meera","cus_phn_no":"9963537","cus_username":"meera","cus_password":"meera","cus_email":"meera@123"}' "http://localhost:8080/customers" 
+________________________________________________________________________________
+Add menu:
+
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"men_id":"11","men_item":"Chiken fride rice","men_price":"250","men_calories":"120","men_speciality":"Non-veg"}' "http://localhost:8080/menus"
+_______________________________________________________________________
+add vendor:
+
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"ven_id":"11","ven_name":"Di-table","ven_phn_no":"998765432","ven_username":"DI","ven_password":"DI@123","ven_email":"DI@GMAIL.COM"}' "http://localhost:8080/vendors"
+
+curl -vvv -H "Accept:application/json" -X POST -H "Content-Type:application/json" -d '{"ven_id":"11","ven_name":"Di-table","ven_phn_no":"998765432","ven_username":"DI","ven_password":"DI@123","ven_email":"DI@GMAIL.COM"}' "http://localhost:8080/vendors"
+
+_______________________________________________________________________________________________________
+
+oracel data link:https://docs.google.com/document/d/194zU9HjyHzTTht2StB8gANEAFDg3qPtVTvF-bFEepmo/edit
+
+

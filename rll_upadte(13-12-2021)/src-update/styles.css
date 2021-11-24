@@ -1,0 +1,212 @@
+body{
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-image: url('https://images.unsplash.com/photo-1458253756247-1e4ed949191b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80.jpg');
+}
+
+h1{
+   font-family: 'Tangerine',serif;
+   font-size:80px;
+   font-weight:bold;
+   color: white;
+   text-align: center;
+}
+
+/* =======================
+       Home Page
+   ======================= */
+
+.carousel-item {
+   width: 100%;
+   height: 100vh;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+ }
+
+ #main{
+   width: 100%;
+   height: 100vh;
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-color: rgba(0, 0, 0, 0.6);
+ }
+
+ .title{
+   font-size: 80px;
+   font-family: 'Praise', cursive;
+   font-style: italic;
+   margin-left:4%;
+   margin-top: 2%;
+   /* color:rgba(59, 252, 123, 0.5); */
+   /* color:rgb(8, 245, 87); */
+   color:red;
+   margin-bottom:1px;
+   text-decoration: none;
+}
+
+.welcome{
+   position: absolute;
+   top: 30%;
+   left: 40%;
+   color:white;
+   width: 800px;
+   height: 800px;
+   text-align: center;
+}
+
+.welcome p{
+   font-family: 'Petemoss', cursive;
+   font-size: 40px;
+   font-weight: 200;
+}
+
+.welcome a {
+   text-decoration: none; 
+   border: 3px solid;
+   border-color:red;
+   border-radius: 50px;
+   color:red;
+   padding-top:1%;
+   padding-left: 5%;
+   padding-right: 5%;
+   padding-bottom: 1%;
+   font-size: 20px;
+   font-style: italic;
+}
+
+.welcome a:hover{
+   color: black;
+   background-color:red;
+}
+
+
+
+/* =======================
+       Login Page
+   ======================= */
+
+.login{
+	color:white;
+	font-weight:bold;
+	font-size:20px;
+   text-align: center;
+   margin-top:7%;
+}
+
+#uname,#pword{
+	border-radius:40px;
+	height:25px;
+	width:200px;
+	background-color:black;
+	border-color:#cc00cc;
+	color:white;
+	text-align: center; 
+}
+
+#uname:hover,#pword:hover{
+	border-color:#00cc66;
+	height:40px;
+	width:300px;
+}
+
+.login button{
+   background: none;
+	border-color:#cc00cc;
+	height:40px;
+	width:100px;
+	border-radius:50px;	
+   color: white;
+   font-style: italic;
+}
+
+.login button:hover{
+	background-color:#00cc66;
+	width:100px;
+	font-size:20px;
+   border-color:#00cc66;
+   color: black;
+}
+
+/* =======================
+        Dashboard
+   ======================= */
+   
+ .dashboard nav{
+    width: 100%;
+    height: 65px;
+    line-height: 65px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(7, 136, 50, 0.664);
+ }
+ 
+ #home a{
+    text-decoration: none;
+    font-family: 'Praise', cursive;
+    font-style: italic;
+    font-size: 40px;
+    color: white;
+ }
+
+ #home a:hover{
+    color:black;
+ }
+
+ #menulist {
+    margin: 0px;
+ }
+
+ .dashboard #menulist li{
+    float: left;
+    padding: 0px 10px;
+    list-style: none;
+ }
+ .dashboard #menulist li a{
+   font-size: 20px;
+   text-decoration: none;
+   color: white;
+   font-style: italic;
+ }
+ .dashboard #menulist li a:hover{
+   float: left;
+   padding: 0px 10px;
+   list-style: none;
+   font-size: 20px;
+   color: black;
+}
+
+/* =======================
+        Details
+   ======================= */
+ 
+.info p{
+   font-family: 'Estonia', cursive;
+   font-size: 50px;
+   color: white;
+   text-align: center;
+}
+table{
+   border-color: white;
+   background-color: black;
+   color: white;
+}
+
+/* =======================
+        Place Order
+   ======================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+

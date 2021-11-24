@@ -1,0 +1,175 @@
+Web Applications : 
+__________________
+
+	These are the applications, that which are to be called from varoius places rather than where they are created. If you want to make any distributed or robust applications, then we need the help of web applications. 
+
+You can create web applications in 2 ways as 
+
+	(i) Scripting Langauges
+
+		Scripting Languages are langauges that which are interpreted, during runtime they takes lot
+			of time to execute. 
+
+	(ii) Programming Languages 
+
+		These are the langauges that which are compiled first, during runtime they takes very less time 			to execute. 
+
+
+In Web Applications we can implement
+
+	(i) Client-Side Scripting
+
+		Enables you to access the application from the client system
+
+		No Network traffic
+
+		Execution will be faster 
+
+
+	(ii) Server-Side Scripting 
+
+		Enables you to access the application from the client. 
+
+		Network traffic is High
+
+		A bit slower. 
+
+*** Drawback with client-side scritping *** No Security to data and code. 
+
+*** Any intranet based application w.r.t. No security, please opt for client-side scripting ***
+
+*** Any internet based application w.r.t. Min security, please opt for both client-side/server-side scripting ***
+
+*** Any internet based application w.r.t. High Security, please opt for server-side scripting ***
+
+Scripting Languages : 
+____________________
+
+HTML 5
+
+CSS 3
+
+Javascript 
+
+HTML (HyperText Markup Language) 
+
+Which allows you to create sample web pages. (You cannot write any business logic) 
+
+Here, you can represent data using w.r.t. tags. 
+
+To start with HTML, we need to use 
+
+<html>
+</html> 
+
+<head>
+</head> : Used to define the global content for the given page. 
+
+<title>
+</title> : Used to display heading on title bar. 
+
+<body>
+</body> : Used to display the actual content for the given page. 
+
+<p>
+</p> : Used to start everytime with new paragraph, then we need <p></p>
+
+<pre></pre> :used to display data w.r.t. Predefined format. 
+
+How to write definition and Answers in HTML. 
+
+we have for that Definition Language. 
+
+You can start with Definition Language, by using 
+
+<dl>
+</dl>
+
+<dt> </dt> : Definition Term
+
+<dd> </dd> : Definition Description 
+
+<img /> : This tag allows you to place the images on the given page. 
+
+<img src="targetimage" height width />
+
+alt : If image not found, then it displays the alternate message. 
+
+Anchor tag : used to redirect from one page to another page. 
+
+<a href="target_page">Display Text</a>
+
+&nbsp; : This entity allows you to give the spaces. 
+
+How many &nbsp; you give that many spaces you will get. 
+
+You can define ordered List, by using <ol> 
+
+<ol> </ol> 
+
+Orderd List 
+
+<ul> </ul> : Unordered List. 
+
+The various types we have here are disc, circle, square 
+
+<div> : Used to divide the page into multiple partitions. 
+
+Here, its recommended to give id for each division. 
+
+You can accept data from keyboard by using <form> tag.
+
+
+It contains various controls. 
+
+<input type="text" /> TextBox
+
+<input type="button" /> Button
+
+<input type="password" /> Password
+
+<input type="checkbox" /> Checkbox
+
+<input type="radio" /> Radio Button
+
+<input type="number" /> Numbers 
+
+<input type="date" /> Dates
+
+<input type="month" /> Month 
+
+<input type="color" /> 
+
+<input type="email" /> 
+
+<input type="url" /> 
+
+<input type="button" /> button
+
+<input type="submit" /> Submit button as action will be inbuilt
+
+<input type="reset" /> It clears the forms values.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

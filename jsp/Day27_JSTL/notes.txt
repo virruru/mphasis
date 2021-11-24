@@ -1,0 +1,74 @@
+Please check plsql questions send 
+
+in chat
+
+https://github.com/PrasananTrainer03/Mphasis_New/blob/master/Plsql_Exam.zip
+
+
+1) Add to Staging area
+
+2) Add to Local repository
+
+3) Add to Remote Repository
+
+git add .
+
+git commit -m "any message"
+
+git push origin master
+
+__________________________________________________________________
+
+
+JSTL (Java Server Tag Library) 
+
+Allows you to write any java code by using scripting tags. 
+
+Java code contains 
+
+	-> variables decalartion
+
+	-> control structures
+
+	-> statements 
+
+etc...
+
+How to write the above one, then in jstl, we have various tags as
+
+	(i) core tags
+
+How to write core tags.
+
+Add the below dependency to the project 
+
+
+</dependency>
+    <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
+
+If you want to write any core tags. 
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+
+To print the data, use as
+
+<c:out /> : used to print any value or message. 
+
+<c:out value="Welcome to JSTL" /> 
+
+<c:set var="variable" value="new_value" /> 
+
+
+
+
+
+
+
+
+
+

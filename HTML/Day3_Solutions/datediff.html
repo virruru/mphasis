@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function show() {
+		var today = new Date();
+		var fullYear = today.getFullYear();
+		var diwali = new Date("November 7, " +fullYear);
+	    var diff = diwali.getTime() - today.getTime();
+	    // Number of milliseconds
+	    var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+	    // Convert to days
+	    var result = "Only <u>" + days + "</u> days left 'till Diwali! ";
+		document.getElementById("result").innerHTML=result;
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onload="show()">
+	<span id="result"></span>
+</body>
+</html>

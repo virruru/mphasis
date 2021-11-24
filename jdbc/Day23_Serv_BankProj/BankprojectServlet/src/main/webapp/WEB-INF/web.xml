@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>mphasis.BankprojectServlet</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateAccountServlet</display-name>
+    <servlet-name>CreateAccountServlet</servlet-name>
+    <servlet-class>mphasis.BankprojectServlet.CreateAccountServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateAccountServlet</servlet-name>
+    <url-pattern>/CreateAccountServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchAccounServlet</display-name>
+    <servlet-name>SearchAccounServlet</servlet-name>
+    <servlet-class>mphasis.BankprojectServlet.SearchAccounServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAccounServlet</servlet-name>
+    <url-pattern>/SearchAccounServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DepositAccountServlet</display-name>
+    <servlet-name>DepositAccountServlet</servlet-name>
+    <servlet-class>mphasis.BankprojectServlet.DepositAccountServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DepositAccountServlet</servlet-name>
+    <url-pattern>/DepositAccountServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WithdrawAccountServlet</display-name>
+    <servlet-name>WithdrawAccountServlet</servlet-name>
+    <servlet-class>mphasis.BankprojectServlet.WithdrawAccountServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WithdrawAccountServlet</servlet-name>
+    <url-pattern>/WithdrawAccountServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
